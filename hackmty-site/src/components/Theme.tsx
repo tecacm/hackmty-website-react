@@ -4,10 +4,10 @@ import { createTheme } from '@mui/material/styles';
 const Theme = createTheme({
   palette: {
     primary: {
-      main: '#222222', // blue
+      main: '#222222', // gray
     },
     secondary: {
-      main: '#654ea3', // pink/red
+      main: '#662d91', // purple
     },
   },
   typography: {
@@ -20,7 +20,7 @@ const Theme = createTheme({
     MuiToolbar: {
         styleOverrides: {
             regular: {
-                height: 80,
+                height: 85,
                 minHeight: 32
             }
         }
