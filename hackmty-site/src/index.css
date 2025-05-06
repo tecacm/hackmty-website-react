@@ -23,9 +23,8 @@ a:hover {
 }
 
 body {
+  background: linear-gradient(to right, #662d91, #946cb2);
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
