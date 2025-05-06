@@ -46,7 +46,7 @@ function Navbar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon sx={{backgroundColor:'secondary.main', borderRadius:'10%', fontSize:30}}/>
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -62,18 +62,28 @@ function Navbar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
+              sx={{ display: { xs: 'block', md: 'none' }}}
+              slotProps={{
+                paper: {
+                  sx: {
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    borderRadius: 2,
+                    boxShadow: 3,
+                  },
+                },
+              }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Typography sx={{ textAlign: 'center'}}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
 
-          <SvgIcon component={HackMtyLogo} inheritViewBox sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}/>
+          <SvgIcon component={HackMtyLogo} inheritViewBox sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, fontSize:40}}/>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', alignItems:'center', mr:3 }}>
             {pages.map((page) => (
