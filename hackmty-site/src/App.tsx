@@ -6,6 +6,9 @@ import Navbar from './components/Navbar'
 import { ThemeProvider } from '@mui/material';
 import Theme from './components/Theme';
 import LandingPage from './pages/LandingPage'
+import BreakpointBanner from './components/SizeBanner'
+
+// <BreakpointBanner></BreakpointBanner>
 
 function App() {
   return (

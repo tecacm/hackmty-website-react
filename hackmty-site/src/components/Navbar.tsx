@@ -31,7 +31,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" color='primary'>
+    <AppBar position="fixed" color='primary'>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MLHTrustBadge/>
