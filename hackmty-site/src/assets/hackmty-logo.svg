@@ -1,30 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 601 970">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #fff;
-      }
-
-      .cls-2 {
-        fill: none;
-      }
-
-      .cls-3 {
-        fill: #5f2d82;
-      }
-    </style>
-  </defs>
-  <g id="Layer_7" data-name="Layer 7">
-    <g>
-      <rect class="cls-2" x="250.13" y="458.63" width="171.82" height=".09" transform="translate(-123.59 793.4) rotate(-89.84)"/>
-      <polygon class="cls-2" points="336.09 909.59 336.09 631.59 129.09 631.78 129.09 632.19 336 632 336 910 411 870 411 869.63 336.09 909.59"/>
-      <polygon class="cls-2" points="43.09 39 43 39 43 790 129 836 129 835.54 43.09 789.59 43.09 39"/>
-      <polygon class="cls-2" points="190.09 39.07 190 39 192 488 278 488 278 487.59 192.09 487.59 190.09 39.07"/>
-      <polygon class="cls-2" points="476.91 222.41 376.09 308.59 276.09 222.41 276.09 222.91 376 309 476.83 222.83 477 835 558 792 558 791.63 477.09 834.59 476.91 222.41"/>
-      <polygon class="cls-1" points="336.09 631.59 336.09 909.59 411 869.63 411 373 336.09 372.77 336.09 544.59 336 544.59 336 545 129 545 129 39 43.09 39 43.09 789.59 129 835.54 129 632.19 129.09 632.19 129.09 631.78 336.09 631.59"/>
-      <path class="cls-3" d="M600,0H0l1,803.77,298,166.23,302-166.23L600,0ZM336,910v-278l-206.91.19h-.09v203.81l-86-46V39h86v506h207v-172.23h.09s74.91.23,74.91.23v497l-75,40ZM558.09,791.59l-.09.05v.37l-81,43-.17-612.17-100.83,86.17-99.91-86.09,2,264.68h-.09v.42s-86,0-86,0l-2-449,.09.07v-.49s184,154.72,184,154.72l184-154.72v753Z"/>
-      <polygon class="cls-1" points="190.09 38.59 190.09 39.07 192.09 487.59 278 487.59 278.09 487.59 276.09 222.91 276.09 222.41 376.09 308.59 476.91 222.41 477.09 834.59 558 791.63 558.09 791.59 558.09 38.59 374.09 193.31 190.09 38.59"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3091 4940" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-2987.94,-491.442)">
+        <g id="final" transform="matrix(2.66667,0,0,2.66667,0,0)">
+            <g transform="matrix(1.93162,0,0,1.89091,1120.48,2018.47)">
+                <path d="M0,-970L600,-970L599.974,-137.725L300.278,9.652L0.013,-137.748L0,-970Z" style="fill:url(#_Linear1);fill-rule:nonzero;"/>
+            </g>
+            <g transform="matrix(0.357808,0,0,0.372727,66.5803,31.7828)">
+                <path d="M3597.8,4414.04L3597.8,4610.66L3178.02,4414.03L3178.04,4414.03L3178.04,661.47L3597.82,661.47L3597.82,3114.66L4356.59,3114.66L4356.59,696.945L4776.22,1068.96L5165.41,1386.43L5593.17,1036.76L5973.01,696.945L5973.01,1074.81L5973.1,1074.81L5973.1,4414.07L5973.07,4414.07L5553.32,4610.66L5553.32,1617.33L5164.84,1917.31L4776.37,1617.3L4776.37,4963.91L4776.32,4963.91L4566.48,5061.5L4356.63,4963.91L4356.59,4963.91L4356.59,3544.46L3597.82,3544.46L3597.82,4414.04L3597.8,4414.04Z" style="fill:url(#_Radial2);"/>
+            </g>
+        </g>
     </g>
-  </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(219.279,-982.295,961.589,224.001,299.396,10.1298)"><stop offset="0" style="stop-color:rgb(95,45,130);stop-opacity:1"/><stop offset="0.61" style="stop-color:rgb(84,37,117);stop-opacity:1"/><stop offset="0.82" style="stop-color:rgb(58,19,86);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(31,0,53);stop-opacity:1"/></linearGradient>
+        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1793.51,-2686.83,2798.87,-1721.72,4575.56,2861.48)"><stop offset="0" style="stop-color:rgb(247,236,197);stop-opacity:1"/><stop offset="0.46" style="stop-color:rgb(230,209,161);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(187,141,68);stop-opacity:1"/></radialGradient>
+    </defs>
 </svg>

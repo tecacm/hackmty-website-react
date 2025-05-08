@@ -14,8 +14,9 @@ function App() {
   return (
     <>
         <ThemeProvider theme={Theme}>
+          <BreakpointBanner></BreakpointBanner>
           <Navbar></Navbar>
-           <LandingPage></LandingPage>
+          <LandingPage></LandingPage>
         </ThemeProvider>
       </>
   )

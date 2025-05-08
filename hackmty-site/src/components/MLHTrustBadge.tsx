@@ -7,8 +7,8 @@ export const MLHTrustBadge = () => (
   target="_blank"
   rel="noopener noreferrer"
   sx={{
-    maxWidth: '100px',
-    minWidth: '60px',
+    maxWidth: '120px',
+    minWidth: '80px',
     width: '10%',
     alignSelf: 'flex-start', // THIS makes it stick to top in flex layout
     marginRight:'3rem'

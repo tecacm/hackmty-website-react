@@ -32,7 +32,7 @@ function Navbar() {
 
   return (
     <AppBar position="fixed" color='primary'>
-      <Container maxWidth="xl">
+      <Container maxWidth="90%">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MLHTrustBadge/>
 
@@ -76,9 +76,16 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center'}}>{page}</Typography>
+                  <Typography sx={{ textAlign: 'center', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>{page}</Typography>
                 </MenuItem>
               ))}
+
+              <Box component="a" href="https://facebook.com/HackMTY/" target="_blank" paddingLeft={1.5}>
+                <SvgIcon component={FacebookIcon} inheritViewBox sx={{fontSize:30, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, mr:4}}/>
+              </Box>
+              <Box component="a" href="https://instagram.com/hackmty/" target="_blank">
+                <SvgIcon component={InstagramIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
+              </Box>
             </Menu>
           </Box>
 
