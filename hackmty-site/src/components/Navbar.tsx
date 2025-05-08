@@ -15,9 +15,21 @@ import { MLHTrustBadge } from './MLHTrustBadge';
 import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import FacebookIcon from '../assets/media/facebook.svg?react';
 import InstagramIcon from '../assets/media/instagram.svg?react';
+import { Link } from 'react-router-dom';
 
-const pages = ['ABOUT', 'SCHEDULE', 'SPONSORS', 'HALL OF FAME', 'FAQ', 'CONTACT'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+interface Page {
+  text: string;
+  url: string;
+}
+
+const pages: Page[] = [
+  { text: 'ABOUT', url: '/' },
+  { text: 'SCHEDULE', url: '/schedule' },
+  { text: 'SPONSORS', url: '/' },
+  { text: 'HALL OF FAME', url: '/' },
+  { text: 'FAQ', url: '/' },
+  { text: 'CONTACT', url: '/' }
+];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -75,8 +87,8 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>{page}</Typography>
+                <MenuItem key={page.text} onClick={handleCloseNavMenu} component={Link} to={page.url}>
+                  <Typography sx={{ textAlign: 'center', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>{page.text}</Typography>
                 </MenuItem>
               ))}
 
@@ -95,12 +107,14 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', alignItems:'center', mr:3 }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.text}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, display: 'block' , fontSize:16, fontWeight:500, letterSpacing:'1px', mr:3
                 }}
+                component={Link} 
+                to={page.url}
               >
-                {page}
+                {page.text}
               </Button>
             ))}
             <Box component="a" href="https://facebook.com/HackMTY/" target="_blank">

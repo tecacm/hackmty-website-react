@@ -3,21 +3,39 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
-import { ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import Theme from './components/Theme';
 import LandingPage from './pages/LandingPage'
 import BreakpointBanner from './components/SizeBanner'
+import SchedulePage from './pages/SchedulePage'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer'
 
 // <BreakpointBanner></BreakpointBanner>
 
 function App() {
   return (
     <>
+        <Box
+        display="flex"
+        flexDirection="column"
+        minHeight="100vh"
+        >
+        <BrowserRouter>
         <ThemeProvider theme={Theme}>
           <BreakpointBanner></BreakpointBanner>
           <Navbar></Navbar>
-          <LandingPage></LandingPage>
+          <Box flexGrow={1}>
+            <Routes>
+              <Route path="/" element={<LandingPage/>} />
+              <Route path="/schedule" element={<SchedulePage/>} />
+              <Route path="*" element={<Navigate to={"/"} />} />
+            </Routes>
+          </Box>
+          <Footer></Footer>
         </ThemeProvider>
+        </BrowserRouter>
+        </Box>
       </>
   )
 }
