@@ -84,7 +84,7 @@ const Countdown: React.FC<CountdownProps> = ({
       <ul className="countdown" style={{ listStyle: 'none', display: 'flex', padding: 0, margin: 0 }}>
         {(['days', 'hours', 'minutes', 'seconds'] as (keyof TimeLeft)[]).map((unit) => (
           <li key={unit}>
-            <Box className={unit} data-interval-text={getLabel(unit, timeLeft[unit])} sx={{marginX:'5vw'}}>
+            <Box className={unit} data-interval-text={getLabel(unit, timeLeft[unit])} sx={{marginX:'4vw'}}>
               <Typography sx={{fontSize:'clamp(0.5rem, 2vw + 2rem, 8rem)', fontWeight:700, color:'white'}}>{String(timeLeft[unit]).padStart(2, '0')} </Typography>
               <Typography sx={{fontSize:'clamp(0.1rem, 1vw + 0.8rem, 7rem)', color:'white'}}>{getLabel(unit, timeLeft[unit])}</Typography>
             </Box>
