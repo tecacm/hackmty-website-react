@@ -25,10 +25,10 @@ interface Page {
 const pages: Page[] = [
   { text: 'ABOUT', url: '/' },
   { text: 'SCHEDULE', url: '/schedule' },
-  { text: 'SPONSORS', url: '/' },
-  { text: 'HALL OF FAME', url: '/' },
-  { text: 'FAQ', url: '/' },
-  { text: 'CONTACT', url: '/' }
+  { text: 'SPONSORS', url: '/sponsors' },
+  { text: 'HALL OF FAME', url: '/halloffame' },
+  { text: 'FAQ', url: '/faq' },
+  { text: 'CONTACT', url: '/contact-us' }
 ];
 
 function Navbar() {
