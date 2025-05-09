@@ -38,8 +38,17 @@ function LandingPage() {
                         <Typography fontSize={'clamp(0.2rem, 2vw + 1rem, 1.3rem)'} fontWeight={400} color="primary.main">Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee.</Typography>
                     </Box>
                 </Box>
+                <Box marginTop='20vh' sx={{backgroundColor:"white", width: {xs: '80%', sm: '60%'}, display:'block', px:'clamp(1rem, 1vw + 1rem, 4rem)', borderRadius:'clamp(8px, 5vw + 2rem, 40px)'}}>
+                    <Typography fontSize={'clamp(0.4rem, 2vw + 2rem, 5rem)'} fontWeight={700} color="secondary.main" textTransform={'uppercase'}>How to register</Typography>
+                </Box>
+                <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
+                    <Box sx={{backgroundColor:"white", width: {xs: 'calc(100vw - 12rem)', sm: '60%'}, display:'inline-flex', flexDirection:'column', flex:'1', px:'clamp(5rem, 3vw + 3rem, 8rem)', borderRadius:'clamp(6px, 5vw + 2rem, 15px)', justifyContent:'flex-start', justifyItems:'center', paddingY:'2vh', transition: 'transform 0.3s ease, box-shadow 0.3s ease','&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}>
+                        <Typography sx={{textTransform:'uppercase'}} fontSize={'clamp(0.2rem, 2vw + 2rem, 1.5rem)'} fontWeight={700} color="primary.main">Coming Soon</Typography>
+                        <Typography fontSize={'clamp(0.2rem, 2vw + 1rem, 1.3rem)'} fontWeight={400} color="primary.main">Stay tuned to our social media!</Typography>
+                    </Box>
+                </Box>
                 <Box marginTop='15vh' sx={{backgroundColor:"white", width: {xs: '80%', sm: '60%'}, display:'block', px:'clamp(1rem, 1vw + 1rem, 4rem)', borderRadius:'clamp(8px, 5vw + 2rem, 40px)'}}>
-                    <Typography fontSize={'clamp(0.5rem, 2vw + 2rem, 5rem)'} fontWeight={700} color="secondary.main" textTransform={'uppercase'}>Map</Typography>
+                    <Typography fontSize={'clamp(0.4rem, 2vw + 2rem, 5rem)'} fontWeight={700} color="secondary.main" textTransform={'uppercase'}>Map</Typography>
                 </Box>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
                    <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>
