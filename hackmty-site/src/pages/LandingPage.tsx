@@ -4,6 +4,7 @@ import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
 import InformationCard from "../components/InformationCard";
+import TitleCard from "../components/TitleComponent";
 
 
 function LandingPage() {
@@ -19,23 +20,17 @@ function LandingPage() {
             </Box>
 
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                <Box marginTop='20vh' sx={{backgroundColor:"white", width: {xs: '80%', sm: '60%'}, display:'block', px:'clamp(1rem, 1vw + 1rem, 4rem)', borderRadius:'clamp(8px, 5vw + 2rem, 40px)'}}>
-                    <Typography fontSize={'clamp(0.4rem, 2vw + 2rem, 5rem)'} fontWeight={700} color="secondary.main" textTransform={'uppercase'}>About us</Typography>
-                </Box>
+                <TitleCard title="About us"></TitleCard>
                 <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
                     <InformationCard title="What makes us awesome" iconSvg={HackMtyLogo} description="We are the largest student hackathon in Mexico. Hosted by Tec de Monterrey, ranked 5 stars by QS, in the top 140 universities worldwide and top 10 in Latin America."></InformationCard>
                     <InformationCard title="Expect great things" iconSvg={HackMtyLogo} description="We'll have mentors from different companies, and a great atmosphere for learning something new. We'll have many activities and ways to communicate to make the best out of this event for you!"></InformationCard>
                     <InformationCard title="All students welcome!" iconSvg={HackMtyLogo} description="Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee."></InformationCard>
                 </Box>
-                <Box marginTop='20vh' sx={{backgroundColor:"white", width: {xs: '80%', sm: '60%'}, display:'block', px:'clamp(1rem, 1vw + 1rem, 4rem)', borderRadius:'clamp(8px, 5vw + 2rem, 40px)'}}>
-                    <Typography fontSize={'clamp(0.4rem, 2vw + 2rem, 5rem)'} fontWeight={700} color="secondary.main" textTransform={'uppercase'}>How to register</Typography>
-                </Box>
+                <TitleCard title="How to register"></TitleCard>
                 <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
                     <InformationCard title="Coming Soon" description="Stay tuned to our social media!"></InformationCard>
                 </Box>
-                <Box marginTop='15vh' sx={{backgroundColor:"white", width: {xs: '80%', sm: '60%'}, display:'block', px:'clamp(1rem, 1vw + 1rem, 4rem)', borderRadius:'clamp(8px, 5vw + 2rem, 40px)'}}>
-                    <Typography fontSize={'clamp(0.4rem, 2vw + 2rem, 5rem)'} fontWeight={700} color="secondary.main" textTransform={'uppercase'}>Map</Typography>
-                </Box>
+                <TitleCard title="Map" margin="15vh"></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
                    <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>
                 </Box>
