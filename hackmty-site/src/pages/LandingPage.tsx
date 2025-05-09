@@ -4,7 +4,7 @@ import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
 import InformationCard from "../components/InformationCard";
-import TitleCard from "../components/TitleComponent";
+import TitleCard from "../components/TitleCard";
 
 
 function LandingPage() {

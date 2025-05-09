@@ -2,7 +2,7 @@ import React from "react";
 import { Box, SvgIcon, Typography } from "@mui/material";
 import SponsorCard from "../components/SponsorCard";
 import CapitalOne from '../assets/sponsors/capital-one.png';
-import TitleCard from "../components/TitleComponent";
+import TitleCard from "../components/TitleCard";
 
 function SponsorsPage() {
     return (
@@ -14,6 +14,7 @@ function SponsorsPage() {
                     </Box>
 
             </Box>
+
         </Box>
     )
 }
