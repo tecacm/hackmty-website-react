@@ -10,7 +10,7 @@ import BreakpointBanner from './components/SizeBanner'
 import SchedulePage from './pages/SchedulePage'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer'
-import SponsorsPage from './pages/Sponsors'
+import SponsorsPage from './pages/SponsorsPage'
 
 // <BreakpointBanner></BreakpointBanner>
 

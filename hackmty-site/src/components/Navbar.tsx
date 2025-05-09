@@ -16,6 +16,9 @@ import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import FacebookIcon from '../assets/media/facebook.svg?react';
 import InstagramIcon from '../assets/media/instagram.svg?react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { darken } from '@mui/material';
+
 
 interface Page {
   text: string;
@@ -42,9 +45,11 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
+  const location = useLocation();
+
   return (
     <AppBar position="fixed" color='primary'>
-      <Container maxWidth="90%">
+      <Container maxWidth='90%'>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MLHTrustBadge/>
 
@@ -109,8 +114,20 @@ function Navbar() {
               <Button
                 key={page.text}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, display: 'block' , fontSize:16, fontWeight:500, letterSpacing:'1px', mr:3
-                }}
+                sx={(theme) => ({ 
+                  my: 2, color: 'white', 
+                  backgroundColor: location.pathname === page.url ? 'secondary.main' : undefined, 
+                  transition: 'background-color 0.3s ease, color 0.3s ease', '&:hover': { 
+                    backgroundColor: location.pathname === page.url ? darken(theme.palette.secondary.main, 0.3) : undefined,
+                    color: location.pathname != page.url ? 'secondary.main' : 'white', 
+                  }, 
+                  display: 'block', 
+                  fontSize:16, 
+                  fontWeight:500, 
+                  letterSpacing:'1px', 
+                  mr:3,
+                  padding: '12px 24px',
+                })}
                 component={Link} 
                 to={page.url}
               >

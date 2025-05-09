@@ -43,7 +43,7 @@ function Footer() {
                   <SvgIcon component={InstagramIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
               </Box>
             </Box>
-            <Typography color='white'>Code of Conduct</Typography>
+            <Typography color='white' component="a" href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>Code of Conduct</Typography>
         </Box>
     </BottomNavigation>
   );
