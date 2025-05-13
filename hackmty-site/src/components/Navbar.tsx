@@ -93,7 +93,7 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.text} onClick={handleCloseNavMenu} component={Link} to={page.url}>
-                  <Typography sx={{ textAlign: 'center', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>{page.text}</Typography>
+                  <Typography sx={{textAlign: 'center', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>{page.text}</Typography>
                 </MenuItem>
               ))}
 
@@ -122,11 +122,11 @@ function Navbar() {
                     color: location.pathname != page.url ? 'secondary.main' : 'white', 
                   }, 
                   display: 'block', 
-                  fontSize:16, 
+                  fontSize:'clamp(0.4rem, 1vw + 0.1rem, 1rem)', 
                   fontWeight:500, 
                   letterSpacing:'1px', 
-                  mr:3,
-                  padding: '12px 24px',
+                  mr:'1vw',
+                  padding: '12px 1.1vw',
                 })}
                 component={Link} 
                 to={page.url}
