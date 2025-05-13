@@ -1,17 +1,51 @@
-import React from "react";
-import { Box, Button, darken, SvgIcon, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Button, CircularProgress, darken, SvgIcon, Typography } from "@mui/material";
 import SponsorCard from "../components/SponsorCard";
-import CapitalOne from '../assets/sponsors/capital-one.png';
-import MLH from '../assets/partners/mlh.png';
 import TitleCard from "../components/TitleCard";
 
+interface SponsorEntry {
+  svgIcon?: string;
+  imgIcon?: string;
+  url?: string;
+}
+
 function SponsorsPage() {
+    const [sponsors, setSponsors] = useState<SponsorEntry[]>([]);
+
+    useEffect(() => {
+        fetch('/data/sponsors.json')
+        .then((res) => res.json())
+        .then((data) => setSponsors(data))
+        .catch((err) => console.error('Error loading sponsor data:', err));
+    }, []);
+
+    const [partners, setPartners] = useState<SponsorEntry[]>([]);
+
+    useEffect(() => {
+        fetch('/data/partners.json')
+        .then((res) => res.json())
+        .then((data) => setPartners(data))
+        .catch((err) => console.error('Error loading sponsor data:', err));
+    }, []);
+
     return (
         <Box sx={{minHeight: '100vh' }}>
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 <TitleCard title="2025 Sponsors"/>
                 <Box display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center'}}>
-                    <SponsorCard iconImage={CapitalOne} url={"https://www.capitalone.com"}></SponsorCard>
+                    {
+                        sponsors.map((sponsor, index) => {
+                        const iconUrl = sponsor.svgIcon || sponsor.imgIcon;
+                        if (!iconUrl) return null;
+                        return (
+                        <SponsorCard
+                            key={index}
+                            iconSvg={sponsor.svgIcon}
+                            iconImage={sponsor.imgIcon}
+                            url={sponsor.url}
+                        />
+                        );
+                    })}
                 </Box>
                 <Typography fontWeight="700" marginY="5vh" fontSize='clamp(0.3rem, 0.8vw + 0.5rem, 1.2rem)' color="white">SEND AN EMAIL TO SPONSORS@HACKMTY.COM FOR MORE INFORMATION.</Typography>
                 <Button
@@ -41,7 +75,19 @@ function SponsorsPage() {
                 </Button>
                 <TitleCard title="Partners" margin="10vh"/>
                 <Box mb="10vh" display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center'}}>
-                    <SponsorCard iconImage={MLH}></SponsorCard>
+                     {
+                        partners.map((partner, index) => {
+                        const iconUrl = partner.svgIcon || partner.imgIcon;
+                        if (!iconUrl) return null;
+                        return (
+                        <SponsorCard
+                            key={index}
+                            iconSvg={partner.svgIcon}
+                            iconImage={partner.imgIcon}
+                            url={partner.url}
+                        />
+                        );
+                    })}
                 </Box>
             </Box>
         </Box>
