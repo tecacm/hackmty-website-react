@@ -24,12 +24,12 @@ function SponsorsPage() {
                     color: "white"
                 }, 
                 display: 'block', 
-                fontSize: 'clamp(0.3rem, 1.5vw + 1rem, 2rem)', 
+                fontSize: 'clamp(0.2rem, 1.4vw + 1rem, 2rem)', 
                 fontWeight:700, 
                 textAlign:'center',
                 paddingY: 'clamp(12px, 3vw, 27px)',
                 textTransform:'uppercase',
-                width: 'clamp(20vw, 20vw + 2rem, 55vw)',
+                width: 'clamp(20vw, 20vw + 3rem, 60vw)',
                 maxWidth: '500px',
                 borderRadius: 'clamp(6px, 1vw + 1rem, 15px)',
                 boxSizing: 'border-box'
