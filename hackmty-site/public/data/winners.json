@@ -1,4 +1,42 @@
 {
+    "2024": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2024/1stPlace.webp",
+            "teamName": "Tacaton",
+            "projectName": "PolíticaEnFoco",
+            "projectDescription": "PolíticaEnFoco analyzes political videos and generates easy-to-understand insights, making it simple for users to stay informed.",
+            "projectURL": "https://devpost.com/software/politicaenfoco"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2024/2ndPlace.webp",
+            "teamName": "Lalo Ruiz SA de CV",
+            "projectName": "Mime Client Follower",
+            "projectDescription": "Detecting hotspots of clients in retailers with AI.",
+            "projectURL": "https://devpost.com/software/mime-client-follower"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2024/3rdPlace-Biomini.webp",
+            "teamName": "Biomini",
+            "projectName": "Biomini",
+            "projectDescription": "A predictive tool with machine learning to determine the most appropriate drugs to treat a disease.",
+            "projectURL": "https://devpost.com/software/automatic-drug-identification-based-on-experiments-databases"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2024/3rdPlace-Xcoders.webp",
+            "teamName": "XCoders",
+            "projectName": "CapitalAllinOne",
+            "projectDescription": "Simplifying your finances with smart insights, instant transactions and seamless management.",
+            "projectURL": "https://devpost.com/software/xcoders"
+        }
+    ],
     "2023": [
         {
             "placement": "1st",
@@ -143,11 +181,5 @@
             "projectDescription": "\"Find the clothes you like with the help of AI\". Clothify is a mobile app where users upload a photo of their favorite clothes for receiving suggestions of similar items in order to purchase them.",
             "projectURL": "https://devpost.com/software/clothify-flcgu6"
         }
-    ],
-    "2018": [],
-    "2017": [],
-    "2016": [],
-    "2015": [],
-    "2014": [],
-    "2013": []
+    ]
 }
