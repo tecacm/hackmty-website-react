@@ -1,11 +1,14 @@
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@mui/material';
+import type { SxProps } from '@mui/material';
+
 type CountdownProps = {
   dateTime: string;
   wordFormat?: 'full' | 'short';
   numberFormat?: boolean;
   onComplete?: () => void;
+  sxBoxProps?: SxProps;
 };
 
 type TimeLeft = {
@@ -20,6 +23,7 @@ const Countdown: React.FC<CountdownProps> = ({
   wordFormat = 'short',
   numberFormat = false,
   onComplete,
+  sxBoxProps
 }) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -79,12 +83,13 @@ const Countdown: React.FC<CountdownProps> = ({
     }
   };
 
+  const props:SxProps = {...{marginX:'2vw'}, ...sxBoxProps};
   return (
     <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-      <ul className="countdown" style={{ listStyle: 'none', display: 'flex', padding: 0, margin: 0 }}>
+      <ul className="countdown" style={{ listStyle: 'none', display: 'flex', padding: 0, margin: 0, width: '60%', }}>
         {(['days', 'hours', 'minutes', 'seconds'] as (keyof TimeLeft)[]).map((unit) => (
-          <li key={unit}>
-            <Box className={unit} data-interval-text={getLabel(unit, timeLeft[unit])} sx={{marginX:'4vw'}}>
+          <li key={unit} style={{ flex: 1}}>
+            <Box className={unit} data-interval-text={getLabel(unit, timeLeft[unit])} sx={props}>
               <Typography sx={{fontSize:'clamp(0.5rem, 2vw + 2rem, 8rem)', fontWeight:700, color:'white'}}>{String(timeLeft[unit]).padStart(2, '0')} </Typography>
               <Typography sx={{fontSize:'clamp(0.1rem, 1vw + 0.8rem, 7rem)', color:'white'}}>{getLabel(unit, timeLeft[unit])}</Typography>
             </Box>

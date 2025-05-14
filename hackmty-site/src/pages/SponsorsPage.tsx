@@ -73,7 +73,7 @@ function SponsorsPage() {
                 >
                 Sponsor
                 </Button>
-                <TitleCard title="Partners" margin="10vh"/>
+                <TitleCard title="Partners" sxBoxProps={{marginTop:'10vh'}}/>
                 <Box mb="10vh" display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center'}}>
                      {
                         partners.map((partner, index) => {

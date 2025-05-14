@@ -38,7 +38,7 @@ function CustomTabPanel(props: TabPanelProps) {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '3vh'
+            gap: '3vh',
           }}
         >
           {children}
@@ -86,10 +86,9 @@ function HallOfFame() {
 
   return (
     <Box display={'flex'} marginTop='5vh' sx={{minHeight: '100vh', justifyContent:'center', justifyItems:'center', paddingY:'10vh', alignItems: 'flex-start'}}>
-
-        <Box sx={{backgroundColor:'inherit'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column'>
-          <Box sx={{ borderBottom: '20vh', borderColor: 'divider'}} maxWidth={"100%"}>
-              <Tabs textColor='secondary' orientation='horizontal' value={value} onChange={handleChange} sx={{backgroundColor:"white", borderRadius:'clamp(8px, 5vw + 2rem, 40px)', '& .MuiTabs-scrollButtons': {color: 'secondary.main', width:'4vh', height:'auto', aspectRatio:1}}} allowScrollButtonsMobile indicatorColor="secondary" variant="scrollable" scrollButtons="auto" aria-label="Winners through the years">
+        <Box sx={{backgroundColor: 'white'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column'>
+          <Box maxWidth={"100%"} borderBottom={'0vh solid'} borderColor='#b88adb' sx={{boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)'}}>
+              <Tabs textColor='secondary' orientation='horizontal' value={value} onChange={handleChange} sx={{background: "rgb(196, 196, 196)", '& .MuiTabs-scrollButtons': {color: 'secondary.main', width:'4vh', height:'auto', aspectRatio:1}, [`& .MuiTabs-flexContainer`]: { justifyContent: {lg: "flex-start", xl: "center"}},}} allowScrollButtonsMobile indicatorColor="secondary" variant={"scrollable"} scrollButtons="auto" aria-label="Winners through the years">
                {years.map((year, index) => (
               <Tab key={year} label={year} sx={{fontWeight:700, fontSize:'2vh'}} {...a11yProps(index)} />
             ))}
@@ -98,7 +97,7 @@ function HallOfFame() {
           <Box>
               {years.map((year, index) => (
               <CustomTabPanel key={year} value={value} index={index}>
-                <TitleCard title={year + " Winners"} margin="0"></TitleCard>
+                <TitleCard title={year + " Winners"} sxBoxProps={{marginTop:'0', backgroundColor:'inherit', textShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)', transition: 'transform 0.3s ease, text-shadow 0.3s ease', '&:hover': {transform: 'translateY(-10px)', textShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}></TitleCard>
               {data[year].map((winner, i) => (
                 <WinnerCard
                   key={i}
