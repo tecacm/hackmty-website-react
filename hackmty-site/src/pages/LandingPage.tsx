@@ -1,23 +1,46 @@
-import React from "react";
-import { Box, SvgIcon, Typography } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { Box, Slide, SvgIcon, Typography } from "@mui/material";
 import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
 import InformationCard from "../components/InformationCard";
 import TitleCard from "../components/TitleCard";
+import 'react-slideshow-image/dist/styles.css'
+import ImageCarousel from "../components/ImageCarousel";
 
 
 function LandingPage() {
+    const images:string[] = [
+        '/images/buildings/rectoria.webp',
+        '/images/buildings/pavoreal.webp',
+        '/images/buildings/ciap.webp',
+        '/images/buildings/2024photo.webp',
+        '/images/buildings/skyview.webp',
+    ];
+    
     return (
-        <Box sx={{minHeight: '100vh'}} paddingBottom={'10vh'}>
-            <Box paddingY={'10vh'} sx={{backgroundImage:'linear-gradient(to right, rgba(29, 4, 31, 0.5), rgba(55, 27, 58, 0.7)), url(/images/buildings/rectoria.webp)', backgroundSize: 'cover',backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: "100%", textShadow: '0px 10px 20px rgba(0, 0, 0, 0.92)'}}>
-                <div style={{textAlign:'center', marginTop:'15vh', marginBottom:50}} id="hack-logo">
-                    <SvgIcon component={HackMtyLogo} inheritViewBox sx={{mr: 1, fontSize:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
-                </div>
-                <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
-                    <Countdown dateTime="2025-10-24T11:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
-                    <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>October 24-26</Typography>
-                    <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.8vw + 0.8rem, 3rem)', fontWeight:400, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>Hackathon @Tec de Monterrey, Monterrey NL</Typography>
+        <Box sx={{ minHeight: '100vh' }} paddingBottom={'10vh'}>
+            <Box
+                position="relative"
+                paddingY="5vh"
+                sx={{
+                width: '100%',
+                height: '120vh',
+                overflow: 'hidden',
+                textShadow: '0px 10px 20px rgba(0, 0, 0, 0.92)',
+                }}
+            >
+                <ImageCarousel slideImages={images}></ImageCarousel>
+                <Box position={'relative'}>
+                    <div style={{textAlign:'center', marginTop:'15vh', marginBottom:50}} id="hack-logo">
+                        <SvgIcon component={HackMtyLogo} inheritViewBox sx={{mr: 1, fontSize:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
+                    </div>
+                    <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
+                        <Countdown dateTime="2025-10-24T11:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
+                        <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>October 24-26</Typography>
+                        <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.8vw + 0.8rem, 3rem)', fontWeight:400, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>Hackathon @Tec de Monterrey, Monterrey NL</Typography>
+                        <Typography sx={{marginTop:5, color:'white', fontSize:'clamp(0.3rem, 2vw + 1.4rem, 7rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>10 Years of Hacking</Typography>
+                    </Box>
                 </Box>
             </Box>
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
