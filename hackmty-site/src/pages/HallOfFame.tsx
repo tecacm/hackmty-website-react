@@ -86,7 +86,7 @@ function HallOfFame() {
 
   return (
     <Box display={'flex'} marginTop='5vh' sx={{minHeight: '100vh', justifyContent:'center', justifyItems:'center', paddingY:'10vh', alignItems: 'flex-start'}}>
-        <Box sx={{backgroundColor: 'white', borderRadius:'2vw'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column' paddingBottom={'10vh'}>
+        <Box sx={{backgroundColor: 'white', borderRadius:'2vw', boxShadow: '0px 10px 100px rgba(0, 0, 0, 0.15)'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column' paddingBottom={'10vh'}>
           <Box maxWidth={"100%"} sx={{borderRadius:'2vw', boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)'}}>
               <Tabs orientation='horizontal' value={value} onChange={handleChange} sx={{borderTopLeftRadius:'1vw', borderTopRightRadius:'1vw', backgroundColor: "rgb(70, 24, 106)", '& .MuiTabs-scrollButtons': {color: 'white', width:'4vh', height:'auto', aspectRatio:1}, [`& .MuiTabs-flexContainer`]: { justifyContent: {lg: "flex-start", xl: "center"}},}} allowScrollButtonsMobile indicatorColor="secondary" variant={"scrollable"} scrollButtons="auto" aria-label="Winners through the years">
                 {years.map((year, index) => (
