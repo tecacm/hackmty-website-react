@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Slide, SvgIcon, Typography } from "@mui/material";
+import { Box, Button, darken, Slide, SvgIcon, Typography } from "@mui/material";
 import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
@@ -8,6 +8,7 @@ import TitleCard from "../components/TitleCard";
 import 'react-slideshow-image/dist/styles.css'
 import ImageCarousel from "../components/ImageCarousel";
 import MailChimpSignUp from "../components/MailChimpSignUp";
+import InstagramEmbed from "../components/InstagramEmbed";
 
 
 function LandingPage() {
@@ -60,9 +61,42 @@ function LandingPage() {
                    <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>
                 </Box>
             </Box>
-            <section id="subscribe-to-hackmty"/>
-            <Box display='flex' justifyItems={'center'} justifyContent={'center'} marginTop={'10vh'} >
-                <MailChimpSignUp/>
+            <Box marginTop={'15vh'} sx={{display:'flex', justifyContent:'center', alignItems:'center', gap:'8vw', flexDirection:{xs:'column', md:'column', lg:'row'}}}>
+                <Box sx={{ flex: 1, maxWidth: '500px', width: {md:'60%', lg:'80%'}}}>
+                    <InstagramEmbed url="https://www.instagram.com/reel/C74j00LuKPR/?utm_source=ig_embed&amp;utm_campaign=loading" />
+                </Box>
+                <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+                    <section id="subscribe-to-hackmty"/>
+                    <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
+                    <MailChimpSignUp/>
+
+                    <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
+                    <Typography>Got any questions? Contact us at hello@hackmty.com</Typography>
+                    <Button
+                        sx={(theme) => ({ 
+                        mb: "5vh", 
+                        color: 'white', 
+                        backgroundColor: 'secondary.main', 
+                        transition: 'background-color 0.3s ease, color 0.3s ease', '&:hover': { 
+                            backgroundColor: darken(theme.palette.secondary.main, 0.3),
+                            color: "white"
+                        }, 
+                        display: 'block', 
+                        fontSize: 'clamp(0.2rem, 1.4vw + 1rem, 1.4rem)', 
+                        textAlign:'center',
+                        paddingY: '1.5vh',
+                        textTransform:'uppercase',
+                        width: 'clamp(20vw, 20vw + 3rem, 60vw)',
+                        maxWidth: '200px',
+                        borderRadius: 'clamp(6px, 1vw + 1rem, 15px)',
+                        boxSizing: 'border-box'
+                        })}
+                        component="a" 
+                        href="mailto:hello@hackmty.com?subject=HackMTY"
+                        >
+                        Send Email
+                    </Button>
+                </Box>
             </Box>
         </Box>
     )

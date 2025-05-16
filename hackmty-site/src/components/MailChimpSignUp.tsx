@@ -40,7 +40,7 @@ function MailChimpSignUp() {
         backgroundColor: "white",
         maxWidth: "50%",
         p: 3,
-        borderRadius: 2,
+        borderRadius:'clamp(6px, 5vw + 2rem, 15px)',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease','&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}
       }}
     >
@@ -63,7 +63,7 @@ function MailChimpSignUp() {
         target="_blank"
         noValidate
       >
-        <Typography variant="h5" gutterBottom fontWeight={700} color="primary" textTransform='uppercase' marginBottom={'1vh'}>
+        <Typography fontSize={'clamp(0.2rem, 2vw + 1rem, 1.3rem)'} gutterBottom fontWeight={700} color="primary" textTransform='uppercase' marginBottom={'1vh'}>
           Sign up for Updates on HackMTY
         </Typography>
         <FormHelperText>
