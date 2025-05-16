@@ -31,7 +31,8 @@ function MailChimpSignUp() {
     };
     document.body.appendChild(script);
   }, []);
-
+  
+  
   return (
     <Box
       component="div"
@@ -43,6 +44,17 @@ function MailChimpSignUp() {
         boxShadow: 2,
       }}
     >
+      <Box component="style">
+        {`
+          #mce-success-response {
+            color:rgb(83, 16, 90); /* MUI's "success.main" green, or any visible color */
+          }
+
+          #mce-error-response {
+            color: red;
+          }
+        `}
+      </Box>
       <form
         action="https://hackmty.us11.list-manage.com/subscribe/post?u=2c6139b5fc5593464d870966a&amp;id=92e5e32473&amp;f_id=00f09fe0f0"
         method="post"
