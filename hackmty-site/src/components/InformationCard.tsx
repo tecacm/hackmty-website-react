@@ -10,6 +10,8 @@ type InformationBoxProps = {
   url?:string;
   children?: React.ReactNode;
   sxBoxProps?:SxProps;
+  sxTitleTextProps?:SxProps;
+  sxDescriptionTextProps?:SxProps;
 };
 
 function InformationCard(info:InformationBoxProps) {
@@ -31,18 +33,29 @@ function InformationCard(info:InformationBoxProps) {
       },
       zIndex:5
     };
+    const defaultTitleTextSx : SxProps = {
+      textTransform:'uppercase', 
+      minHeight: info.iconImage || info.iconSvg ? '5rem' : undefined,
+      fontWeight: 700,
+      color:'primary.main',
+      fontSize:'clamp(0.2rem, 2vw + 2rem, 1.5rem)',
+    };
+    const defaultDescriptionTextSx : SxProps = {
+      fontSize:'clamp(0.2rem, 2vw + 1rem, 1.3rem)',
+      fontWeight:400,
+      color:"primary.main"
+    };
+
     return (
           <Box component="a" href={info.url} sx={{ ...defaultSx, ...info.sxBoxProps}}>
-              <Typography sx={{textTransform:'uppercase', minHeight: info.iconImage || info.iconSvg ? '5rem' : undefined}} fontSize={'clamp(0.2rem, 2vw + 2rem, 1.5rem)'} fontWeight={700} color="primary.main">{info.title}</Typography>
+              <Typography sx={{...defaultTitleTextSx, ...info.sxTitleTextProps}}>{info.title}</Typography>
               {info.iconSvg ? (<SvgIcon component={info.iconSvg} inheritViewBox   sx={{height: '10vh', maxWidth: '100%', width: 'auto'}}/>) : info.iconImage ? (<Box component="img" src={info.iconImage} sx={{height: '10vh', maxWidth: '100%', width: 'auto'}}/>) : null}
               {info.description && (
                   <>
                     {info.description.split('\n').map((line, index) => (
                       <Typography
                         key={index}
-                        fontSize={'clamp(0.2rem, 2vw + 1rem, 1.3rem)'}
-                        fontWeight={400}
-                        color="primary.main"
+                        sx={{...defaultDescriptionTextSx, ...info.sxDescriptionTextProps}}
                       >
                         {line}
                       </Typography>

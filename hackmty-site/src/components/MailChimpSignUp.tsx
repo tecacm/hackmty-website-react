@@ -5,6 +5,7 @@ import {
   TextField,
   Typography,
   FormHelperText,
+  type SxProps,
 } from "@mui/material";
 
 declare global {
@@ -16,7 +17,13 @@ declare global {
   }
 }
 
-function MailChimpSignUp() {
+type SignUpProps = {
+  sxBoxProps?:SxProps;
+  sxTitleTextProps?:SxProps;
+  sxFormFieldProps?:SxProps;
+};
+
+function MailChimpSignUp(props:SignUpProps) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js";
@@ -32,17 +39,31 @@ function MailChimpSignUp() {
     document.body.appendChild(script);
   }, []);
   
+  const defaultBoxSx:SxProps= {
+      backgroundColor: "inherit",
+      maxWidth: "50%",
+      p: 3,
+      borderRadius:'clamp(6px, 5vw + 2rem, 15px)',
+      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+      '&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}
+  }
   
+  const defaultTitleSx:SxProps = {
+    fontSize:'clamp(0.2rem, 2vw + 1rem, 1.3rem)', 
+    fontWeight:700,
+    color:"white",
+    textTransform:'uppercase',
+    marginBottom:'1vh'
+  }
+
+  const defaultFormSx:SxProps = {
+    backgroundColor:'white'
+  }
+
   return (
     <Box
       component="div"
-      sx={{
-        backgroundColor: "white",
-        maxWidth: "50%",
-        p: 3,
-        borderRadius:'clamp(6px, 5vw + 2rem, 15px)',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease','&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}
-      }}
+      sx={{...defaultBoxSx, ...props.sxBoxProps }}
       zIndex={5}
     >
       <Box component="style">
@@ -64,11 +85,11 @@ function MailChimpSignUp() {
         target="_blank"
         noValidate
       >
-        <Typography fontSize={'clamp(0.2rem, 2vw + 1rem, 1.3rem)'} gutterBottom fontWeight={700} color="primary" textTransform='uppercase' marginBottom={'1vh'}>
+        <Typography gutterBottom sx={{...defaultTitleSx, ...props.sxTitleTextProps}}>
           Sign up for Updates on HackMTY
         </Typography>
         <FormHelperText>
-          <span style={{ color: "red" }}>*</span> indicates required
+          <span style={{ color: "red" }}>*</span> <span style={{color:'white'}}>indicates required</span>
         </FormHelperText>
 
         <TextField
@@ -79,6 +100,7 @@ function MailChimpSignUp() {
           name="EMAIL"
           id="mce-EMAIL"
           margin="normal"
+          sx={{...defaultFormSx, ...props.sxFormFieldProps}}
         />
 
         {/* Mailchimp tags */}

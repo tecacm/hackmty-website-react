@@ -30,6 +30,7 @@ function LandingPage() {
                 height: '120vh',
                 overflow: 'hidden',
                 textShadow: '0px 10px 20px rgba(0, 0, 0, 0.92)',
+                zIndex:5
                 }}
             >
                 <ImageCarousel slideImages={images}></ImageCarousel>
@@ -69,14 +70,14 @@ function LandingPage() {
                 <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                     <section id="subscribe-to-hackmty"/>
                     <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
-                    <MailChimpSignUp/>
+                    <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
 
                     <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
-                    <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'50%', px:'1vw'}}>
+                    <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
                         <Button
                             variant="contained"
                             color="secondary"
-                            sx={{marginTop:'2vh', width:'55%', paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
+                            sx={{marginTop: '2vh', paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
                             component="a" 
                             href="mailto:hello@hackmty.com?subject=HackMTY"
                             >
