@@ -7,6 +7,7 @@ import InformationCard from "../components/InformationCard";
 import TitleCard from "../components/TitleCard";
 import 'react-slideshow-image/dist/styles.css'
 import ImageCarousel from "../components/ImageCarousel";
+import MailChimpSignUp from "../components/MailChimpSignUp";
 
 
 function LandingPage() {
@@ -52,12 +53,16 @@ function LandingPage() {
                 </Box>
                 <TitleCard title="How to register"></TitleCard>
                 <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                    <InformationCard title="Coming Soon" description="Stay tuned to our social media!"></InformationCard>
+                    <InformationCard title="Coming Soon" description="Stay tuned to our social media!" url="#subscribe-to-hackmty"></InformationCard>
                 </Box>
                 <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
                    <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>
                 </Box>
+            </Box>
+            <section id="subscribe-to-hackmty"/>
+            <Box display='flex' justifyItems={'center'} justifyContent={'center'} marginTop={'10vh'} >
+                <MailChimpSignUp/>
             </Box>
         </Box>
     )

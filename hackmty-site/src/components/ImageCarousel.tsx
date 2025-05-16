@@ -10,7 +10,7 @@ type CarouselProps = {
 export default function ImageCarousel({slideImages}:CarouselProps) {
   return (
     <Box sx={{ width: "100%" , height:"100%"}} position={'absolute'}>
-      <Slide easing="cubic" autoplay duration={5000} arrows={false} transitionDuration={1000}>
+      <Slide easing="cubic" autoplay duration={5000} arrows={false} infinite transitionDuration={1000}>
         {slideImages.map((slide) => (
           <Box
             key={slide}
