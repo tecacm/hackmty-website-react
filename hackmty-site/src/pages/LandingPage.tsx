@@ -62,40 +62,29 @@ function LandingPage() {
                 </Box>
             </Box>
             <Box marginTop={'15vh'} sx={{display:'flex', justifyContent:'center', alignItems:'center', gap:'8vw', flexDirection:{xs:'column', md:'column', lg:'row'}}}>
-                <Box sx={{ flex: 1, maxWidth: '500px', width: {md:'60%', lg:'80%'}}}>
+                <Box sx={{ flex: 1, maxWidth: '600px', width: {md:'60%', lg:'80%'}}}>
                     <InstagramEmbed url="https://www.instagram.com/reel/C74j00LuKPR/?utm_source=ig_embed&amp;utm_campaign=loading" />
                 </Box>
+
                 <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                     <section id="subscribe-to-hackmty"/>
                     <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
                     <MailChimpSignUp/>
 
                     <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
-                    <Typography>Got any questions? Contact us at hello@hackmty.com</Typography>
-                    <Button
-                        sx={(theme) => ({ 
-                        mb: "5vh", 
-                        color: 'white', 
-                        backgroundColor: 'secondary.main', 
-                        transition: 'background-color 0.3s ease, color 0.3s ease', '&:hover': { 
-                            backgroundColor: darken(theme.palette.secondary.main, 0.3),
-                            color: "white"
-                        }, 
-                        display: 'block', 
-                        fontSize: 'clamp(0.2rem, 1.4vw + 1rem, 1.4rem)', 
-                        textAlign:'center',
-                        paddingY: '1.5vh',
-                        textTransform:'uppercase',
-                        width: 'clamp(20vw, 20vw + 3rem, 60vw)',
-                        maxWidth: '200px',
-                        borderRadius: 'clamp(6px, 1vw + 1rem, 15px)',
-                        boxSizing: 'border-box'
-                        })}
-                        component="a" 
-                        href="mailto:hello@hackmty.com?subject=HackMTY"
-                        >
-                        Send Email
-                    </Button>
+                    <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'50%', px:'1vw'}}>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            sx={{marginTop:'2vh', width:'55%', paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
+                            component="a" 
+                            href="mailto:hello@hackmty.com?subject=HackMTY"
+                            >
+                            <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
+                                Send Email
+                            </Typography>
+                        </Button>
+                    </InformationCard>                    
                 </Box>
             </Box>
         </Box>

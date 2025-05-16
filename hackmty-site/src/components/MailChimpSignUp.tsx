@@ -105,9 +105,11 @@ function MailChimpSignUp() {
             color="secondary"
             name="subscribe"
             id="mc-embedded-subscribe"
-            sx={{paddingY:'1.3vh'}}
+            sx={{paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
           >
-            Subscribe
+              <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
+                Subscribe
+              </Typography>
           </Button>
         </Box>
       </form>
