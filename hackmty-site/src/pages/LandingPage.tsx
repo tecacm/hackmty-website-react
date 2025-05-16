@@ -53,7 +53,7 @@ function LandingPage() {
                 </Box>
                 <TitleCard title="How to register"></TitleCard>
                 <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                    <InformationCard title="Coming Soon" description="Stay tuned to our social media!" url="#subscribe-to-hackmty"></InformationCard>
+                    <InformationCard title="Coming Soon" description={'Stay tuned to our social media!' + '\n' + 'Or click here to subscribe to our mailing list to know first!'} url="#subscribe-to-hackmty"></InformationCard>
                 </Box>
                 <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
