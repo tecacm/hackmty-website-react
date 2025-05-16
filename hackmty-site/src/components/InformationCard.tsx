@@ -28,7 +28,8 @@ function InformationCard(info:InformationBoxProps) {
       '&:hover': {
         transform: 'translateY(-10px)', 
         boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'
-      }
+      },
+      zIndex:5
     };
     return (
           <Box component="a" href={info.url} sx={{ ...defaultSx, ...info.sxBoxProps}}>

@@ -31,7 +31,7 @@ function Footer() {
   };
 
   return (
-    <BottomNavigation color='primary' sx={{backgroundColor:'primary.main', height:'auto'}}>
+    <BottomNavigation color='primary' sx={{zIndex:5, backgroundColor:'primary.main', height:'auto'}}>
           <Box width='60%' display='flex' sx={{flexDirection:{xs:'column', md:'row'}, justifyContent:'space-between'}} alignItems={'center'} marginY={'2vh'}>
             <Typography color='white'>Copyright © HackMTY 2025</Typography>
             

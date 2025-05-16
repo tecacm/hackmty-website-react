@@ -38,7 +38,7 @@ function InstagramEmbed({ url } :InstagramEmbedProps) {
   }, [url]);
 
   return (
-    <Box maxWidth='100%' ref={embedRef} bgcolor='white' paddingY='2vh' paddingX='0.5vw' sx={{borderRadius:'clamp(6px, 5vw + 2rem, 15px)', transition: 'transform 0.3s ease, box-shadow 0.3s ease','&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}>
+    <Box maxWidth='100%' ref={embedRef} bgcolor='white' paddingY='2vh' paddingX='0.5vw' zIndex={5} sx={{position: 'relative', borderRadius:'clamp(6px, 5vw + 2rem, 15px)', transition: 'transform 0.3s ease, box-shadow 0.3s ease','&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}>
       <blockquote
         className="instagram-media"
         data-instgrm-permalink={url}
@@ -47,6 +47,7 @@ function InstagramEmbed({ url } :InstagramEmbedProps) {
           background: '#FFF',
           margin: '1px',
           width: '99.375%',
+          zIndex:5
         }}
       ></blockquote>
     </Box>

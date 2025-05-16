@@ -14,7 +14,8 @@ function TitleCard({title, sxBoxProps, sxTextProps} : TitleBoxProps) {
     width: {xs: '80%', sm: '60%'}, 
     display:'block', 
     px:'clamp(1rem, 1vw + 1rem, 4rem)', 
-    borderRadius:'clamp(8px, 5vw + 2rem, 40px)'
+    borderRadius:'clamp(8px, 5vw + 2rem, 40px)',
+    zIndex:5
   };
     return (
           <Box sx={{ ...defaultSx, ...sxBoxProps}}>

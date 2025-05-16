@@ -43,6 +43,7 @@ function MailChimpSignUp() {
         borderRadius:'clamp(6px, 5vw + 2rem, 15px)',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease','&:hover': {transform: 'translateY(-10px)', boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}
       }}
+      zIndex={5}
     >
       <Box component="style">
         {`

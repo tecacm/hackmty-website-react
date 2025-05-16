@@ -55,6 +55,7 @@ const MapComponent = ({ position, zoom=100, markers = []}: { position: [number, 
           <TileLayer
             attribution='&copy; OpenStreetMap contributors'
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            zIndex={5}
           />
           
           {markers.map((marker, index) => (
