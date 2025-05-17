@@ -86,7 +86,7 @@ function HallOfFame() {
   const years = Object.keys(data).sort((a, b) => b.localeCompare(a)); // latest year first
 
   return (
-    <AnimateOnView transition={Slide} transitionProps={{direction:'down'}}>
+    <AnimateOnView transition={Slide} transitionProps={{direction:'up', timeout:1000}}>
     <Box display={'flex'} marginTop='5vh' sx={{minHeight: '100vh', justifyContent:'center', justifyItems:'center', paddingY:'10vh', alignItems: 'flex-start'}}>
         <Box sx={{backgroundColor: 'white', borderRadius:'2vw', boxShadow: '0px 10px 100px rgba(0, 0, 0, 0.15)'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column' paddingBottom={'10vh'}>
           <Box maxWidth={"100%"} sx={{borderRadius:'2vw', boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)'}}>

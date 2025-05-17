@@ -50,7 +50,7 @@ function ControlledAccordions({ data, sxBoxProps}: Props) {
               aria-controls={`${panelId}-content`}
               id={`${panelId}-header`}
             >
-              <Typography component="span" sx={{ width: '33%', flexShrink: 0, fontWeight:'700', color:'secondary.main', textTransform:'uppercase'}}>
+              <Typography component="span" sx={{ width: '70%', flexShrink: 0, fontWeight:'700', color:'secondary.main', textTransform:'uppercase'}}>
                 {item.title}
               </Typography>
             </AccordionSummary>

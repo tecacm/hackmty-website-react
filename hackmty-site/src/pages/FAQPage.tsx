@@ -31,7 +31,7 @@ function FAQPage() {
         <Box sx={{}}>
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', gap:'5vh'}}>
                 <TitleCard title="FAQ"></TitleCard>
-                <AnimateOnView transition={Fade}>
+                <AnimateOnView transition={Fade} transitionProps={{timeout:1000}}>
                     <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                         <ControlledAccordions data={data} sxBoxProps={{maxWidth:'70%', marginBottom:'5vh'}}></ControlledAccordions>
                     </Box>
