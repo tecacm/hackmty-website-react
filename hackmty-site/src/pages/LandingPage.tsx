@@ -10,6 +10,7 @@ import ImageCarousel from "../components/ImageCarousel";
 import MailChimpSignUp from "../components/MailChimpSignUp";
 import InstagramEmbed from "../components/InstagramEmbed";
 import AnimateOnView from "../components/AnimateOnView";
+import FeatherRain from "../components/FeatherRain";
 
 
 function LandingPage() {
@@ -20,9 +21,10 @@ function LandingPage() {
         '/images/buildings/2024photo.webp',
         '/images/buildings/skyview.webp',
     ];
-    
+
     return (
         <Box sx={{ minHeight: '100vh' }} paddingBottom={'10vh'}>
+            <FeatherRain></FeatherRain>
             <Box
                 position="relative"
                 paddingY="5vh"
@@ -78,6 +80,7 @@ function LandingPage() {
                         <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
                         <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
 
+                        <section id="contact-us"/>
                         <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
                         <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
                             <Button

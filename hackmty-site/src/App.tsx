@@ -10,6 +10,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer'
 import SponsorsPage from './pages/SponsorsPage'
 import HallOfFame from './pages/HallOfFame'
+import ScrollToElement from './components/ScrollToElement';
+import FAQPage from './pages/FAQPage';
 
 // <BreakpointBanner></BreakpointBanner>
 
@@ -26,11 +28,14 @@ function App() {
           <BreakpointBanner></BreakpointBanner>
           <Navbar></Navbar>
           <Box flexGrow={1}>
+            <ScrollToElement />
             <Routes>
               <Route path="/" element={<LandingPage/>} />
               <Route path="/schedule" element={<SchedulePage/>} />
               <Route path="/sponsors" element={<SponsorsPage/>} />
               <Route path="/halloffame" element={<HallOfFame/>} />
+              <Route path="/faq" element={<FAQPage/>} />
+              <Route path="/contact-us" element={<Navigate to={"/#contact-us"} />} />
               <Route path="*" element={<Navigate to={"/"} />} />
             </Routes>
           </Box>

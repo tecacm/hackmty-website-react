@@ -1,7 +1,8 @@
 import React, { useEffect} from "react";
-import { Box, CircularProgress, Tab, Tabs } from "@mui/material";
+import { Box, CircularProgress, Fade, Slide, Tab, Tabs } from "@mui/material";
 import WinnerCard from "../components/WinnerCard";
 import TitleCard from "../components/TitleCard";
+import AnimateOnView from "../components/AnimateOnView";
 
 interface WinnerEntry {
   placement: string;
@@ -85,6 +86,7 @@ function HallOfFame() {
   const years = Object.keys(data).sort((a, b) => b.localeCompare(a)); // latest year first
 
   return (
+    <AnimateOnView transition={Slide} transitionProps={{direction:'down'}}>
     <Box display={'flex'} marginTop='5vh' sx={{minHeight: '100vh', justifyContent:'center', justifyItems:'center', paddingY:'10vh', alignItems: 'flex-start'}}>
         <Box sx={{backgroundColor: 'white', borderRadius:'2vw', boxShadow: '0px 10px 100px rgba(0, 0, 0, 0.15)'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column' paddingBottom={'10vh'}>
           <Box maxWidth={"100%"} sx={{borderRadius:'2vw', boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)'}}>
@@ -99,6 +101,7 @@ function HallOfFame() {
               <CustomTabPanel key={year} value={value} index={index}>
                 <TitleCard title={year + " Winners"} sxTextProps={{color:'rgb(70, 24, 106)'}} sxBoxProps={{marginTop:'0', backgroundColor:'inherit', textShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)', transition: 'transform 0.3s ease, text-shadow 0.3s ease', '&:hover': {transform: 'translateY(-10px)', textShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}></TitleCard>
               {data[year].map((winner, i) => (
+                <AnimateOnView transition={Fade}>
                 <WinnerCard
                   key={i}
                   teamPicture={winner.teamPicture}
@@ -109,12 +112,14 @@ function HallOfFame() {
                   projectDescription={winner.projectDescription}
                   cardColor={winner.cardColor}
                 />
+                </AnimateOnView>
               ))}
             </CustomTabPanel>
           ))}
           </Box>
         </Box>
     </Box>
+    </AnimateOnView>
   );
 }
 

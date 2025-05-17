@@ -65,3 +65,23 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@keyframes fall {
+  0% {
+    transform: translateY(50vh) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(600vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-100px); }
+  50%  { transform: translateX(50px); }
+  75%  { transform: translateX(-50px); }
+  100% { transform: translateX(0); }
+}
+
