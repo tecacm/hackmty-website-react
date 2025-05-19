@@ -32,7 +32,8 @@ function ControlledAccordions({ data, sxBoxProps}: Props) {
         transform: 'translateY(-4px)',
         boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'
       },
-      textAlign:'left'
+      textAlign:'left',
+      zIndex:5
   }
 
   return (

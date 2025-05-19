@@ -24,7 +24,6 @@ function LandingPage() {
 
     return (
         <Box sx={{ minHeight: '100vh' }} paddingBottom={'10vh'}>
-            <FeatherRain></FeatherRain>
             <Box
                 position="relative"
                 paddingY="5vh"

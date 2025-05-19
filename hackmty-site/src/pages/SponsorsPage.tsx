@@ -50,7 +50,7 @@ function SponsorsPage() {
                         })}
                     </Box>
                 </AnimateOnView>
-                <Typography fontWeight="700" marginY="5vh" fontSize='clamp(0.3rem, 0.8vw + 0.5rem, 1.2rem)' color="white">SEND AN EMAIL TO HELLO@HACKMTY.COM FOR MORE INFORMATION.</Typography>
+                <Typography fontWeight="700" zIndex="5" marginY="5vh" fontSize='clamp(0.3rem, 0.8vw + 0.5rem, 1.2rem)' color="white">SEND AN EMAIL TO HELLO@HACKMTY.COM FOR MORE INFORMATION.</Typography>
                 <Button
                     sx={(theme) => ({ 
                     mb: "5vh", 
@@ -60,6 +60,7 @@ function SponsorsPage() {
                         backgroundColor: darken(theme.palette.secondary.main, 0.3),
                         color: "white"
                     }, 
+                    zIndex: 5,
                     display: 'block', 
                     fontSize: 'clamp(0.2rem, 1.4vw + 1rem, 2rem)', 
                     fontWeight:700, 

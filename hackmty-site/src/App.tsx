@@ -12,6 +12,7 @@ import SponsorsPage from './pages/SponsorsPage'
 import HallOfFame from './pages/HallOfFame'
 import ScrollToElement from './components/ScrollToElement';
 import FAQPage from './pages/FAQPage';
+import FeatherRain from './components/FeatherRain';
 
 // <BreakpointBanner></BreakpointBanner>
 
@@ -24,6 +25,7 @@ function App() {
         minHeight="100vh"
         >
         <BrowserRouter>
+        <FeatherRain></FeatherRain>
         <ThemeProvider theme={Theme}>
           <BreakpointBanner></BreakpointBanner>
           <Navbar></Navbar>
