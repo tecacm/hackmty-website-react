@@ -14,6 +14,7 @@ import MountainBg from "../components/MountainBg";
 import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
 import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
+import FeatherRain from "../components/FeatherRain";
 
 function LandingPage() {
     const images:string[] = [
@@ -90,11 +91,11 @@ function LandingPage() {
                 <AnimateOnView transition={Fade} timeout={500}>
                     <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                         <section id="subscribe-to-hackmty"/>
-                        <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'80%'}}></TitleCard>
+                        <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
                         <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
 
                         <section id="contact-us"/>
-                        <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'80%'}}></TitleCard>
+                        <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
                         <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
                             <Button
                                 variant="contained"
