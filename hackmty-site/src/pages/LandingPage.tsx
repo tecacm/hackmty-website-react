@@ -11,6 +11,9 @@ import MailChimpSignUp from "../components/MailChimpSignUp";
 import InstagramEmbed from "../components/InstagramEmbed";
 import AnimateOnView from "../components/AnimateOnView";
 import MountainBg from "../components/MountainBg";
+import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
+import People from '../assets/icons/people.svg?react';
+import PartyPopper from '../assets/icons/party-popper.svg?react';
 
 function LandingPage() {
     const images:string[] = [
@@ -65,9 +68,9 @@ function LandingPage() {
                 <TitleCard title="About us"></TitleCard>
                 <AnimateOnView transition={Fade} timeout={500}>
                     <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                        <InformationCard title="What makes us awesome" iconSvg={HackMtyLogo} description="We are the largest student hackathon in Mexico. Hosted by Tec de Monterrey, ranked 5 stars by QS, in the top 140 universities worldwide and top 10 in Latin America."></InformationCard>
-                        <InformationCard title="Expect great things" iconSvg={HackMtyLogo} description="We'll have mentors from different companies, and a great atmosphere for learning something new. We'll have many activities and ways to communicate to make the best out of this event for you!"></InformationCard>
-                        <InformationCard title="All students welcome!" iconSvg={HackMtyLogo} description="Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee."></InformationCard>
+                        <InformationCard title="What makes us awesome" iconSvg={PCCodeIcon} iconColor="secondary.main" description="We are the largest student hackathon in Mexico. Hosted by Tec de Monterrey, ranked 5 stars by QS, in the top 140 universities worldwide and top 10 in Latin America."></InformationCard>
+                        <InformationCard title="Expect great things" iconSvg={PartyPopper} iconColor="secondary.main" description="We'll have mentors from different companies, and a great atmosphere for learning something new. We'll have many activities and ways to communicate to make the best out of this event for you!"></InformationCard>
+                        <InformationCard title="All students welcome!" iconSvg={People} iconColor="secondary.main" description="Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee."></InformationCard>
                     </Box>
                 </AnimateOnView>
                 <TitleCard title="How to register"></TitleCard>

@@ -12,6 +12,7 @@ type InformationBoxProps = {
   sxBoxProps?:SxProps;
   sxTitleTextProps?:SxProps;
   sxDescriptionTextProps?:SxProps;
+  iconColor?: string;
 };
 
 function InformationCard(info:InformationBoxProps) {
@@ -29,9 +30,12 @@ function InformationCard(info:InformationBoxProps) {
       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
       '&:hover': {
         transform: 'translateY(-10px)', 
-        boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'
+        boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)',
+        color: 'unset',
       },
-      zIndex:5
+      zIndex:5,
+      color:'unset',
+      textDecoration: 'none',
     };
     const defaultTitleTextSx : SxProps = {
       textTransform:'uppercase', 
@@ -49,7 +53,7 @@ function InformationCard(info:InformationBoxProps) {
     return (
           <Box component="a" href={info.url} sx={{ ...defaultSx, ...info.sxBoxProps}}>
               <Typography sx={{...defaultTitleTextSx, ...info.sxTitleTextProps}}>{info.title}</Typography>
-              {info.iconSvg ? (<SvgIcon component={info.iconSvg} inheritViewBox   sx={{height: '10vh', maxWidth: '100%', width: 'auto'}}/>) : info.iconImage ? (<Box component="img" src={info.iconImage} sx={{height: '10vh', maxWidth: '100%', width: 'auto'}}/>) : null}
+              {info.iconSvg ? (<SvgIcon component={info.iconSvg} inheritViewBox   sx={{height: '10vh', maxWidth: '100%', width: 'auto', color:info.iconColor}}/>) : info.iconImage ? (<Box component="img" src={info.iconImage} sx={{height: '10vh', maxWidth: '100%', width: 'auto'}}/>) : null}
               {info.description && (
                   <>
                     {info.description.split('\n').map((line, index) => (
