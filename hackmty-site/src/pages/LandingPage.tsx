@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Button, darken, Fade, Grow, Slide, SvgIcon, Typography, Zoom } from "@mui/material";
-import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
 import InformationCard from "../components/InformationCard";
@@ -15,6 +14,8 @@ import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
 import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
 import FeatherRain from "../components/FeatherRain";
+
+const HackMtyLogo = '/images/hackmty-logo.webp';
 
 function LandingPage() {
     const images:string[] = [
@@ -54,7 +55,7 @@ function LandingPage() {
                 <AnimateOnView transition={Grow} timeout={500}>
                     <Box position={'relative'}>
                         <div style={{textAlign:'center', marginTop:'15vh', marginBottom:50}} id="hack-logo">
-                            <SvgIcon component={HackMtyLogo} inheritViewBox sx={{mr: 1, fontSize:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
+                            <Box component="img" src={HackMtyLogo} alt="HackMTY Logo" sx={{mr: 1, height:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
                         </div>
                         <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
                             <Countdown dateTime="2025-10-24T11:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>

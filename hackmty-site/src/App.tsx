@@ -38,7 +38,6 @@ function App() {
         >
         <BrowserRouter>
         <ThemeProvider theme={Theme}>
-          <BreakpointBanner></BreakpointBanner>
           <Navbar></Navbar>
           <Box flexGrow={1}>
             <ScrollToElement />

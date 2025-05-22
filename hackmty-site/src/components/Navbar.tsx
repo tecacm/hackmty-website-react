@@ -12,13 +12,13 @@ import MenuItem from '@mui/material/MenuItem';
 import SvgIcon from '@mui/material/SvgIcon';
 
 import { MLHTrustBadge } from './MLHTrustBadge';
-import HackMtyLogo from '../assets/hackmty-logo.svg?react';
 import FacebookIcon from '../assets/media/facebook.svg?react';
 import InstagramIcon from '../assets/media/instagram.svg?react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { darken } from '@mui/material';
 
+const HackMtyLogo = '/images/hackmty-logo.webp';
 
 interface Page {
   text: string;
@@ -53,7 +53,7 @@ function Navbar() {
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MLHTrustBadge/>
 
-          <SvgIcon component={HackMtyLogo} inheritViewBox sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize:40}}/>
+          <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, height:40}}/>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
             <IconButton
               size="large"
@@ -107,7 +107,7 @@ function Navbar() {
           </Box>
 
 
-          <SvgIcon component={HackMtyLogo} inheritViewBox sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, fontSize:40}}/>
+          <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, height:40}}/>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', alignItems:'center', mr:3 }}>
             {pages.map((page) => (
