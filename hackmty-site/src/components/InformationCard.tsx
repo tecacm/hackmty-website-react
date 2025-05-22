@@ -1,6 +1,5 @@
 import React, { type FunctionComponent, type SVGProps } from "react";
 import { Box, SvgIcon, Typography, type SxProps, type Theme } from "@mui/material";
-import SponsorCard from "../components/SponsorCard";
 
 type InformationBoxProps = {
   title:string;

@@ -33,6 +33,7 @@ function MailChimpSignUp(props:SignUpProps) {
       (function ($: any) {
         window.fnames = ['EMAIL', 'FNAME', 'LNAME', 'ADDRESS', 'PHONE'];
         window.ftypes = ['email', 'text', 'text', 'address', 'phone'];
+        void $;
       })(window.jQuery);
       (window as any).$mcj = window.jQuery.noConflict(true);
     };

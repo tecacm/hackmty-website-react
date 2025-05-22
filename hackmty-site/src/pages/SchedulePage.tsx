@@ -1,8 +1,4 @@
-import React from "react";
-import { Box, SvgIcon, Typography } from "@mui/material";
-import HackMtyLogo from '../assets/hackmty-logo.svg?react';
-import Countdown from '../components/Countdown'
-import MapComponent from "../components/MapComponent";
+import { Box } from "@mui/material";
 import InformationCard from "../components/InformationCard";
 import TitleCard from "../components/TitleCard";
 import FeatherRain from "../components/FeatherRain";

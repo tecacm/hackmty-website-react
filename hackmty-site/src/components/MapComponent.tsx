@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Box, Typography } from '@mui/material';
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import L from 'leaflet';
 import RoomIcon from '@mui/icons-material/Room';
 import ReactDOMServer from 'react-dom/server';

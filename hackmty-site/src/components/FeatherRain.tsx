@@ -25,11 +25,6 @@ const generateFeather = (id: number): FeatherData => ({
   swayDuration: 6 + Math.random() * 4,
 });
 
-const getFallDistance = () => {
-  const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-  return `${docHeight}px`;
-};
-
 let featherId = 0;
 
 function FeatherRain() {

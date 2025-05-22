@@ -1,4 +1,4 @@
-import React, { type FC, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grow, Zoom, Fade, Slide } from '@mui/material';
 

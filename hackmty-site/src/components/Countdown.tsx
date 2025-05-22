@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
-import { useTheme } from '@mui/material';
 import type { SxProps } from '@mui/material';
 
 type CountdownProps = {
@@ -63,7 +62,6 @@ const Countdown: React.FC<CountdownProps> = ({
   }, [dateTime, numberFormat, onComplete]);
 
   const pad = (num: number): number => parseInt(num < 10 ? '0' + num : '' + num);
-  const theme = useTheme(); // Get the MUI theme
 
   const getLabel = (unit: keyof TimeLeft, value: number) => {
     if (wordFormat === 'full') {

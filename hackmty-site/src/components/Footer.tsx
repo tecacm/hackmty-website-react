@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import SvgIcon from '@mui/material/SvgIcon';
@@ -9,16 +8,6 @@ import { BottomNavigation } from '@mui/material';
 
 
 function Footer() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <BottomNavigation color='primary' sx={{zIndex:5, bottom:-20, backgroundColor:'primary.main', height:'auto'}}>
           <Box width='60%' display='flex' sx={{flexDirection:{xs:'column', md:'row'}, justifyContent:'space-between'}} alignItems={'center'} marginY={'2vh'}>

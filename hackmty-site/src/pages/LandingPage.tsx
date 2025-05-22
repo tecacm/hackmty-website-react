@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Box, Button, darken, Fade, Grow, Slide, SvgIcon, Typography, Zoom } from "@mui/material";
+import { useRef } from "react";
+import { Box, Button, Fade, Grow, Typography } from "@mui/material";
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
 import InformationCard from "../components/InformationCard";
@@ -13,7 +13,6 @@ import MountainBg from "../components/MountainBg";
 import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
 import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
-import FeatherRain from "../components/FeatherRain";
 
 const HackMtyLogo = '/images/hackmty-logo.webp';
 

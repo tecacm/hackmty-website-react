@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import { Box, ThemeProvider } from '@mui/material';
 import Theme from './components/Theme';
 import LandingPage from './pages/LandingPage'
-import BreakpointBanner from './components/SizeBanner'
 import SchedulePage from './pages/SchedulePage'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer'

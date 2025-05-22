@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import { Fade, Slide } from "react-slideshow-image";
+import { Box } from "@mui/material";
+import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 

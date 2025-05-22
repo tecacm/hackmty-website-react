@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Box, Button, CircularProgress, darken, Fade, Slide, SvgIcon, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, Button, darken, Fade, Typography } from "@mui/material";
 import SponsorCard from "../components/SponsorCard";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
