@@ -4,7 +4,7 @@ import { Box, ThemeProvider } from '@mui/material';
 import Theme from './components/Theme';
 import LandingPage from './pages/LandingPage'
 import SchedulePage from './pages/SchedulePage'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router , Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer'
 import SponsorsPage from './pages/SponsorsPage'
 import HallOfFame from './pages/HallOfFame'
@@ -34,7 +34,7 @@ function App() {
         width={"100%"}
         height={"100%"}
         >
-        <BrowserRouter>
+        <Router>
         <ThemeProvider theme={Theme}>
           <Navbar></Navbar>
           <Box flexGrow={1}>
@@ -51,7 +51,7 @@ function App() {
           </Box>
           <Footer></Footer>
         </ThemeProvider>
-        </BrowserRouter>
+        </Router>
         </Box>
       </>
   )
