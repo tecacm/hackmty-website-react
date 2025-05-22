@@ -86,7 +86,7 @@ const Countdown: React.FC<CountdownProps> = ({
   const props:SxProps = {...{marginX:'2vw'}, ...sxBoxProps};
   return (
     <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-      <ul className="countdown" style={{ listStyle: 'none', display: 'flex', padding: 0, margin: 0, width: '60%', }}>
+      <ul className="countdown" style={{ listStyle: 'none', display: 'flex', padding: 0, margin: 0, width: 'auto', }}>
         {(['days', 'hours', 'minutes', 'seconds'] as (keyof TimeLeft)[]).map((unit) => (
           <li key={unit} style={{ flex: 1}}>
             <Box className={unit} data-interval-text={getLabel(unit, timeLeft[unit])} sx={props}>

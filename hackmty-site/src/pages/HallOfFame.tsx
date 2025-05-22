@@ -3,6 +3,7 @@ import { Box, CircularProgress, Fade, Slide, Tab, Tabs } from "@mui/material";
 import WinnerCard from "../components/WinnerCard";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
+import FeatherRain from "../components/FeatherRain";
 
 interface WinnerEntry {
   placement: string;
@@ -86,6 +87,8 @@ function HallOfFame() {
   const years = Object.keys(data).sort((a, b) => b.localeCompare(a)); // latest year first
 
   return (
+    <>
+    <FeatherRain/>
     <AnimateOnView transition={Slide} transitionProps={{direction:'up', timeout:1000}}>
     <Box display={'flex'} zIndex={5} marginTop='5vh' sx={{minHeight: '100vh', justifyContent:'center', justifyItems:'center', paddingY:'10vh', alignItems: 'flex-start'}}>
         <Box sx={{zIndex:5, backgroundColor: 'white', borderRadius:'2vw', boxShadow: '0px 10px 100px rgba(0, 0, 0, 0.15)'}} height={'auto'} display={'flex'} width={'80%'} justifyItems={'center'} justifyContent={'center'} flexDirection='column' paddingBottom={'10vh'}>
@@ -120,6 +123,7 @@ function HallOfFame() {
         </Box>
     </Box>
     </AnimateOnView>
+    </>
   );
 }
 

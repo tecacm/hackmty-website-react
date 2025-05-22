@@ -12,20 +12,31 @@ import SponsorsPage from './pages/SponsorsPage'
 import HallOfFame from './pages/HallOfFame'
 import ScrollToElement from './components/ScrollToElement';
 import FAQPage from './pages/FAQPage';
-import FeatherRain from './components/FeatherRain';
 
 // <BreakpointBanner></BreakpointBanner>
 
 function App() {
   return (
     <>
+      <Box
+        sx={{
+          position: 'fixed',
+          zIndex: -100,
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'linear-gradient(to right, #662d91, #946cb2)',
+        }}
+      />
         <Box
         display="flex"
         flexDirection="column"
         minHeight="100vh"
+        width={"100%"}
+        height={"100%"}
         >
         <BrowserRouter>
-        <FeatherRain></FeatherRain>
         <ThemeProvider theme={Theme}>
           <BreakpointBanner></BreakpointBanner>
           <Navbar></Navbar>

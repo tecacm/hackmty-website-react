@@ -49,7 +49,7 @@ const MapComponent = ({ position, zoom=100, markers = []}: { position: [number, 
     };
     
   return (
-    <Box sx={{ height: '100%', width: '100%'}}>
+    <Box sx={{ height: '100%', width: '100%', zIndex:5}}>
       <Box sx={{ height: '100%', width: '100%', aspectRatio:1.5, borderRadius:'clamp(6px, 5vw + 2rem, 15px)', overflow:'hidden', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'}} display={'block'}>
         <MapContainer center={position} zoom={13} style={{ height: '100%', width: '100%'}} boxZoom={false}>
           <TileLayer

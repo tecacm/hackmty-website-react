@@ -3,6 +3,8 @@ import { Box, CircularProgress, Fade, SvgIcon, Typography } from "@mui/material"
 import ControlledAccordions, { type AccordionEntry } from "../components/ControlledAccordions";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
+import Cerro from "../assets/cerro_morado.svg?react";
+import MountainBg from "../components/MountainBg";
 
 
 
@@ -37,6 +39,8 @@ function FAQPage() {
                     </Box>
                 </AnimateOnView>
             </Box>
+            
+            <MountainBg></MountainBg>
         </Box>
     )
 }

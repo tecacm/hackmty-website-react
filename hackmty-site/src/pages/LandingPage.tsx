@@ -10,8 +10,7 @@ import ImageCarousel from "../components/ImageCarousel";
 import MailChimpSignUp from "../components/MailChimpSignUp";
 import InstagramEmbed from "../components/InstagramEmbed";
 import AnimateOnView from "../components/AnimateOnView";
-import FeatherRain from "../components/FeatherRain";
-
+import MountainBg from "../components/MountainBg";
 
 function LandingPage() {
     const images:string[] = [
@@ -21,10 +20,13 @@ function LandingPage() {
         '/images/buildings/2024photo.webp',
         '/images/buildings/skyview.webp',
     ];
-
+    
+    const carrouselRef = useRef<HTMLDivElement | null>(null);
+    
     return (
         <Box sx={{ minHeight: '100vh' }} paddingBottom={'10vh'}>
             <Box
+                ref={carrouselRef} 
                 position="relative"
                 paddingY="5vh"
                 sx={{
@@ -32,7 +34,16 @@ function LandingPage() {
                 height: '120vh',
                 overflow: 'hidden',
                 textShadow: '0px 10px 20px rgba(0, 0, 0, 0.92)',
-                zIndex:5
+                zIndex:5,
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    left: 0,
+                    bottom: 0,
+                    width: '100%',
+                    height: '12px', // border thickness
+                    background: 'linear-gradient(90deg, rgba(209,152,54,1) 0%, rgba(250,229,192,1) 50%, rgba(209,152,54,1) 100%)',
+                    },
                 }}
             >
                 <ImageCarousel slideImages={images}></ImageCarousel>
@@ -76,11 +87,11 @@ function LandingPage() {
                 <AnimateOnView transition={Fade} timeout={500}>
                     <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                         <section id="subscribe-to-hackmty"/>
-                        <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
+                        <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:'80%'}}></TitleCard>
                         <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
 
                         <section id="contact-us"/>
-                        <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'100%'}}></TitleCard>
+                        <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:'80%'}}></TitleCard>
                         <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
                             <Button
                                 variant="contained"
@@ -96,8 +107,9 @@ function LandingPage() {
                         </InformationCard>                    
                     </Box>
                 </AnimateOnView>
+                <MountainBg elementRef={carrouselRef}></MountainBg>
+            </Box>     
             </Box>
-        </Box>
     )
 }
 

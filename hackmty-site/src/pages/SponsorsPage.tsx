@@ -3,6 +3,7 @@ import { Box, Button, CircularProgress, darken, Fade, Slide, SvgIcon, Typography
 import SponsorCard from "../components/SponsorCard";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
+import MountainBg from "../components/MountainBg";
 
 interface SponsorEntry {
   svgIcon?: string;
@@ -96,6 +97,7 @@ function SponsorsPage() {
                     </Box>
                 </AnimateOnView>
             </Box>
+            <MountainBg></MountainBg>
         </Box>
     )
 }
