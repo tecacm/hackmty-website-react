@@ -47,12 +47,12 @@ export default function ImageCarousel({slideImages}:CarouselProps) {
             height: '100%',
             background: 'linear-gradient(to right, rgba(29, 4, 31, 0.5), rgba(55, 27, 58, 0.7))',
             zIndex: 0,
-            backdropFilter: "blur(5px)",
-            WebkitBackdropFilter: "blur(5px)",
+            backdropFilter: "blur(0.3rem)",
+            WebkitBackdropFilter: "blur(0.3rem)",
             [theme.breakpoints.down("md")]: {
-              backdropFilter: "blur(5px)",
-              WebkitBackdropFilter: "blur(5px)",
-              },
+              backdropFilter: "blur(0.1rem)",
+              WebkitBackdropFilter: "blur(0.1rem)"
+            },
             
             })}
         />
