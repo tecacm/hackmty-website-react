@@ -4,6 +4,7 @@ import SponsorCard from "../components/SponsorCard";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
 import MountainBg from "../components/MountainBg";
+import { withBase } from "../utils/Utils";
 
 interface SponsorEntry {
   svgIcon?: string;
@@ -11,16 +12,11 @@ interface SponsorEntry {
   url?: string;
 }
 
-function withBase(path: string | undefined) {
-  if (!path) return undefined;
-  return import.meta.env.BASE_URL + path.replace(/^\/+/, '');
-}
-
 function SponsorsPage() {
     const [sponsors, setSponsors] = useState<SponsorEntry[]>([]);
 
     useEffect(() => {
-        fetch(import.meta.env.BASE_URL + '/data/sponsors.json')
+        fetch(withBase('/data/sponsors.json'))
         .then((res) => res.json())
         .then((data) => setSponsors(data))
         .catch((err) => console.error('Error loading sponsor data:', err));
@@ -29,7 +25,7 @@ function SponsorsPage() {
     const [partners, setPartners] = useState<SponsorEntry[]>([]);
 
     useEffect(() => {
-        fetch(import.meta.env.BASE_URL + '/data/partners.json')
+        fetch(withBase('/data/partners.json'))
         .then((res) => res.json())
         .then((data) => setPartners(data))
         .catch((err) => console.error('Error loading sponsor data:', err));
@@ -48,8 +44,8 @@ function SponsorsPage() {
                             return (
                             <SponsorCard
                                 key={index}
-                                iconSvg={withBase(sponsor.svgIcon)}
-                                iconImage={withBase(sponsor.imgIcon)}
+                                iconSvg={sponsor.svgIcon ? withBase(sponsor.svgIcon) : undefined}
+                                iconImage={sponsor.imgIcon ? withBase(sponsor.imgIcon) : undefined}
                                 url={sponsor.url}
                             />
                             );
@@ -93,8 +89,8 @@ function SponsorsPage() {
                             return (
                                <SponsorCard
                                     key={index}
-                                    iconSvg={withBase(partner.svgIcon)}
-                                    iconImage={withBase(partner.imgIcon)}
+                                    iconSvg={partner.svgIcon ? withBase(partner.svgIcon) : undefined}
+                                    iconImage={partner.imgIcon ? withBase(partner.imgIcon) : undefined}
                                     url={partner.url}
                                 />
                             );

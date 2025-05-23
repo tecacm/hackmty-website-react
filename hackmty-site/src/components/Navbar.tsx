@@ -17,8 +17,9 @@ import InstagramIcon from '../assets/media/instagram.svg?react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { darken } from '@mui/material';
+import { withBase } from '../utils/Utils';
 
-const HackMtyLogo = import.meta.env.BASE_URL + '/images/hackmty-logo.webp';
+const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 
 interface Page {
   text: string;

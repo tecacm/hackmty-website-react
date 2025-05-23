@@ -13,16 +13,17 @@ import MountainBg from "../components/MountainBg";
 import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
 import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
+import { withBase } from "../utils/Utils";
 
-const HackMtyLogo = import.meta.env.BASE_URL + '/images/hackmty-logo.webp';
+const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 
 function LandingPage() {
     const images:string[] = [
-        import.meta.env.BASE_URL + '/images/buildings/rectoria.webp',
-        import.meta.env.BASE_URL + '/images/buildings/pavoreal.webp',
-        import.meta.env.BASE_URL + '/images/buildings/ciap.webp',
-        import.meta.env.BASE_URL + '/images/buildings/2024photo.webp',
-        import.meta.env.BASE_URL + '/images/buildings/skyview.webp',
+        withBase('/images/buildings/rectoria.webp'),
+        withBase('/images/buildings/pavoreal.webp'),
+        withBase('/images/buildings/ciap.webp'),
+        withBase('/images/buildings/2024photo.webp'),
+        withBase('/images/buildings/skyview.webp'),
     ];
     
     const carrouselRef = useRef<HTMLDivElement | null>(null);

@@ -4,14 +4,14 @@ import ControlledAccordions, { type AccordionEntry } from "../components/Control
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
 import MountainBg from "../components/MountainBg";
-
+import { withBase } from "../utils/Utils";
 
 
 function FAQPage() {
      const [data, setData] = React.useState<AccordionEntry[] | null>(null);
 
       useEffect(() => {
-        fetch(import.meta.env.BASE_URL + "/data/faq.json")
+        fetch(withBase("/data/faq.json"))
           .then((res) => res.json())
           .then((json: AccordionEntry[]) => setData(json))
           .catch((err) => {

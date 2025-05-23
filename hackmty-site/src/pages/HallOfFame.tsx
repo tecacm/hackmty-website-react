@@ -4,6 +4,7 @@ import WinnerCard from "../components/WinnerCard";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
 import FeatherRain from "../components/FeatherRain";
+import { withBase } from "../utils/Utils";
 
 interface WinnerEntry {
   placement: string;
@@ -68,7 +69,7 @@ function HallOfFame() {
   };
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + "/data/winners.json")
+    fetch(withBase("/data/winners.json"))
       .then((res) => res.json())
       .then((json: WinnersData) => setData(json))
       .catch((err) => {
@@ -107,7 +108,7 @@ function HallOfFame() {
                 <AnimateOnView transition={Fade}>
                 <WinnerCard
                   key={i}
-                  teamPicture={import.meta.env.BASE_URL + winner.teamPicture}
+                  teamPicture={withBase(winner.teamPicture)}
                   projectURL={winner.projectURL}
                   teamName={winner.teamName}
                   placement={winner.placement}
