@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { darken } from '@mui/material';
 
-const HackMtyLogo = '/images/hackmty-logo.webp';
+const HackMtyLogo = import.meta.env.BASE_URL + '/images/hackmty-logo.webp';
 
 interface Page {
   text: string;

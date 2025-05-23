@@ -11,7 +11,7 @@ function FAQPage() {
      const [data, setData] = React.useState<AccordionEntry[] | null>(null);
 
       useEffect(() => {
-        fetch("/data/faq.json")
+        fetch(import.meta.env.BASE_URL + "/data/faq.json")
           .then((res) => res.json())
           .then((json: AccordionEntry[]) => setData(json))
           .catch((err) => {

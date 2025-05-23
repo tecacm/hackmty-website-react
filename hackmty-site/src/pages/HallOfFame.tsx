@@ -68,7 +68,7 @@ function HallOfFame() {
   };
 
   useEffect(() => {
-    fetch("/data/winners.json")
+    fetch(import.meta.env.BASE_URL + "/data/winners.json")
       .then((res) => res.json())
       .then((json: WinnersData) => setData(json))
       .catch((err) => {
@@ -107,7 +107,7 @@ function HallOfFame() {
                 <AnimateOnView transition={Fade}>
                 <WinnerCard
                   key={i}
-                  teamPicture={winner.teamPicture}
+                  teamPicture={import.meta.env.BASE_URL + winner.teamPicture}
                   projectURL={winner.projectURL}
                   teamName={winner.teamName}
                   placement={winner.placement}

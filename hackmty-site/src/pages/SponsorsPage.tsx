@@ -11,11 +11,16 @@ interface SponsorEntry {
   url?: string;
 }
 
+function withBase(path: string | undefined) {
+  if (!path) return undefined;
+  return import.meta.env.BASE_URL + path.replace(/^\/+/, '');
+}
+
 function SponsorsPage() {
     const [sponsors, setSponsors] = useState<SponsorEntry[]>([]);
 
     useEffect(() => {
-        fetch('/data/sponsors.json')
+        fetch(import.meta.env.BASE_URL + '/data/sponsors.json')
         .then((res) => res.json())
         .then((data) => setSponsors(data))
         .catch((err) => console.error('Error loading sponsor data:', err));
@@ -24,7 +29,7 @@ function SponsorsPage() {
     const [partners, setPartners] = useState<SponsorEntry[]>([]);
 
     useEffect(() => {
-        fetch('/data/partners.json')
+        fetch(import.meta.env.BASE_URL + '/data/partners.json')
         .then((res) => res.json())
         .then((data) => setPartners(data))
         .catch((err) => console.error('Error loading sponsor data:', err));
@@ -35,7 +40,7 @@ function SponsorsPage() {
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 <TitleCard title="2025 Sponsors"/>
                 <AnimateOnView transition={Fade} transitionProps={{timeout:1000}}>
-                    <Box display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center'}}>
+                    <Box display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, flexWrap: { xs: 'nowrap', md: 'wrap' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center', justifyContent: 'center',}}>
                         {
                             sponsors.map((sponsor, index) => {
                             const iconUrl = sponsor.svgIcon || sponsor.imgIcon;
@@ -43,8 +48,8 @@ function SponsorsPage() {
                             return (
                             <SponsorCard
                                 key={index}
-                                iconSvg={sponsor.svgIcon}
-                                iconImage={sponsor.imgIcon}
+                                iconSvg={withBase(sponsor.svgIcon)}
+                                iconImage={withBase(sponsor.imgIcon)}
                                 url={sponsor.url}
                             />
                             );
@@ -80,18 +85,18 @@ function SponsorsPage() {
                 </Button>
                 <TitleCard title="Partners" sxBoxProps={{marginTop:'10vh'}}/>
                 <AnimateOnView transition={Fade} transitionProps={{timeout:1000}}>
-                    <Box mb="10vh" display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center'}}>
+                    <Box mb="10vh" display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, flexWrap: { xs: 'nowrap', md: 'wrap' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center', justifyContent: 'center',}}>
                         {
                             partners.map((partner, index) => {
                             const iconUrl = partner.svgIcon || partner.imgIcon;
                             if (!iconUrl) return null;
                             return (
-                            <SponsorCard
-                                key={index}
-                                iconSvg={partner.svgIcon}
-                                iconImage={partner.imgIcon}
-                                url={partner.url}
-                            />
+                               <SponsorCard
+                                    key={index}
+                                    iconSvg={withBase(partner.svgIcon)}
+                                    iconImage={withBase(partner.imgIcon)}
+                                    url={partner.url}
+                                />
                             );
                         })}
                     </Box>
