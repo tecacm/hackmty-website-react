@@ -14,7 +14,7 @@ export default function ImageCarousel({slideImages}:CarouselProps) {
         {slideImages.map((slide) => (
           <Box
             key={slide}
-            sx={(theme) => ({
+            sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -32,29 +32,29 @@ export default function ImageCarousel({slideImages}:CarouselProps) {
                 top: 0,
                 left: 0,
                 width: "100%",
-                height: "100%",
-                backdropFilter: "blur(0.3rem)",
-                WebkitBackdropFilter: "blur(0.3rem)",
-                [theme.breakpoints.down("md")]: {
-                  backdropFilter: "blur(0.1rem)",
-                  WebkitBackdropFilter: "blur(0.1rem)",
-                },
+                height: "100%"
               },
-            })}
+            }}
           />
         ))}
         </Slide>
         <Box
-            sx={{
+            sx={(theme) => ({
             position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
             height: '100%',
-            background:
-                'linear-gradient(to right, rgba(29, 4, 31, 0.5), rgba(55, 27, 58, 0.7))',
+            background: 'linear-gradient(to right, rgba(29, 4, 31, 0.5), rgba(55, 27, 58, 0.7))',
             zIndex: 0,
-            }}
+            backdropFilter: "blur(5px)",
+            WebkitBackdropFilter: "blur(5px)",
+            [theme.breakpoints.down("md")]: {
+              backdropFilter: "blur(5px)",
+              WebkitBackdropFilter: "blur(5px)",
+              },
+            
+            })}
         />
     </Box>
   );
