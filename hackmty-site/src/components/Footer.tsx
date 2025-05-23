@@ -5,7 +5,6 @@ import SvgIcon from '@mui/material/SvgIcon';
 import FacebookIcon from '../assets/media/facebook.svg?react';
 import InstagramIcon from '../assets/media/instagram.svg?react';
 import { BottomNavigation } from '@mui/material';
-import { withBase } from '../utils/Utils';
 
 import TecACMLogo from "../assets/tec-acm-colorless.svg?react";
 
