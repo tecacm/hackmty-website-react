@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://tecacm.org.github.io/hackmty-website-react",
+  "homepage": "http://tecacm.github.io/hackmty-website-react",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
