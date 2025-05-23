@@ -90,7 +90,7 @@
             "cardColor": "#b87333",
             "teamPicture": "/images/winners/2022/3rdPlace.webp",
             "teamName": "McLovins",
-            "projectName": "DropNot",
+            "projectName": "Facial Recognition Payments",
             "projectDescription": "Enables transactions between bank accounts by just using the face of whoever you want to send money to, as the account ID.",
             "projectURL": "https://devpost.com/software/contacless-payments-with-facial-recognition"
         }
