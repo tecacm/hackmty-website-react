@@ -1,5 +1,6 @@
 import React, { type FunctionComponent, type SVGProps } from "react";
 import { Box, SvgIcon, Typography, type SxProps, type Theme } from "@mui/material";
+import { SmartLink } from "./SmartLink";
 
 type InformationBoxProps = {
   title:string;
@@ -50,7 +51,7 @@ function InformationCard(info:InformationBoxProps) {
     };
 
     return (
-          <Box component="a" href={info.url} sx={{ ...defaultSx, ...info.sxBoxProps}}>
+          <SmartLink href={info.url ? info.url : ""} sx={{ ...defaultSx, ...info.sxBoxProps}}>
               <Typography sx={{...defaultTitleTextSx, ...info.sxTitleTextProps}}>{info.title}</Typography>
               {info.iconSvg ? (<SvgIcon component={info.iconSvg} inheritViewBox   sx={{height: '10vh', maxWidth: '100%', width: 'auto', color:info.iconColor}}/>) : info.iconImage ? (<Box component="img" src={info.iconImage} sx={{height: '10vh', maxWidth: '100%', width: 'auto'}}/>) : null}
               {info.description && (
@@ -68,7 +69,7 @@ function InformationCard(info:InformationBoxProps) {
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}} width={'100%'}>
               {info.children}
             </Box>
-        </Box>
+        </SmartLink>
     )
 }
 

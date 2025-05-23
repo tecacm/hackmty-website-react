@@ -25,6 +25,7 @@
     "react-intersection-observer": "^9.16.0",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.6.0",
+    "react-router-hash-link": "^2.4.3",
     "react-slideshow-image": "^4.3.2",
     "tailwindcss": "^4.1.5"
   },

@@ -2,16 +2,17 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 function ScrollToElement() {
-  const { hash } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      const el = document.getElementById(hash.replace("#", ""));
+    const trueHash = window.location.hash.split("#")[2]; // after second #
+    if (trueHash) {
+      const el = document.getElementById(trueHash);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [hash]);
+  }, [location]);
 
   return null;
 }

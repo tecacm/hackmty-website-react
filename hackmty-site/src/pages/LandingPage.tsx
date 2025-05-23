@@ -27,7 +27,6 @@ function LandingPage() {
     ];
     
     const carrouselRef = useRef<HTMLDivElement | null>(null);
-    
     return (
         <Box sx={{ minHeight: '100vh' }} paddingBottom={'10vh'}>
             <Box
@@ -77,7 +76,7 @@ function LandingPage() {
                 </AnimateOnView>
                 <TitleCard title="How to register"></TitleCard>
                 <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                    <InformationCard title="Coming Soon" description={'Stay tuned to our social media!' + '\n' + 'Or click here to subscribe to our mailing list to know first!'} url="#subscribe-to-hackmty"></InformationCard>
+                    <InformationCard title="Coming Soon" description={'Stay tuned to our social media!' + '\n' + 'Or click here to subscribe to our mailing list to know first!'} url={"#subscribe-to-hackmty"}></InformationCard>
                 </Box>
                 <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
@@ -91,12 +90,13 @@ function LandingPage() {
 
                 <AnimateOnView transition={Fade} timeout={500}>
                     <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                        <section id="subscribe-to-hackmty"/>
+                        <section id="subscribe-to-hackmty">
                         <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
+                        </section>
                         <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
-
-                        <section id="contact-us"/>
+                        <section id="contact-us">
                         <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
+                        </section>
                         <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
                             <Button
                                 variant="contained"
@@ -114,7 +114,7 @@ function LandingPage() {
                 </AnimateOnView>
                 <MountainBg elementRef={carrouselRef}></MountainBg>
             </Box>     
-            </Box>
+        </Box>
     )
 }
 
