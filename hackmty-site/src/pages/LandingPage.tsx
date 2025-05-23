@@ -35,7 +35,7 @@ function LandingPage() {
                 paddingY="5vh"
                 sx={{
                 width: '100%',
-                height: '120vh',
+                height: 'auto',
                 overflow: 'hidden',
                 textShadow: '0px 10px 20px rgba(0, 0, 0, 0.92)',
                 zIndex:5,
