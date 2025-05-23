@@ -1,0 +1,185 @@
+{
+    "2024": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2024/1stPlace.webp",
+            "teamName": "Tacaton",
+            "projectName": "PolíticaEnFoco",
+            "projectDescription": "PolíticaEnFoco analyzes political videos and generates easy-to-understand insights, making it simple for users to stay informed.",
+            "projectURL": "https://devpost.com/software/politicaenfoco"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2024/2ndPlace.webp",
+            "teamName": "Lalo Ruiz SA de CV",
+            "projectName": "Mime Client Follower",
+            "projectDescription": "Detecting hotspots of clients in retailers with AI.",
+            "projectURL": "https://devpost.com/software/mime-client-follower"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2024/3rdPlace-Biomini.webp",
+            "teamName": "Biomini",
+            "projectName": "Biomini",
+            "projectDescription": "A predictive tool with machine learning to determine the most appropriate drugs to treat a disease.",
+            "projectURL": "https://devpost.com/software/automatic-drug-identification-based-on-experiments-databases"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2024/3rdPlace-Xcoders.webp",
+            "teamName": "XCoders",
+            "projectName": "CapitalAllinOne",
+            "projectDescription": "Simplifying your finances with smart insights, instant transactions and seamless management.",
+            "projectURL": "https://devpost.com/software/xcoders"
+        }
+    ],
+    "2023": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2023/1stPlace.webp",
+            "teamName": "Los Rupertos",
+            "projectName": "AgroAssist",
+            "projectDescription": "AgroAssist is a webpage that intends to reduce the environmental impact of agricultural and irrigation techniques, by optimizing the use of resources and adapting practices to mitigate climate change.",
+            "projectURL": "https://devpost.com/software/agroassist-l17yno"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2023/2ndPlace.webp",
+            "teamName": "Bing Bongs",
+            "projectName": "EmergencIA",
+            "projectDescription": "An answering machine service with artificial intelligence for support on medical emergencies.",
+            "projectURL": "https://devpost.com/software/emergencia"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2023/3rdPlace.webp",
+            "teamName": "SPTeam",
+            "projectName": "OxiCheck",
+            "projectDescription": "A project aimed at helping people with COPD to monitor possible relapses in the post-treatment stage, a solution that includes the use of hardware, software and cloud computing.",
+            "projectURL": "https://devpost.com/software/oxicheck"
+        }
+    ],
+    "2022": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2022/1stPlace.webp",
+            "teamName": "Codebeasts",
+            "projectName": "DropNot",
+            "projectDescription": "A device that with IoT and scalability with ML, helps to have a visualization of water consumption inside the home. This device is easy to implement as it works with a simple water plug.",
+            "projectURL": "https://devpost.com/software/dropnot"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2022/2ndPlace.webp",
+            "teamName": "Coders",
+            "projectName": "SISTEC",
+            "projectDescription": "Optimizes the irrigation process of a crop, minimizing water loss and maximizing production in reduced spaces.",
+            "projectURL": "https://devpost.com/software/sistec"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2022/3rdPlace.webp",
+            "teamName": "McLovins",
+            "projectName": "DropNot",
+            "projectDescription": "Enables transactions between bank accounts by just using the face of whoever you want to send money to, as the account ID.",
+            "projectURL": "https://devpost.com/software/contacless-payments-with-facial-recognition"
+        }
+    ], 
+    "2021": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2021/1stPlace.webp",
+            "teamName": "CLEV",
+            "projectName": "StreetEye",
+            "projectDescription": "Street eye notifes users when reckless driving is detected near their current location. Hopefully making users more aware and more careful when this sort of situation arises.",
+            "projectURL": "https://devpost.com/software/streeteye"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2021/2ndPlace.webp",
+            "teamName": "Firmware Rebels",
+            "projectName": "See Your World",
+            "projectDescription": "A tool for every person with visual disabilities that can be compensated by the use of AI.",
+            "projectURL": "https://devpost.com/software/see-your-world"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2021/3rdPlace.webp",
+            "teamName": "Tau INC",
+            "projectName": "Hands On",
+            "projectDescription": "A sign language translator that uses a webcam, and translates some signs to be more accessible to everyone.",
+            "projectURL": "https://devpost.com/software/hands-on-520fxl"
+        }
+    ], 
+    "2020": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2020/1stPlace.webp",
+            "teamName": "Axolotes",
+            "projectName": "BeeReady!",
+            "projectDescription": "A platform for professors to create quizzes displayed at television for their students to participate with a telephone number.",
+            "projectURL": "https://devpost.com/software/equipo-27-beeready"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2020/2ndPlace.webp",
+            "teamName": "Los Arigatitos UwU",
+            "projectName": "Mi-Local",
+            "projectDescription": "A web app to create a layout of a user's place for certain number of people, returning the same layout with each human space following restrictions of distance and client capacity.",
+            "projectURL": "https://devpost.com/software/mi-local"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2020/3rdPlace.webp",
+            "teamName": "O(1)",
+            "projectName": "TempLogger",
+            "projectDescription": "Utilizing computer vision, temperature sensors, and motors, the product tracks the forehead of a person that wants to get in a room, keeping a log of the temperature of all the visitors with a web application.",
+            "projectURL": "https://devpost.com/software/templogger"
+        }
+    ], 
+    "2019": [
+        {
+            "placement": "1st",
+            "cardColor": "gold",
+            "teamPicture": "/images/winners/2019/1stPlace.webp",
+            "teamName": "",
+            "projectName": "SkyEye",
+            "projectDescription": "Leveraging Computer Vision and Machine Learning for General Purpose Population Density Analysis.",
+            "projectURL": "https://devpost.com/software/skeye"
+        },
+        {
+            "placement": "2nd",
+            "cardColor": "silver",
+            "teamPicture": "/images/winners/2019/2ndPlace.webp",
+            "teamName": "",
+            "projectName": "ExoAid",
+            "projectDescription": "A device that allows a person to remotely interact with the world. Be it a doctor or astronaut, being there will no longer be a limitation to what they can do.",
+            "projectURL": "https://devpost.com/software/backpackarms"
+        },
+        {
+            "placement": "3rd",
+            "cardColor": "#b87333",
+            "teamPicture": "/images/winners/2019/3rdPlace.webp",
+            "teamName": "",
+            "projectName": "Clothify",
+            "projectDescription": "\"Find the clothes you like with the help of AI\". Clothify is a mobile app where users upload a photo of their favorite clothes for receiving suggestions of similar items in order to purchase them.",
+            "projectURL": "https://devpost.com/software/clothify-flcgu6"
+        }
+    ]
+}
