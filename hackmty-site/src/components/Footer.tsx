@@ -12,7 +12,7 @@ import TecACMLogo from "../assets/tec-acm-colorless.svg?react";
 function Footer() {
   return (
     <BottomNavigation color='primary' sx={{zIndex:5, bottom:-20, backgroundColor:'primary.main', height:'auto'}}>
-          <Box width='60%' display='flex' sx={{flexDirection:{xs:'column', md:'row'}, justifyContent:'space-between'}} alignItems={'center'} marginY={'2vh'}>
+          <Box width='60%' display='flex' sx={{flexDirection:{xs:'column', md:'row'}, justifyContent:'space-between', gap:'1vh'}} alignItems={'center'} marginY={'2vh'}>
             <Typography color='white'>Copyright © HackMTY 2025</Typography>
             
             <Box sx={{justifyContent: 'center'}}>
