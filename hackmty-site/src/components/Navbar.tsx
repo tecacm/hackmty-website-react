@@ -20,6 +20,7 @@ import { darken } from '@mui/material';
 import { withBase } from '../utils/Utils';
 
 const HackMtyLogo = withBase('/images/hackmty-logo.webp');
+const TecACMLogo = withBase('/images/tec-acm-purple-gold.webp');
 
 interface Page {
   text: string;
@@ -53,9 +54,33 @@ function Navbar() {
       <Container maxWidth={false}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MLHTrustBadge/>
+        <a href='#'>
+          <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'none', md: 'flex' }, mr: '2vw', height:40, 
+                transition: 'transform 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.2)', 
+                  color: 'unset',
+                },
+            }}/>
+        </a>
+        <a href='https://tec.acm.org' target="_blank" rel="noopener noreferrer">
+          <Box component="img" src={TecACMLogo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, height:40,
+            transition: 'transform 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.2)', 
+                  color: 'unset',
+                },
+            }}/>
+        </a>
 
-          <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, height:40}}/>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
+            <a href='#'>
+              <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'flex', md: 'none' }, mt:"0.5vh", mx: "2vw", height:40}}/>
+            </a>
+            <a href='https://tec.acm.org' target="_blank" rel="noopener noreferrer">
+              <Box component="img" src={TecACMLogo} sx={{ display: { xs: 'flex', md: 'none' }, mt:"0.5vh", mr: "1vw", height:40}}/>
+            </a>
+
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -106,10 +131,6 @@ function Navbar() {
               </Box>
             </Menu>
           </Box>
-
-
-          <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, height:40}}/>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', alignItems:'center', mr:3 }}>
             {pages.map((page) => (
               <Button
@@ -135,6 +156,7 @@ function Navbar() {
                 {page.text}
               </Button>
             ))}
+            
             <Box component="a" href="https://facebook.com/HackMTY/" target="_blank">
                 <SvgIcon component={FacebookIcon} inheritViewBox sx={{fontSize:30, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, mr:4}}/>
             </Box>
@@ -142,6 +164,7 @@ function Navbar() {
                 <SvgIcon component={InstagramIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
             </Box>
           </Box>
+          
           
         </Toolbar>
       </Container>

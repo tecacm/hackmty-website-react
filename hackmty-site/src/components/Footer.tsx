@@ -5,7 +5,9 @@ import SvgIcon from '@mui/material/SvgIcon';
 import FacebookIcon from '../assets/media/facebook.svg?react';
 import InstagramIcon from '../assets/media/instagram.svg?react';
 import { BottomNavigation } from '@mui/material';
+import { withBase } from '../utils/Utils';
 
+import TecACMLogo from "../assets/tec-acm-colorless.svg?react";
 
 function Footer() {
   return (
@@ -21,7 +23,10 @@ function Footer() {
                   <SvgIcon component={InstagramIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
               </Box>
             </Box>
-            <Typography color='white' component="a" href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>Code of Conduct</Typography>
+            <Typography color='white' component="a" href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf' sx={{transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>Code of Conduct</Typography>
+            <Box component="a" href="https://tec.acm.org" target="_blank" sx={{ display: 'flex', alignItems: 'center', justifyContent:'center' }}>
+                <Box component={TecACMLogo} sx={{height:30, width:'auto', objectFit: 'contain', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
+            </Box>
         </Box>
     </BottomNavigation>
   );
