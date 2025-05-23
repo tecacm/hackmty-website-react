@@ -14,7 +14,7 @@ export default function ImageCarousel({slideImages}:CarouselProps) {
         {slideImages.map((slide) => (
           <Box
             key={slide}
-            sx={{
+            sx={(theme) => ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -33,10 +33,14 @@ export default function ImageCarousel({slideImages}:CarouselProps) {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                backdropFilter: "blur(6px)",
-                WebkitBackdropFilter: "blur(6px)",
+                backdropFilter: "blur(0.3rem)",
+                WebkitBackdropFilter: "blur(0.3rem)",
+                [theme.breakpoints.down("md")]: {
+                  backdropFilter: "blur(0.1rem)",
+                  WebkitBackdropFilter: "blur(0.1rem)",
+                },
               },
-            }}
+            })}
           />
         ))}
         </Slide>
