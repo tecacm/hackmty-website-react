@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import FeatherIcon from "../assets/feather.svg?react";
 import { useLocation } from "react-router-dom";
 
-const NUM_FEATHERS = 10;
+const NUM_FEATHERS = 15;
 
 type FeatherData = {
   id: number;
@@ -19,7 +19,7 @@ const generateFeather = (id: number): FeatherData => ({
   id,
   left: Math.random() * 100,
   duration: 20 + Math.random() * 10,
-  delay: Math.random() * 10,
+  delay: Math.random() * 5,
   size: 100 + Math.random() * 50,
   rotation: Math.random() * 360,
   swayDuration: 6 + Math.random() * 4,
@@ -81,7 +81,12 @@ function FeatherRain() {
       });
     };
 
-    const interval = setInterval(addFeather, 1000); // spawn one at a time
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => addFeather(), i * 200); // add initial feathers before the delay shh
+    }
+  
+
+    const interval = setInterval(addFeather, 3000); // spawn one at a time
     return () => clearInterval(interval);
   }, []);
   const fallDistance = `${docHeightPx}px`;

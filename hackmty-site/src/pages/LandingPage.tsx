@@ -85,7 +85,7 @@ function LandingPage() {
             </Box>
             <Box marginTop={'15vh'} sx={{display:'flex', justifyContent:'center', alignItems:'center', gap:'8vw', flexDirection:{xs:'column', md:'column', lg:'row'}}}>
                 <Box sx={{ flex: 1, maxWidth: '600px', width: {md:'60%', lg:'80%'}}}>
-                    <InstagramEmbed url="https://www.instagram.com/reel/C74j00LuKPR/?utm_source=ig_embed&amp;utm_campaign=loading" />
+                    <InstagramEmbed url="https://www.instagram.com/reel/DL0hx7ChrFI/?utm_source=ig_embed&amp;utm_campaign=loading" />
                 </Box>
 
                 <AnimateOnView transition={Fade} timeout={500}>
