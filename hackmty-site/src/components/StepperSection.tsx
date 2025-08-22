@@ -7,7 +7,7 @@ import CenteredArrowPopover from './CenteredArrowPopover';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-const steps = ['Pre-register at register.hackmty.com (It is mandatory for all four team members to pre-register and fill in the required information.)', 'You will receive a confirmation email for your pre-registration. After this you can add your team members under the Friends tab.', 'In the following days, you will receive an email confirming your invitation to the hackathon. (only one team member needs to confirm the invite).'];
+const steps = ['Pre-register at registration.hackmty.com (It is mandatory for all four team members to pre-register and fill in the required information.)', 'You will receive a confirmation email for your pre-registration. After this you can add your team members under the Friends tab.', 'In the following days, you will receive an email confirming your invitation to the hackathon. (only one team member needs to confirm the invite).'];
 
 export default function StepperSection() {
   const [activeStep, setActiveStep] = React.useState(0);
