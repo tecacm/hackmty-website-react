@@ -14,6 +14,7 @@ import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
 import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
 import { withBase } from "../utils/Utils";
+import StepperSection from "../components/StepperSection"
 
 const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 
@@ -74,9 +75,9 @@ function LandingPage() {
                         <InformationCard title="All students welcome!" iconSvg={People} iconColor="secondary.main" description="Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee."></InformationCard>
                     </Box>
                 </AnimateOnView>
-                <TitleCard title="How to register"></TitleCard>
-                <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                    <InformationCard title="Coming Soon" description={'Stay tuned to our social media!' + '\n' + 'Or click here to subscribe to our mailing list to know first!'} url={"#subscribe-to-hackmty"}></InformationCard>
+                <TitleCard title="Registration Open Now!"></TitleCard>
+                <Box display='flex' width='32%' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginY={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
+                    <StepperSection></StepperSection>
                 </Box>
                 <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>

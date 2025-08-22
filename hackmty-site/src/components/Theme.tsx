@@ -24,7 +24,24 @@ const Theme = createTheme({
                 minHeight: 32
             }
         }
-    }
+    },
+    MuiStepIcon: {
+      styleOverrides: {
+        root: {
+          '&.Mui-active': {
+            color: "#ffffffff", // Active step color
+            
+          },
+          // Default/inactive color
+          color: '#e4e4e4ff',
+          '& text': {
+            fill: '#662d91', // <-- number inside circle
+            fontWeight: '600'
+          },
+        },
+        
+      },
+    },
   }
 });
 

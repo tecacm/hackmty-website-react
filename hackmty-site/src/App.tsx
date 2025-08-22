@@ -10,12 +10,14 @@ import SponsorsPage from './pages/SponsorsPage'
 import HallOfFame from './pages/HallOfFame'
 import ScrollToElement from './components/ScrollToElement';
 import FAQPage from './pages/FAQPage';
+import BreakpointBanner from './components/SizeBanner';
 
 // <BreakpointBanner></BreakpointBanner>
 
 function App() {
   return (
     <>
+      <BreakpointBanner></BreakpointBanner>
       <Box
         sx={{
           position: 'fixed',
