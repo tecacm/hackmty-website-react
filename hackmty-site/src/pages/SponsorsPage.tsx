@@ -5,6 +5,7 @@ import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
 import MountainBg from "../components/MountainBg";
 import { withBase } from "../utils/Utils";
+import { useI18n } from "../i18n/I18nContext";
 
 interface SponsorEntry {
   svgIcon?: string;
@@ -13,6 +14,7 @@ interface SponsorEntry {
 }
 
 function SponsorsPage() {
+    const { t } = useI18n();
     const [sponsors, setSponsors] = useState<SponsorEntry[]>([]);
 
     useEffect(() => {
@@ -34,7 +36,7 @@ function SponsorsPage() {
     return (
         <Box sx={{minHeight: '100vh' }}>
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                <TitleCard title="2025 Sponsors"/>
+                <TitleCard title={`2025 ${t('sponsors.title', 'Sponsors')}`}/>
                 <AnimateOnView transition={Fade} transitionProps={{timeout:1000}}>
                     <Box display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, flexWrap: { xs: 'nowrap', md: 'wrap' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center', justifyContent: 'center',}}>
                         {
@@ -52,7 +54,7 @@ function SponsorsPage() {
                         })}
                     </Box>
                 </AnimateOnView>
-                <Typography fontWeight="700" zIndex="5" marginY="5vh" fontSize='clamp(0.3rem, 0.8vw + 0.5rem, 1.2rem)' color="white">SEND AN EMAIL TO HELLO@HACKMTY.COM FOR MORE INFORMATION.</Typography>
+                <Typography fontWeight="700" zIndex="5" marginY="5vh" fontSize='clamp(0.3rem, 0.8vw + 0.5rem, 1.2rem)' color="white">{t('sponsors.moreInfo', 'SEND AN EMAIL TO HELLO@HACKMTY.COM FOR MORE INFORMATION.')}</Typography>
                 <Button
                     sx={(theme) => ({ 
                     mb: "5vh", 
@@ -77,9 +79,9 @@ function SponsorsPage() {
                     component="a" 
                     href="mailto:hello@hackmty.com?subject=HackMTY%20Sponsor"
                     >
-                    Sponsor
+                    {t('sponsors.button', 'Sponsor')}
                 </Button>
-                <TitleCard title="Partners" sxBoxProps={{marginTop:'10vh'}}/>
+                <TitleCard title={t('sponsors.partners', 'Partners')} sxBoxProps={{marginTop:'10vh'}}/>
                 <AnimateOnView transition={Fade} transitionProps={{timeout:1000}}>
                     <Box mb="10vh" display="flex" sx={{ flexDirection: { xs: 'column', md: 'row' }, flexWrap: { xs: 'nowrap', md: 'wrap' }, gap: { xs: '2rem', md: '3vw' }, marginTop: '5vh', px: '5vw', alignItems: 'center', justifyContent: 'center',}}>
                         {

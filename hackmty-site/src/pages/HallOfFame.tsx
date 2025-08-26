@@ -4,6 +4,7 @@ import WinnerCard from "../components/WinnerCard";
 import TitleCard from "../components/TitleCard";
 import AnimateOnView from "../components/AnimateOnView";
 import FeatherRain from "../components/FeatherRain";
+import { useI18n } from "../i18n/I18nContext";
 import { withBase } from "../utils/Utils";
 
 interface WinnerEntry {
@@ -61,6 +62,7 @@ function a11yProps(index: number) {
 type WinnersData = Record<string, WinnerEntry[]>;
 
 function HallOfFame() {
+  const { t } = useI18n();
   const [data, setData] = React.useState<WinnersData | null>(null);
   const [value, setValue] = React.useState(0);
 
@@ -103,7 +105,7 @@ function HallOfFame() {
           <Box zIndex={5}>
               {years.map((year, index) => (
               <CustomTabPanel key={year} value={value} index={index}>
-                <TitleCard title={year + " Winners"} sxTextProps={{color:'rgb(70, 24, 106)'}} sxBoxProps={{marginTop:'0', backgroundColor:'inherit', textShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)', transition: 'transform 0.3s ease, text-shadow 0.3s ease', '&:hover': {transform: 'translateY(-10px)', textShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}></TitleCard>
+                <TitleCard title={`${year} ${t('hof.winners', 'Winners')}`} sxTextProps={{color:'rgb(70, 24, 106)'}} sxBoxProps={{marginTop:'0', backgroundColor:'inherit', textShadow: '0px 10px 10px rgba(0, 0, 0, 0.15)', transition: 'transform 0.3s ease, text-shadow 0.3s ease', '&:hover': {transform: 'translateY(-10px)', textShadow: '0px 10px 20px rgba(0, 0, 0, 0.44)'}}}></TitleCard>
               {data[year].map((winner, i) => (
                 <AnimateOnView transition={Fade}>
                 <WinnerCard

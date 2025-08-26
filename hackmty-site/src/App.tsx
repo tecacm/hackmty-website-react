@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { Box, ThemeProvider } from '@mui/material';
 import Theme from './components/Theme';
+import { I18nProvider } from './i18n/I18nContext';
 import LandingPage from './pages/LandingPage'
 import SchedulePage from './pages/SchedulePage'
 import { HashRouter as Router , Navigate, Route, Routes } from 'react-router-dom';
@@ -42,8 +43,9 @@ function App() {
         width={"100%"}
         height={"100%"}
         >
-        <Router>
-        <ThemeProvider theme={Theme}>
+  <Router>
+  <ThemeProvider theme={Theme}>
+  <I18nProvider>
           <Navbar></Navbar>
           <Box flexGrow={1}>
             <ScrollToElement />
@@ -58,7 +60,8 @@ function App() {
             </Routes>
           </Box>
           <Footer></Footer>
-        </ThemeProvider>
+  </I18nProvider>
+  </ThemeProvider>
         </Router>
         </Box>
       </>

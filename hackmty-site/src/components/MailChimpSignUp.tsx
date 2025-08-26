@@ -7,6 +7,7 @@ import {
   FormHelperText,
   type SxProps,
 } from "@mui/material";
+import { useI18n } from "../i18n/I18nContext";
 
 declare global {
   interface Window {
@@ -24,6 +25,7 @@ type SignUpProps = {
 };
 
 function MailChimpSignUp(props:SignUpProps) {
+  const { t } = useI18n();
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js";
@@ -87,17 +89,17 @@ function MailChimpSignUp(props:SignUpProps) {
         noValidate
       >
         <Typography gutterBottom sx={{...defaultTitleSx, ...props.sxTitleTextProps}}>
-          Sign up for Updates on HackMTY
+          {t('mailchimp.title', 'Sign up for Updates on HackMTY')}
         </Typography>
-        <FormHelperText>
-          <span style={{ color: "red" }}>*</span> <span style={{color:'white'}}>indicates required</span>
+        <FormHelperText sx={{ color: 'white' }}>
+          <Box component="span" sx={{ color: 'red' }}>*</Box> <Box component="span" sx={{ color: 'white' }}>{t('mailchimp.indicatesRequired', 'indicates required')}</Box>
         </FormHelperText>
 
         <TextField
           required
           fullWidth
           type="email"
-          label="Email Address"
+          label={t('mailchimp.emailLabel', 'Email Address')}
           name="EMAIL"
           id="mce-EMAIL"
           margin="normal"
@@ -108,19 +110,20 @@ function MailChimpSignUp(props:SignUpProps) {
         <input type="hidden" name="tags" value="9327593" />
 
         {/* Honeypot field for spam bots */}
-        <Box sx={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
+    <Box sx={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
           <input
             type="text"
             name="b_2c6139b5fc5593464d870966a_92e5e32473"
             tabIndex={-1}
+            aria-label="Do not fill"
           />
         </Box>
 
         {/* Responses */}
-        <div id="mce-responses" className="clear">
-          <div id="mce-error-response" className="response" style={{ display: "none" }}></div>
-          <div id="mce-success-response" className="response" style={{ display: "none" }}></div>
-        </div>
+        <Box id="mce-responses" className="clear">
+          <Box id="mce-error-response" className="response" sx={{ display: 'none' }} />
+          <Box id="mce-success-response" className="response" sx={{ display: 'none' }} />
+        </Box>
 
         <Box mt={2}>
           <Button
@@ -132,7 +135,7 @@ function MailChimpSignUp(props:SignUpProps) {
             sx={{paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
           >
               <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
-                Subscribe
+                {t('mailchimp.subscribe', 'Subscribe')}
               </Typography>
           </Button>
         </Box>

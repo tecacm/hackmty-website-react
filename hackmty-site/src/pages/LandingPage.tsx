@@ -15,19 +15,27 @@ import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
 import { withBase } from "../utils/Utils";
 import StepperSection from "../components/StepperSection"
+import { useI18n } from "../i18n/I18nContext";
 
 const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 
 function LandingPage() {
+        const { t, lang } = useI18n();
     const [registrationSteps, setRegistrationSteps] = useState<string[]>([]);
 
-    useEffect(() => {
-        // Load steps from public/data so it works in dev and prod without bundling and respects BASE_URL
-        fetch(withBase('/data/registration-steps.json'))
+        useEffect(() => {
+                // Load language-specific steps if present, fallback to default
+                const url = withBase(`/data/registration-steps${lang === 'es' ? '.es' : ''}.json`);
+                fetch(url)
             .then((res) => res.json())
             .then((data: string[]) => setRegistrationSteps(data))
-            .catch(() => setRegistrationSteps([]));
-    }, []);
+                        .catch(() => {
+                            fetch(withBase('/data/registration-steps.json'))
+                                .then((res) => res.json())
+                                .then((data: string[]) => setRegistrationSteps(data))
+                                .catch(() => setRegistrationSteps([]));
+                        });
+        }, [lang]);
 
     const images:string[] = [
         withBase('/images/buildings/rectoria.webp'),
@@ -69,28 +77,28 @@ function LandingPage() {
                         </Box>
                         <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
                             <Countdown dateTime="2025-10-24T11:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
-                            <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>October 24-26</Typography>
-                            <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.7vw + 0.8rem, 3rem)', fontWeight:500, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>36 hour long Hackathon @Tec de Monterrey, Monterrey NL</Typography>
-                            <Typography sx={{marginTop:5, color:'white', fontSize:'clamp(0.3rem, 2vw + 1.4rem, 7rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>10 Years of Hacking</Typography>
+                            <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>{t('landing.date', 'October ')} 24-26</Typography>
+                            <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.7vw + 0.8rem, 3rem)', fontWeight:500, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>{t('landing.description', '36 hour long Hackathon @Tec de Monterrey, Monterrey NL')}</Typography>
+                            <Typography sx={{marginTop:5, color:'white', fontSize:'clamp(0.3rem, 2vw + 1.4rem, 7rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>{t('landing.subtitle', '10 Years of Hacking')}</Typography>
                         </Box>
                     </Box>
                 </AnimateOnView>
             </Box>
             <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                <TitleCard title="About us"></TitleCard>
+                <TitleCard title={t('section.about', 'About us')}></TitleCard>
                 <AnimateOnView transition={Fade} timeout={500}>
                     <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                        <InformationCard title="What makes us awesome" iconSvg={PCCodeIcon} iconColor="secondary.main" description="We are the largest student hackathon in Mexico. Hosted by Tec de Monterrey, ranked 5 stars by QS, in the top 140 universities worldwide and top 10 in Latin America."></InformationCard>
-                        <InformationCard title="Expect great things" iconSvg={PartyPopper} iconColor="secondary.main" description="We'll have mentors from different companies, and a great atmosphere for learning something new. We'll have many activities and ways to communicate to make the best out of this event for you!"></InformationCard>
-                        <InformationCard title="All students welcome!" iconSvg={People} iconColor="secondary.main" description="Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee."></InformationCard>
+                        <InformationCard title={t('landing.cards.awesome.title', 'What makes us awesome')} iconSvg={PCCodeIcon} iconColor="secondary.main" description={t('landing.cards.awesome.desc', 'We are the largest student hackathon in Mexico. Hosted by Tec de Monterrey, ranked 5 stars by QS, in the top 140 universities worldwide and top 10 in Latin America.')}></InformationCard>
+                        <InformationCard title={t('landing.cards.expect.title', 'Expect great things')} iconSvg={PartyPopper} iconColor="secondary.main" description={t('landing.cards.expect.desc', "We'll have mentors from different companies, and a great atmosphere for learning something new. We'll have many activities and ways to communicate to make the best out of this event for you!")}></InformationCard>
+                        <InformationCard title={t('landing.cards.welcome.title', 'All students welcome!')} iconSvg={People} iconColor="secondary.main" description={t('landing.cards.welcome.desc', "Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee.")}></InformationCard>
                     </Box>
                 </AnimateOnView>
-                <TitleCard title="Registration Now Open!"></TitleCard>
+                <TitleCard title={t('cta.registrationOpen', 'Registration Now Open!')}></TitleCard>
                 <Box display='flex' width='32%' sx={{flexDirection:'column'}} alignItems={'center'} mx={'5vw'}>
-                    <TitleCard title="Steps for registering" sxBoxProps={{width:'90%', marginTop:'7vh', marginBottom:'5vh'}} sxTextProps={{fontSize:'clamp(0.9rem, 1vw + 0.9rem, 2.5rem)', fontWeight:700}}></TitleCard>
+                    <TitleCard title={t('landing.stepsTitle', lang === 'es' ? 'Pasos para registrarte' : 'Steps for registering')} sxBoxProps={{width:'90%', marginTop:'7vh', marginBottom:'5vh'}} sxTextProps={{fontSize:'clamp(0.9rem, 1vw + 0.9rem, 2.5rem)', fontWeight:700}}></TitleCard>
                     <StepperSection steps={registrationSteps} url="https://registration.hackmty.com/auth/register/" />
                 </Box>
-                <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>
+                <TitleCard title={t('section.map', 'Map')} sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
                     <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>
                 </Box>
@@ -103,13 +111,13 @@ function LandingPage() {
                 <AnimateOnView transition={Fade} timeout={500}>
                     <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                         <section id="subscribe-to-hackmty">
-                        <TitleCard title="Subscribe" sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
+                        <TitleCard title={t('section.subscribe', 'Subscribe')} sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
                         </section>
                         <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
                         <section id="contact-us">
-                        <TitleCard title="Contact Us" sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
+                        <TitleCard title={t('section.contactUs', 'Contact Us')} sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
                         </section>
-                        <InformationCard title="Got any questions?" description="Contact us at hello@hackmty.com" sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
+                        <InformationCard title={t('landing.questions.title', 'Got any questions?')} description={t('landing.questions.desc', 'Contact us at hello@hackmty.com')} sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
                             <Button
                                 variant="contained"
                                 color="secondary"
@@ -118,7 +126,7 @@ function LandingPage() {
                                 href="mailto:hello@hackmty.com?subject=HackMTY"
                                 >
                                 <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
-                                    Send Email
+                                    {t('subscribe.emailCta', 'Send Email')}
                                 </Typography>
                             </Button>
                         </InformationCard>                    

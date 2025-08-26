@@ -18,6 +18,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { darken } from '@mui/material';
 import { withBase } from '../utils/Utils';
+import { useI18n } from '../i18n/I18nContext';
 
 const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 const TecACMLogo = withBase('/images/tec-acm-purple-gold.webp');
@@ -27,16 +28,19 @@ interface Page {
   url: string;
 }
 
-const pages: Page[] = [
-  { text: 'ABOUT', url: '/' },
-  { text: 'SCHEDULE', url: '/schedule' },
-  { text: 'SPONSORS', url: '/sponsors' },
-  { text: 'HALL OF FAME', url: '/halloffame' },
-  { text: 'FAQ', url: '/faq' },
-  { text: 'CONTACT', url: '/contact-us' }
-];
+function usePages(t: (k:string)=>string): Page[] {
+  return [
+    { text: t('nav.about'), url: '/' },
+    { text: t('nav.schedule'), url: '/schedule' },
+    { text: t('nav.sponsors'), url: '/sponsors' },
+    { text: t('nav.hof'), url: '/halloffame' },
+    { text: t('nav.faq'), url: '/faq' },
+    { text: t('nav.contact'), url: '/contact-us' }
+  ];
+}
 
 function Navbar() {
+  const { lang, setLang, t } = useI18n();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -48,13 +52,14 @@ function Navbar() {
   };
 
   const location = useLocation();
+  const pages = usePages(t);
 
   return (
     <AppBar position="fixed" color='primary'>
       <Container maxWidth={false}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MLHTrustBadge/>
-        <a href='#'>
+  <a href='#' aria-label="Go to top" title="HackMTY">
           <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'none', md: 'flex' }, mr: '2vw', height:40, 
                 transition: 'transform 0.3s ease',
                 '&:hover': {
@@ -63,7 +68,7 @@ function Navbar() {
                 },
             }}/>
         </a>
-        <a href='https://tec.acm.org' target="_blank" rel="noopener noreferrer">
+        <a href='https://tec.acm.org' target="_blank" rel="noopener noreferrer" aria-label="Visit Tec ACM" title="Tec ACM">
           <Box component="img" src={TecACMLogo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, height:40,
             transition: 'transform 0.3s ease',
                 '&:hover': {
@@ -74,10 +79,10 @@ function Navbar() {
         </a>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
-            <a href='#'>
+            <a href='#' aria-label="Go to top" title="HackMTY">
               <Box component="img" src={HackMtyLogo} sx={{ display: { xs: 'flex', md: 'none' }, mt:"0.5vh", mx: "2vw", height:40}}/>
             </a>
-            <a href='https://tec.acm.org' target="_blank" rel="noopener noreferrer">
+            <a href='https://tec.acm.org' target="_blank" rel="noopener noreferrer" aria-label="Visit Tec ACM" title="Tec ACM">
               <Box component="img" src={TecACMLogo} sx={{ display: { xs: 'flex', md: 'none' }, mt:"0.5vh", mr: "1vw", height:40}}/>
             </a>
 
@@ -122,6 +127,9 @@ function Navbar() {
                   <Typography sx={{textAlign: 'center', color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}>{page.text}</Typography>
                 </MenuItem>
               ))}
+              <MenuItem onClick={() => { setLang(lang === 'en' ? 'es' : 'en'); handleCloseNavMenu(); }}>
+                <Typography sx={{textAlign: 'center', color:'white'}}>{lang === 'en' ? 'ES' : 'EN'}</Typography>
+              </MenuItem>
 
               <Box component="a" href="https://facebook.com/HackMTY/" target="_blank" paddingLeft={1.5}>
                 <SvgIcon component={FacebookIcon} inheritViewBox sx={{fontSize:30, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, mr:4}}/>
@@ -156,6 +164,12 @@ function Navbar() {
                 {page.text}
               </Button>
             ))}
+            <Button
+              onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
+              sx={{my: 2, color: 'white', fontWeight:600, border: '1px solid rgba(255,255,255,0.4)', minWidth: 0, px: 1.5, marginRight:'2vw'}}
+            >
+              {lang === 'en' ? 'ES' : 'EN'}
+            </Button>
             
             <Box component="a" href="https://facebook.com/HackMTY/" target="_blank">
                 <SvgIcon component={FacebookIcon} inheritViewBox sx={{fontSize:30, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, mr:4}}/>
