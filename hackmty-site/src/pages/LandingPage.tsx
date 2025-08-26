@@ -86,7 +86,8 @@ function LandingPage() {
                     </Box>
                 </AnimateOnView>
                 <TitleCard title="Registration Now Open!"></TitleCard>
-                <Box display='flex' width='32%' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginY={'16vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
+                <Box display='flex' width='32%' sx={{flexDirection:'column'}} alignItems={'center'} mx={'5vw'}>
+                    <TitleCard title="Steps for registering" sxBoxProps={{width:'90%', marginTop:'7vh', marginBottom:'5vh'}} sxTextProps={{fontSize:'clamp(0.9rem, 1vw + 0.9rem, 2.5rem)', fontWeight:700}}></TitleCard>
                     <StepperSection steps={registrationSteps} url="https://registration.hackmty.com/auth/register/" />
                 </Box>
                 <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>

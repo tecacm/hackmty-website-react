@@ -67,7 +67,7 @@ const MapComponent = ({ position, zoom=100, markers = []}: { position: [number, 
         </MapContainer>
       </Box>
         <Typography
-        sx={{ marginTop: 1, cursor: 'pointer', textAlign: 'center', color: 'white' }}
+        sx={{ marginTop: 2, cursor: 'pointer', textAlign: 'center', color: 'white', fontWeight: 400}}
         onClick={() => openGoogleMaps(position[0], position[1])}
         fontSize={'clamp(0.1rem, 1vw + 0.5rem, 2rem)'}
       >

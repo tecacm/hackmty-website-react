@@ -33,7 +33,7 @@ const Theme = createTheme({
             
           },
           // Default/inactive color
-          color: '#e4e4e4ff',
+          color: '#ffffffff',
           '& text': {
             fill: '#662d91', // <-- number inside circle
             fontWeight: '600'
@@ -42,6 +42,15 @@ const Theme = createTheme({
         
       },
     },
+     MuiStepConnector: {
+      styleOverrides: {
+        line: {
+          borderColor: '#ffffff', // <-- separator color white
+          borderTopWidth: 2,
+          borderRadius: 5
+        }
+      }
+    }
   }
 });
 
