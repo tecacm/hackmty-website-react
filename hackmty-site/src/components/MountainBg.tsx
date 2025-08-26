@@ -1,10 +1,11 @@
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Cerro from "../assets/cerro_morado.svg?react";
 import Sun from "../assets/sun.svg?react";
 import CloudA from "../assets/cloud_a.svg?react";
 import CloudB from "../assets/cloud_b.svg?react";
 import CloudBottom from "../assets/cloud_bottom.svg?react";
+import { useTheme } from '@mui/material/styles';
 
 type MountainBgProps = {
   elementRef?: React.RefObject<HTMLDivElement | null>;
@@ -12,6 +13,8 @@ type MountainBgProps = {
 
 function MountainBg({elementRef} : MountainBgProps) {
     const [carrouselVisible, setMountainVisible] = useState(true);
+    const theme = useTheme();
+    var isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     const showCerro = elementRef ? !carrouselVisible : true;
 
@@ -46,7 +49,7 @@ function MountainBg({elementRef} : MountainBgProps) {
                     <Box
                         sx={{
                             position: 'fixed',
-                            bottom: 100,
+                            bottom: isMobile ? 40 : 100,
                             left: "-6vw",
                             transform: `${showCerro ? 'translateY(-200px)' : 'translateY(500px)'}`,
                             opacity: showCerro ? 1 : 0,
@@ -65,7 +68,7 @@ function MountainBg({elementRef} : MountainBgProps) {
                     <Box
                         sx={{
                             position: 'fixed',
-                            bottom: -80,
+                            bottom: isMobile ? -90 : -80,
                             right: "-20vw",
                             transform: `${showCerro ? 'translateY(-200px)' : 'translateY(500px)'}`,
                             opacity: showCerro ? 1 : 0,
@@ -91,7 +94,7 @@ function MountainBg({elementRef} : MountainBgProps) {
                         <Sun
                         style={{
                             position: 'fixed',
-                            bottom: 10, // your original vertical offset
+                            bottom: isMobile ? -50 : 10, // your original vertical offset
                             transform: `${showCerro ? 'translate(0%, 0)' : 'translate(0%, 500px)'}`,
                             scale: '0.6',
                             zIndex: -6,
@@ -104,7 +107,7 @@ function MountainBg({elementRef} : MountainBgProps) {
                         <Cerro
                         style={{
                             position: 'fixed',
-                            bottom: -200, // your original vertical offset
+                            bottom: isMobile ? -280 : -200, // your original vertical offset
                             transform: `${showCerro ? 'translate(3%, 0)' : 'translate(3%, 500px)'}`,
                             scale: '0.6',
                             zIndex: -5,
@@ -118,7 +121,7 @@ function MountainBg({elementRef} : MountainBgProps) {
                         <Box
                         sx={{
                             position: 'fixed',
-                            bottom: "-20vh",
+                            bottom: "-28vh",
                             transform: `${showCerro ? 'translateY(-200px)' : 'translateY(500px)'}`,
                             opacity: showCerro ? 1 : 0,
                             transition: 'opacity 2s ease, transform 1s ease',

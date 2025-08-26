@@ -24,9 +24,15 @@ function App() {
           zIndex: -100,
           top: 0,
           left: 0,
-          width: '100vw',
-          height: '100vh',
+          // Use 100% and env(safe-area-inset-*) to avoid iOS 16/17/18/26 quirks
+          width: '100%',
+          height: '100%',
           background: 'linear-gradient(to right, #662d91, #946cb2)',
+          // Extend into safe areas on iOS
+          paddingTop: 'env(safe-area-inset-top)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingLeft: 'env(safe-area-inset-left)',
+          paddingRight: 'env(safe-area-inset-right)',
         }}
       />
         <Box
