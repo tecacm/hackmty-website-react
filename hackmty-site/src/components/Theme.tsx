@@ -44,10 +44,9 @@ const Theme = createTheme({
     },
      MuiStepConnector: {
       styleOverrides: {
+        // Common color
         line: {
           borderColor: '#ffffff', // <-- separator color white
-          borderTopWidth: 2,
-          borderRadius: 5
         }
       }
     }
