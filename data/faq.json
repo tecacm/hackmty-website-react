@@ -1,7 +1,15 @@
 [
-    {
+  {
+    "title": "How long does HackMTY last?",
+    "description": "This year's edition of HackMTY will last 36 hours."
+  },
+  {
+    "title": "What venue will HackMTY occur in?",
+    "description": "HackMTY takes place at Tecnologico de Monterrey Campus Monterrey, inside Arena Borregos!"
+  },
+  {
     "title": "Will there be prizes?",
-    "description": "Of course there will be prizes although it isn't all about winning but what you learn and build during those 24 hours. But don't worry there will be a panel of judges that will select the three best hacks based on creativity, technical difficulty, design, and usefulness. Prizes for first, second and third place TBA. Sponsors also offer prizes for specific criteria, which they judge themselves."
+    "description": "Of course there will be prizes although it isn't all about winning but what you learn and build during those 36 hours. But don't worry there will be a panel of judges that will select the three best hacks based on creativity, technical difficulty, design, and usefulness. Prizes for first, second and third place TBA. Sponsors also offer prizes for specific criteria, which they judge themselves."
   },
   {
     "title": "How can I apply?",
@@ -21,7 +29,7 @@
   },
   {
     "title": "Not a student, but want to get involved?",
-    "description": "Unfortunately, you can't participate but you can be a mentor or even a sponsor. Email us at hello@hackmty.com or check our sponsor section for more information on becoming a sponsor."
+    "description": "Unfortunately, you can't participate but you can be a mentor, volunteer or even a sponsor. You can apply to be a mentor or volunteer at registration.hackmty.com. Or you can read the sponsor section for more information on becoming a sponsor and write us an email at hello@hackmty.com."
   },
   {
     "title": "Who can attend HackMTY?",
@@ -29,7 +37,7 @@
   },
   {
     "title": "How much does it cost?",
-    "description": "It's absolutely free! There is no entry fee, HackMTY will provide you with plenty of food, snacks, swag and prizes throughout the 24 hours."
+    "description": "It's absolutely free! There is no entry fee, HackMTY will provide you with plenty of food, snacks, swag and prizes throughout the 36 hours."
   },
   {
     "title": "Will there be travel reimbursements?",
