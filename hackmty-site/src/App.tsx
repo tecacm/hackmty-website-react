@@ -12,12 +12,12 @@ import ScrollToElement from './components/ScrollToElement';
 import FAQPage from './pages/FAQPage';
 import BreakpointBanner from './components/SizeBanner';
 
-// <BreakpointBanner></BreakpointBanner>
+const debugMode = false
 
 function App() {
   return (
     <>
-      <BreakpointBanner></BreakpointBanner>
+      {debugMode && <BreakpointBanner></BreakpointBanner>}
       <Box
         sx={{
           position: 'fixed',

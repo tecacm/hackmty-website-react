@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Button, Fade, Grow, Typography } from "@mui/material";
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
@@ -19,6 +19,16 @@ import StepperSection from "../components/StepperSection"
 const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 
 function LandingPage() {
+    const [registrationSteps, setRegistrationSteps] = useState<string[]>([]);
+
+    useEffect(() => {
+        // Load steps from public/data so it works in dev and prod without bundling and respects BASE_URL
+        fetch(withBase('/data/registration-steps.json'))
+            .then((res) => res.json())
+            .then((data: string[]) => setRegistrationSteps(data))
+            .catch(() => setRegistrationSteps([]));
+    }, []);
+
     const images:string[] = [
         withBase('/images/buildings/rectoria.webp'),
         withBase('/images/buildings/pavoreal.webp'),
@@ -54,13 +64,13 @@ function LandingPage() {
                 <ImageCarousel slideImages={images}></ImageCarousel>
                 <AnimateOnView transition={Grow} timeout={500}>
                     <Box position={'relative'}>
-                        <div style={{textAlign:'center', marginTop:'15vh', marginBottom:50}} id="hack-logo">
+                        <Box id="hack-logo" sx={{ textAlign:'center', mt:'15vh', mb:'50px' }}>
                             <Box component="img" src={HackMtyLogo} alt="HackMTY Logo" sx={{mr: 1, height:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
-                        </div>
+                        </Box>
                         <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
                             <Countdown dateTime="2025-10-24T11:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
                             <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>October 24-26</Typography>
-                            <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.8vw + 0.8rem, 3rem)', fontWeight:400, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>Hackathon @Tec de Monterrey, Monterrey NL</Typography>
+                            <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.7vw + 0.8rem, 3rem)', fontWeight:500, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>36 hour long Hackathon @Tec de Monterrey, Monterrey NL</Typography>
                             <Typography sx={{marginTop:5, color:'white', fontSize:'clamp(0.3rem, 2vw + 1.4rem, 7rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>10 Years of Hacking</Typography>
                         </Box>
                     </Box>
@@ -75,9 +85,9 @@ function LandingPage() {
                         <InformationCard title="All students welcome!" iconSvg={People} iconColor="secondary.main" description="Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee."></InformationCard>
                     </Box>
                 </AnimateOnView>
-                <TitleCard title="Registration Open Now!"></TitleCard>
-                <Box display='flex' width='32%' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginY={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                    <StepperSection></StepperSection>
+                <TitleCard title="Registration Now Open!"></TitleCard>
+                <Box display='flex' width='32%' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginY={'16vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
+                    <StepperSection steps={registrationSteps} url="https://registration.hackmty.com/auth/register/" />
                 </Box>
                 <TitleCard title="Map" sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>

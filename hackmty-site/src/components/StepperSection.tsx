@@ -7,9 +7,14 @@ import CenteredArrowPopover from './CenteredArrowPopover';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-const steps = ['Pre-register at registration.hackmty.com (It is mandatory for all four team members to pre-register and fill in the required information.)', 'You will receive a confirmation email for your pre-registration. After this you can add your team members under the Friends tab.', 'In the following days, you will receive an email confirming your invitation to the hackathon. (only one team member needs to confirm the invite).'];
+type StepperSectionProps = {
+  steps: string[];
+  url?: string;
+};
 
-export default function StepperSection() {
+const DEFAULT_URL = 'https://registration.hackmty.com/auth/register/';
+
+export default function StepperSection({ steps, url = DEFAULT_URL }: StepperSectionProps) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const [open, setOpen] = React.useState(false);
@@ -29,12 +34,25 @@ export default function StepperSection() {
     setAnchorEl(null);
   };
 
+  // Render helper: bold segments wrapped in **like this**
+  const renderWithBold = (text: string) => {
+    if (!text || !text.includes('**')) return text;
+    const parts = text.split('**');
+    return parts.map((part, idx) =>
+      idx % 2 === 1 ? (
+        <strong key={idx}>{part}</strong>
+      ) : (
+        <React.Fragment key={idx}>{part}</React.Fragment>
+      )
+    );
+  };
+
   return (
     <Box sx={
       { width: '100%', color: 'black', scale: 2, marginTop: '2vh', justifyContent: isMobile ? 'center' : 'flex-start', alignItems: 'flex-start'}} 
-      display={'flex'} paddingY={'2vh'} component={'a'} href='https://registration.hackmty.com/auth/register/' target="_blank" rel="noopener noreferrer">
+      display={'flex'} paddingY={'2vh'}>
         <Stepper activeStep={activeStep} orientation={isMobile ? "vertical" : "horizontal"} sx={{width: isMobile ? 'auto' : '100%'}}>
-        {steps.map((label, index) => (
+  {steps.map((label, index) => (
           <Step key={label} completed={false}>
             <StepLabel
               sx={{ color: 'purple', cursor: 'pointer' }}
@@ -51,7 +69,19 @@ export default function StepperSection() {
         anchorEl={anchorEl}
         onClose={handlePopoverClose}
       >
-        {steps[activeStep]}
+        <Box
+          component={'a'}
+          sx={{
+            color: 'inherit', // Inherit color from parent
+            textDecoration: 'none', // Remove underline if needed
+          }}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          
+        >
+            {steps && steps.length > 0 ? renderWithBold(steps[activeStep]) : ''}
+        </Box>
       </CenteredArrowPopover>
     </Box>
   );
