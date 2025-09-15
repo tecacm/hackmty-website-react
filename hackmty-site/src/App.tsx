@@ -13,8 +13,9 @@ import ScrollToElement from './components/ScrollToElement';
 import FAQPage from './pages/FAQPage';
 import BreakpointBanner from './components/SizeBanner';
 import ExternalRedirect from './components/ExternalRedirect';
+import HotelsPage from './pages/HotelsPage';
 
-const debugMode = false
+const debugMode = true
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
               <Route path="/halloffame" element={<HallOfFame/>} />
               <Route path="/faq" element={<FAQPage/>} />
               <Route path="/contact-us" element={<Navigate to={"/#contact-us"} />} />
+              <Route path="/hotels" element={<HotelsPage/>} />
               <Route path="/discord" element={<ExternalRedirect url="https://discord.com/invite/MRXWWBVB"/>} />
               <Route path="*" element={<Navigate to={"/"} />} />
             </Routes>
