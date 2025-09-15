@@ -6,6 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
@@ -44,6 +46,18 @@ function usePages(t: (k:string)=>string): Page[] {
 function Navbar() {
   const { lang, setLang, t } = useI18n();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+  const [canScrollRight, setCanScrollRight] = React.useState(false);
+
+  const updateScrollState = React.useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const atStart = el.scrollLeft <= 1;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    setCanScrollLeft(!atStart);
+    setCanScrollRight(!atEnd);
+  }, []);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -55,6 +69,53 @@ function Navbar() {
 
   const location = useLocation();
   const pages = usePages(t);
+
+  React.useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateScrollState();
+
+    const onScroll = () => updateScrollState();
+    el.addEventListener('scroll', onScroll, { passive: true });
+
+    // Map vertical wheel to horizontal scroll (helps Chrome users)
+    const onWheel = (e: WheelEvent) => {
+      if (!el) return;
+      if (el.scrollWidth <= el.clientWidth) return;
+      // Use whichever axis has the larger delta; fallback to deltaY
+      const dominant = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (dominant !== 0) {
+        el.scrollLeft += dominant;
+        e.preventDefault();
+      }
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+
+    // Update on resize
+    let ro: ResizeObserver | null = null;
+    if ('ResizeObserver' in window) {
+      ro = new ResizeObserver(() => updateScrollState());
+      ro.observe(el);
+    } else {
+      const onWindowResize = () => updateScrollState();
+      if (typeof window !== 'undefined' && (window as any).addEventListener) {
+        (window as any).addEventListener('resize', onWindowResize);
+      }
+      return () => {
+        el.removeEventListener('scroll', onScroll as any);
+        el.removeEventListener('wheel', onWheel as any);
+        if (typeof window !== 'undefined' && (window as any).removeEventListener) {
+          (window as any).removeEventListener('resize', onWindowResize);
+        }
+      };
+    }
+
+    return () => {
+      el.removeEventListener('scroll', onScroll as any);
+      el.removeEventListener('wheel', onWheel as any);
+      if (ro) ro.disconnect();
+    };
+  }, [updateScrollState]);
 
   return (
     <AppBar position="fixed" color='primary'>
@@ -144,46 +205,134 @@ function Navbar() {
               </Box>
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', alignItems:'center', mr:3 }}>
-            {pages.map((page) => (
+          <Box sx={{
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' },
+            alignItems: 'center',
+            mr: 3,
+            minWidth: 0,
+            gap: 1,
+          }}>
+            <Box sx={{ position: 'relative', flex: 1, minWidth: 0 }}>
+              <Box ref={scrollRef} sx={{
+                display: 'flex',
+                flexWrap: 'nowrap',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                overflowX: 'auto',
+                overflowY: 'hidden',
+                WebkitOverflowScrolling: 'touch',
+                scrollbarWidth: 'thin',
+                px: 2.5,
+                minHeight: 64,
+                overscrollBehaviorX: 'contain',
+              }}>
+                {pages.map((page) => (
+                  <Button
+                    key={page.text}
+                    onClick={handleCloseNavMenu}
+                    sx={(theme) => ({ 
+                      my: 2, color: 'white', 
+                      backgroundColor: location.pathname === page.url ? 'secondary.main' : undefined, 
+                      transition: 'background-color 0.3s ease, color 0.3s ease', '&:hover': { 
+                        backgroundColor: location.pathname === page.url ? darken(theme.palette.secondary.main, 0.3) : undefined,
+                        color: location.pathname != page.url ? 'secondary.main' : 'white', 
+                      }, 
+                      display: 'block', 
+                      fontSize:'clamp(0.4rem, 1vw + 0.1rem, 1rem)', 
+                      fontWeight:500, 
+                      letterSpacing:'1px', 
+                      mr:'1vw',
+                      padding: '12px 1.1vw',
+                      flexShrink: 0,
+                    })}
+                    component={Link} 
+                    to={page.url}
+                  >
+                    {page.text}
+                  </Button>
+                ))}
+              </Box>
+              {canScrollLeft && (
+                <Box sx={(theme) => ({
+                  pointerEvents: 'none',
+                  position: 'absolute',
+                  left: 0,
+                  top: 0,
+                  height: '100%',
+                  width: 28,
+                  background: `linear-gradient(to right, ${theme.palette.primary.main}, rgba(0,0,0,0))`,
+                  zIndex: 1,
+                })} />
+              )}
+              {canScrollRight && (
+                <Box sx={(theme) => ({
+                  pointerEvents: 'none',
+                  position: 'absolute',
+                  right: 0,
+                  top: 0,
+                  height: '100%',
+                  width: 28,
+                  background: `linear-gradient(to left, ${theme.palette.primary.main}, rgba(0,0,0,0))`,
+                  zIndex: 1,
+                })} />
+              )}
+              {canScrollLeft && (
+                <IconButton
+                  aria-label="scroll left"
+                  onClick={() => scrollRef.current?.scrollBy({ left: -200, behavior: 'smooth' })}
+                  sx={{
+                    position: 'absolute',
+                    left: 2,
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    bgcolor: 'rgba(0,0,0,0.25)',
+                    color: 'white',
+                    '&:hover': { bgcolor: 'rgba(0,0,0,0.35)' },
+                    zIndex: 2,
+                  }}
+                  size="small"
+                >
+                  <ChevronLeftIcon />
+                </IconButton>
+              )}
+              {canScrollRight && (
+                <IconButton
+                  aria-label="scroll right"
+                  onClick={() => scrollRef.current?.scrollBy({ left: 200, behavior: 'smooth' })}
+                  sx={{
+                    position: 'absolute',
+                    right: 2,
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    bgcolor: 'rgba(0,0,0,0.25)',
+                    color: 'white',
+                    '&:hover': { bgcolor: 'rgba(0,0,0,0.35)' },
+                    zIndex: 2,
+                  }}
+                  size="small"
+                >
+                  <ChevronRightIcon />
+                </IconButton>
+              )}
+            </Box>
+
+            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1 }}>
               <Button
-                key={page.text}
-                onClick={handleCloseNavMenu}
-                sx={(theme) => ({ 
-                  my: 2, color: 'white', 
-                  backgroundColor: location.pathname === page.url ? 'secondary.main' : undefined, 
-                  transition: 'background-color 0.3s ease, color 0.3s ease', '&:hover': { 
-                    backgroundColor: location.pathname === page.url ? darken(theme.palette.secondary.main, 0.3) : undefined,
-                    color: location.pathname != page.url ? 'secondary.main' : 'white', 
-                  }, 
-                  display: 'block', 
-                  fontSize:'clamp(0.4rem, 1vw + 0.1rem, 1rem)', 
-                  fontWeight:500, 
-                  letterSpacing:'1px', 
-                  mr:'1vw',
-                  padding: '12px 1.1vw',
-                })}
-                component={Link} 
-                to={page.url}
+                onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
+                sx={{my: 2, color: 'white', fontWeight:600, border: '1px solid rgba(255,255,255,0.4)', minWidth: 0, px: 1.5, mr: '2vw', flexShrink: 0}}
               >
-                {page.text}
+                {lang === 'en' ? 'ES' : 'EN'}
               </Button>
-            ))}
-            <Button
-              onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
-              sx={{my: 2, color: 'white', fontWeight:600, border: '1px solid rgba(255,255,255,0.4)', minWidth: 0, px: 1.5, marginRight:'2vw'}}
-            >
-              {lang === 'en' ? 'ES' : 'EN'}
-            </Button>
-            
-            <Box component="a" href="https://facebook.com/HackMTY/" target="_blank">
-                <SvgIcon component={FacebookIcon} inheritViewBox sx={{fontSize:30, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, mr:4}}/>
-            </Box>
-            <Box component="a" href="https://instagram.com/hackmty/" target="_blank">
-                <SvgIcon component={InstagramIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main'}, mr: 4}}/>
-            </Box>
-            <Box component="a" href="https://hackmty.com/discord" target="_blank">
-                <SvgIcon component={DiscordIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
+              <Box component="a" href="https://facebook.com/HackMTY/" target="_blank" sx={{ flexShrink: 0 }}>
+                  <SvgIcon component={FacebookIcon} inheritViewBox sx={{fontSize:30, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}, mr:4}}/>
+              </Box>
+              <Box component="a" href="https://instagram.com/hackmty/" target="_blank" sx={{ flexShrink: 0 }}>
+                  <SvgIcon component={InstagramIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main'}, mr: 4}}/>
+              </Box>
+              <Box component="a" href="https://hackmty.com/discord" target="_blank" sx={{ flexShrink: 0 }}>
+                  <SvgIcon component={DiscordIcon} inheritViewBox sx={{fontSize:27, color:'white', transition: 'color 0.3s ease', '&:hover': { color: 'secondary.main',}}}/>
+              </Box>
             </Box>
           </Box>
           
