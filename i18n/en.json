@@ -5,6 +5,7 @@
   "nav.hof": "HALL OF FAME",
   "nav.faq": "FAQ",
   "nav.contact": "CONTACT",
+  "nav.hotels": "HOTELS",
   "cta.registrationOpen": "Registration Now Open!",
   "section.about": "About us",
   "section.map": "Map",
@@ -49,4 +50,20 @@
   "countdown.short.mins": "mins",
   "countdown.short.sec": "sec",
   "countdown.short.secs": "secs"
+
+  ,"hotels.title": "Hotels",
+  "hotels.contactInfo": "Contact",
+  "hotels.contactName": "Contact Name",
+  "hotels.phone": "Phone",
+  "hotels.email": "Email",
+  "hotels.reserveNow": "Reserve Now",
+  "hotels.information": "Information",
+
+  "hotels.price": "Price",
+  "hotels.address": "Address",
+  "hotels.distance": "Distance",
+  "hotels.discountCode": "Discount Code",
+  "hotels.blockCode": "Reservation Block Code",
+  "hotels.includes": "Includes",
+  "hotels.disclaimer": "The group is in an OPEN BLOCK arrangement. This means there are no pre‑reserved rooms for the event. We recommend you make your reservation as soon as possible. Transportation is not included."
 }

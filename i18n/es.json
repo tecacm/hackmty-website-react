@@ -5,6 +5,7 @@
   "nav.hof": "SALÓN DE LA FAMA",
   "nav.faq": "PREGUNTAS",
   "nav.contact": "CONTACTO",
+  "nav.hotels": "HOTELES",
   "cta.registrationOpen": "¡Registro abierto!",
   "section.about": "Sobre nosotros",
   "section.map": "Mapa",
@@ -52,4 +53,20 @@
   "countdown.short.mins": "mins",
   "countdown.short.sec": "sec",
   "countdown.short.secs": "secs"
+
+  ,"hotels.title": "Hoteles",
+  "hotels.contactInfo": "Contacto",
+  "hotels.contactName": "Nombre de contacto",
+  "hotels.phone": "Teléfono",
+  "hotels.email": "Correo",
+  "hotels.reserveNow": "Reservar ahora",
+  "hotels.information": "Información",
+
+  "hotels.price": "Precio",
+  "hotels.address": "Dirección",
+  "hotels.distance": "Distancia",
+  "hotels.discountCode": "Código de descuento",
+  "hotels.blockCode": "Código de bloque",
+  "hotels.includes": "Incluye",
+  "hotels.disclaimer": "El grupo esta en formato de SEGMENTO ABIERTO. Esto quiere decir que no existen habitaciones prereservadas para el evento. Les recomendamos que inicien la reservación a la brevedad. No se incluye transporte."
 }
