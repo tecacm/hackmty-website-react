@@ -28,6 +28,18 @@ function HotelsPage() {
     const { t } = useI18n();
     const [hotels, setHotels] = useState<HotelEntry[]>([]);
 
+    const slugify = (s: string) => {
+        const cleaned = s.toString().trim().replace(/[^a-zA-Z0-9\s-_]+/g, ' ');
+        const parts = cleaned.split(/[-_\s]+/).filter(Boolean);
+        if (parts.length === 0) return '';
+        const first = parts[0].toLowerCase();
+        const rest = parts
+            .slice(1)
+            .map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase())
+            .join('');
+        return `${first}${rest}`;
+    };
+
     useEffect(() => {
         fetch(withBase('/data/hotels.json'))
         .then((res) => res.json())
@@ -76,57 +88,65 @@ function HotelsPage() {
                                         </Box>
                                         )
                                     }
-                                    <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: '1.3rem' }}>{t('hotels.contactInfo', 'Contact')}</Typography>
+                                    <Box display="flex" flexDirection={'column'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
+                                        <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: '1.3rem' }}>{t('hotels.contactInfo', 'Contact')}</Typography>
 
-                                    <Box display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{t('hotels.contactName', 'Contact Name')}:{'\u00A0'}</Typography> 
-                                        <Typography variant="body2" sx={{ fontSize: '1.1rem' }}>{hotel.contactInfo?.name}</Typography>
-                                    </Box>
-                                    {hotel.contactInfo?.phone && 
-                                      <Box display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{t('hotels.phone', 'Phone')}:{'\u00A0'}</Typography> 
-                                        <Typography variant="body2" component="a" href={`tel:${hotel.contactInfo?.phone}`} sx={{ color: 'inherit', fontSize: '1.1rem' }}>{hotel.contactInfo?.phone}</Typography>
-                                      </Box>
-                                    }
-                                    
-                                    {hotel.contactInfo?.emails && hotel.contactInfo.emails.map((email, emailIndex) => (
+                                        <Box display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
+                                            <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{t('hotels.contactName', 'Contact Name')}:{'\u00A0'}</Typography> 
+                                            <Typography variant="body2" sx={{ fontSize: '1.1rem' }}>{hotel.contactInfo?.name}</Typography>
+                                        </Box>
+                                        {hotel.contactInfo?.phone && 
+                                        <Box display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
+                                            <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{t('hotels.phone', 'Phone')}:{'\u00A0'}</Typography> 
+                                            <Typography variant="body2" component="a" href={`tel:${hotel.contactInfo?.phone}`} sx={{ color: 'inherit', fontSize: '1.1rem' }}>{hotel.contactInfo?.phone}</Typography>
+                                        </Box>
+                                        }
+                                        
+                                        {hotel.contactInfo?.emails && hotel.contactInfo.emails.map((email, emailIndex) => (
 
-                                      <Box key={emailIndex} display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{t('hotels.email', 'Email')}:{'\u00A0'}</Typography> 
-                                        <Typography component="a" href={`mailto:${email}`} variant="body2" sx={{color: 'inherit', fontSize: '1.1rem' }}>{email}</Typography>
-                                      </Box>
-                                    ))
-                                    }  
-                                    <Box height={'4vh'}/>
-                                    <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: '1.3rem' }}>{t('hotels.contactInfo', 'Information:')}</Typography>
-                                    {hotel.infoSection.map((info, infoIndex) => {
-                                        const title = Object.keys(info)[0];
-                                        const content = info[title];
-                                        return (
-                                            <Box key={infoIndex} display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
-                                                <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{title}:{'\u00A0'}</Typography> 
-                                                <Typography variant="body2" sx={{ fontSize: '1.1rem' }}>{content}</Typography>
-                                            </Box>
-                                        );
-                                    })}
+                                        <Box key={emailIndex} display="flex" flexDirection={'row'} justifyContent="center" alignItems={'center'} sx={{width: '80%'}}>
+                                            <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{t('hotels.email', 'Email')}:{'\u00A0'}</Typography> 
+                                            <Typography component="a" href={`mailto:${email}`} variant="body2" sx={{color: 'inherit', fontSize: '1.1rem' }}>{email}</Typography>
+                                        </Box>
+                                        ))
+                                        }  
+                                        <Box height={'4vh'}/>
+                                        <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: '1.3rem' }}>{t('hotels.information', 'Information')}</Typography>
+                                        {hotel.infoSection.map((info, infoIndex) => {
+                                            const rawTitle = Object.keys(info)[0];
+                                            const content = info[rawTitle] || '';
+                                            const infoKey = `hotels.${slugify(rawTitle)}`;
+                                            const translatedTitle = t(infoKey, rawTitle);
+                                            const lines = content.split(/\r?\n/).filter(Boolean);
+                                            return (
+                                                <Box key={infoIndex} display="flex" flexDirection={'column'} justifyContent="center" alignItems={'center'} sx={{width: '80%', marginY:'1vh'}}>
+                                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{translatedTitle}:{'\u00A0'}</Typography>
+                                                    {lines.map((line, li) => (
+                                                        <Typography key={li} variant="body2" sx={{ fontSize: '1.1rem', mt: li === 0 ? 0.5 : 0.5 }}>{line}</Typography>
+                                                    ))}
+                                                </Box>
+                                            );
+                                        })}
 
-                                    {hotel.contactInfo?.footnote && <Typography component="em" variant="body2" sx={{ fontStyle: 'italic'}}>{hotel.contactInfo.footnote}</Typography>}                                      
+                                        {hotel.contactInfo?.footnote && <Typography component="em" variant="body2" sx={{ fontStyle: 'italic', fontSize: '1.1rem' }}>{hotel.contactInfo.footnote}</Typography>}                                      
+                                        <Typography variant="body1" sx={{paddingY:'2vh', fontStyle: 'italic', fontSize: '1.1rem' }}>{t('hotels.disclaimer', 'Disclaimer')}</Typography>
 
-                                    {hotel.reservationsURL && 
-                                            <Button
-                                            variant="contained"
-                                            color="secondary"
-                                            sx={{marginTop: '2vh', paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
-                                            component="a" 
-                                            href={hotel.reservationsURL}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            >
-                                            <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
-                                                {t('hotels.reserveNow', 'Reserve Now')}
-                                            </Typography>
-                                        </Button>
-                                    }
+                                        {hotel.reservationsURL && 
+                                                <Button
+                                                variant="contained"
+                                                color="secondary"
+                                                sx={{marginTop: '2vh', paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
+                                                component="a" 
+                                                href={hotel.reservationsURL}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >
+                                                <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
+                                                    {t('hotels.reserveNow', 'Reserve Now')}
+                                                </Typography>
+                                            </Button>
+                                        }
+                                    </Box>  
                                 </Box>  
                             );
                         })}

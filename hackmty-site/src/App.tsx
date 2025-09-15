@@ -15,7 +15,7 @@ import BreakpointBanner from './components/SizeBanner';
 import ExternalRedirect from './components/ExternalRedirect';
 import HotelsPage from './pages/HotelsPage';
 
-const debugMode = true
+const debugMode = false
 
 function App() {
   return (

@@ -1,47 +1,18 @@
 [
   {
-    "name": "Hotel One",
-    "imgIcon": "/images/buildings/ciap.webp",
-    "url": "https://hotelone.example.com",
+    "name": "one Monterrey Tecnológico",
+    "imgIcon": "/images/2025/hotels/one-hotel.jpg",
+    "url": "https://www.fiestamericanatravelty.com/one-hoteles/hoteles/one-monterrey-tecnologico",
     "contactInfo": {
-      "name": "John Doe",
-      "phone": "+52 81 1234 5678",
-      "emails": ["info@hotelone.com", "reservations@hotelone.com"],
-      "footnote": "24/7 front desk"
+        "phone": "+52 800 504 5000",
+        "footnote": "Pricing available until October 26, 2025. Taxes included."
     },
     "infoSection": [
-      { "Address": "123 Main St, Monterrey, NL" },
-      { "Distance": "2 km from venue" },
-      { "Price": "$100/night" }
+      { "Price": "\nSingle or Double: 1850 mxn/night\nTriple: 2207 mxn/night\nQuad: 2564 mxn/night" },
+      { "Address": "one Monterrey Tecnológico, Av. Eugenio Garza Sada 2408, Roma, 64700 Monterrey, N.L." },
+      { "Distance": "1km from venue, 100 meters from school" },
+      { "Reservation Block Code": "G1UF9I@OTT" },
+      { "Includes": "American Style Buffet Breakfast\nWi-Fi in Room and Public Areas\nFree Parking\nAccess to Laundry Room" }
     ]
-  },
-  {
-    "name": "Hotel Two",
-    "imgIcon": "/images/buildings/rectoria.webp",
-    "url": "https://hoteltwo.example.com",
-    "contactInfo": {
-      "name": "Rosa Melano",
-      "phone": "+52 81 8765 4321",
-      "emails": ["contact@hoteltwo.com"]
-    },
-    "infoSection": [
-      { "Address": "456 Side Ave, Monterrey, NL" },
-      { "Distance": "3.5 km from venue" },
-      { "Price": "$85/night" }
-    ]
-  },
-  {
-    "name": "Hotel Three",
-    "imgIcon": "/images/buildings/skyview.webp",
-    "url": "https://hotelthree.example.com",
-    "contactInfo": {
-      "name": "Jane Smith"
-    },
-    "infoSection": [
-      { "Address": "789 Downtown Blvd, Monterrey, NL" },
-      { "Distance": "1 km from venue" },
-      { "Price": "$120/night" }
-    ],
-    "reservationsURL": "https://hotelthree.example.com/reservations"
   }
 ]

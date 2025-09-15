@@ -36,7 +36,8 @@ function usePages(t: (k:string)=>string): Page[] {
     { text: t('nav.sponsors'), url: '/sponsors' },
     { text: t('nav.hof'), url: '/halloffame' },
     { text: t('nav.faq'), url: '/faq' },
-    { text: t('nav.contact'), url: '/contact-us' }
+    { text: t('nav.contact'), url: '/contact-us' },
+    { text: t('nav.hotels'), url: '/hotels' }
   ];
 }
 
