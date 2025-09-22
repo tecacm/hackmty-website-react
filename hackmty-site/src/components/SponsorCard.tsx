@@ -14,18 +14,20 @@ function SponsorCard(sponsor:SponsorBoxProps) {
                         component="img"
                         src={sponsor.iconSvg}
                         sx={{
-                        height: '60%',
+                        height: 'auto',
                         width: 'auto',
-                        maxWidth: '90%',
+                        maxWidth: '80%',
+                        objectFit: 'contain',
                         }}
                     />) : sponsor.iconImage ? (
                         <Box
                         component="img"
                         src={sponsor.iconImage}
                         sx={{
-                        height: '60%',
+                        height: 'auto',
                         width: 'auto',
-                        maxWidth: '90%',
+                        maxWidth: '80%',
+                        objectFit: 'contain',
                         }}
                         />
                     ) : null
