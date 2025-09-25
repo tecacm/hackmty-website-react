@@ -59,7 +59,7 @@ function App() {
               <Route path="/faq" element={<FAQPage/>} />
               <Route path="/contact-us" element={<Navigate to={"/#contact-us"} />} />
               <Route path="/hotels" element={<HotelsPage/>} />
-              <Route path="/discord" element={<ExternalRedirect url="https://discord.com/invite/MRXWWBVB"/>} />
+              <Route path="/discord" element={<ExternalRedirect url="https://discord.gg/RCsEZWreN6"/>} />
               <Route path="*" element={<Navigate to={"/"} />} />
             </Routes>
           </Box>
