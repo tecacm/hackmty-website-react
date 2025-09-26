@@ -1,7 +1,15 @@
 [
     {
         "imgIcon": "/images/sponsors/2025/capital-one.png",
-        "url": "https://www.capitalone.com"
+        "url": "https://www.capitalone.com/tech/mexico/"
+    },
+    {
+        "imgIcon": "/images/sponsors/2025/oracle.png",
+        "url": "https://www.oracle.com/mx/"
+    },
+    {
+        "imgIcon": "/images/sponsors/2025/chubb.png",
+        "url": "https://www.chubb.com/mx-es/"
     },
     {
         "imgIcon": "/images/sponsors/2025/nuevo-leon.png",
