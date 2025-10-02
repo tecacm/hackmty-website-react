@@ -14,5 +14,23 @@
       { "Reservation Block Code": "G1UF9I@OTT" },
       { "Includes": "American Style Buffet Breakfast\nWi-Fi in Room and Public Areas\nFree Parking\nAccess to Laundry Room" }
     ]
+  },
+   {
+    "name": "Holiday Inn Monterrey Valle",
+    "imgIcon": "/images/2025/hotels/holiday-inn.jpg",
+    "url": "https://www.ihg.com/holidayinn/hotels/us/es/monterrey/mtyzv/hoteldetail",
+    "contactInfo": {
+        "phone": "+52 81 81 33 08 08",
+        "email": "jose.calderon@fibrainn.mx",
+        "footnote": "Pricing available from October 23-27, 2025. Taxes not included."
+    },
+    "infoSection": [
+      { "Price": "\nSingle or Double (2 adults): 1890 mxn/night" },
+      { "Address": "Av Lázaro Cárdenas 2305, Residencial San Agustín 1er Sector, 66260 Monterrey, N.L." },
+      { "Distance": "6.3km from venue, 15 minute car ride (transport not included)" },
+      { "Details": "Check-in 15:00\n Check-out 13:00" },
+      { "Includes": "European Plan (no meals included)\n High Speed Wi-Fi\nFree Parking\nPool Access" }
+    ],
+    "reservationsURL": "https://www.ihg.com/holidayinn/hotels/us/es/find-hotels/select-roomrate?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=MTYZV&qCiD=23&qCiMy=092025&qCoD=27&qCoMy=092025&qGrpCd=HAC&setPMCookies=true&qSHBrC=HI&qDest=Lazaro%20Cardenas%202305,%20Monterrey,%20NLE,%20MX&showApp=true&adjustMonth=false&srb_u=1&qRmFltr="
   }
 ]
