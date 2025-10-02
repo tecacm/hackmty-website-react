@@ -61,6 +61,10 @@ function HotelsPage() {
                                     <Typography variant="h1" sx={{textShadow:"0px 2px 4px rgba(0, 0, 0, 0.3)", fontWeight:'bold', marginBottom: '3vh'}}>{hotel.name || `Hotel ${index + 1}`}</Typography>
                                     {iconUrl && (
                                         <Box
+                                        component="a"
+                                        href={hotel.url || '#'}
+                                        target="_blank"
+                                        rel="noopener noreferrer"           
                                             sx={{
                                             width: '100%',
                                             maxWidth: { xs: '90vw', sm: '60vw', md: '70vw', lg: '50vw' },
