@@ -15,15 +15,24 @@ type FeatherData = {
   swayDuration: number; 
 };
 
-const generateFeather = (id: number): FeatherData => ({
-  id,
-  left: Math.random() * 100,
-  duration: 20 + Math.random() * 10,
-  delay: Math.random() * 5,
-  size: 100 + Math.random() * 50,
-  rotation: Math.random() * 360,
-  swayDuration: 6 + Math.random() * 4,
-});
+const generateFeather = (id: number): FeatherData => {
+  const isMobile = window.innerWidth < 600;
+  const baseSize = isMobile ? 60 : 100;
+  const sizeRange = isMobile ? 30 : 50;
+
+    const duration = isMobile
+    ? 32 + Math.random() * 10  // mobile
+    : 20 + Math.random() * 10;
+  return {
+    id,
+    left: Math.random() * 100,
+    duration,
+    delay: Math.random() * 5,
+    size: baseSize + Math.random() * sizeRange,
+    rotation: Math.random() * 360,
+    swayDuration: 6 + Math.random() * 4,
+  };
+};
 
 let featherId = 0;
 
