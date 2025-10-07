@@ -21,7 +21,7 @@
     "url": "https://www.ihg.com/holidayinn/hotels/us/es/monterrey/mtyzv/hoteldetail",
     "contactInfo": {
         "phone": "+52 81 81 33 08 08",
-        "email": "jose.calderon@fibrainn.mx",
+        "emails": ["jose.calderon@fibrainn.mx"],
         "footnote": "Pricing available from October 23-27, 2025. Taxes not included."
     },
     "infoSection": [
@@ -32,5 +32,23 @@
       { "Includes": "European Plan (no meals included)\n High Speed Wi-Fi\nFree Parking\nPool Access" }
     ],
     "reservationsURL": "https://www.ihg.com/holidayinn/hotels/us/es/find-hotels/select-roomrate?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=MTYZV&qCiD=23&qCiMy=092025&qCoD=27&qCoMy=092025&qGrpCd=HAC&setPMCookies=true&qSHBrC=HI&qDest=Lazaro%20Cardenas%202305,%20Monterrey,%20NLE,%20MX&showApp=true&adjustMonth=false&srb_u=1&qRmFltr="
+  },
+   {
+    "name": "Tru by Hilton Monterrey Fundidora",
+    "imgIcon": "/images/2025/hotels/tru-hilton.jpg",
+    "url": "https://www.hilton.com/es/hotels/mtymaru-tru-monterrey-fundidora/",
+    "contactInfo": {
+        "phone": "+52 81 3040 6050 Ext 1001",
+        "emails": ["sindy.perez@hilton.com", "adrian.salinas@hilton.com"],
+        "footnote": "Pricing available from October 24-26, 2025. Reservation Limit Date October 20, 2025. Taxes not included."
+    },
+    "infoSection": [
+      { "Price": "\nSingle Bed (1 or 2 adults): 1500 mxn/night\nDouble 2 Beds (1 or 2 adults): 1500 mxn/night\nTriple 2 Beds (3 adults): 1780 mxn/night\nQuad 2 Beds (4 adults): 1780 mxn/night" },
+      { "Address": "Av. Francisco I. Madero 2427-Oriente, Acero, 64580 Monterrey, N.L." },
+      { "Distance": "5.4km from venue, 8 minute car ride (transport not included)" },
+      { "Details": "Check-in 15:00\n Check-out 12:00" },
+      { "Code": "When reserving through email or phone, mention EVENTO HACKMTY 2025 to receive the special tariff" },
+      { "Includes": "American Style Buffet Breakfast\nWi-Fi in Room and Public Areas\nFree Parking\nAccess to Gym and Pool\nTransport from/to Airport (Subject to hotel's availability)" }
+    ]
   }
 ]
