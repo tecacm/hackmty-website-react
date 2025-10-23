@@ -76,7 +76,7 @@ function LandingPage() {
                             <Box component="img" src={HackMtyLogo} alt="HackMTY Logo" sx={{mr: 1, height:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
                         </Box>
                         <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
-                            <Countdown dateTime="2025-10-24T11:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
+                            <Countdown dateTime="2025-10-24T20:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
                             <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>{t('landing.date', 'October ')} 24-26</Typography>
                             <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.7vw + 0.8rem, 3rem)', fontWeight:500, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>{t('landing.description', '36 hour long Hackathon @Tec de Monterrey, Monterrey NL')}</Typography>
                             <Typography sx={{marginTop:5, color:'white', fontSize:'clamp(0.3rem, 2vw + 1.4rem, 7rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>{t('landing.subtitle', '10 Years of Hacking')}</Typography>
