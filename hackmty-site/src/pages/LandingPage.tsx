@@ -14,14 +14,14 @@ import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
 import People from '../assets/icons/people.svg?react';
 import PartyPopper from '../assets/icons/party-popper.svg?react';
 import { withBase } from "../utils/Utils";
-import StepperSection from "../components/StepperSection"
+//import StepperSection from "../components/StepperSection"
 import { useI18n } from "../i18n/I18nContext";
 
 const HackMtyLogo = withBase('/images/hackmty-logo.webp');
 
 function LandingPage() {
         const { t, lang } = useI18n();
-    const [registrationSteps, setRegistrationSteps] = useState<string[]>([]);
+        //const [registrationSteps, setRegistrationSteps] = useState<string[]>([]);
 
         useEffect(() => {
                 // Load language-specific steps if present, fallback to default
