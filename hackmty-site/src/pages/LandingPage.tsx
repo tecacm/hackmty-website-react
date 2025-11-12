@@ -93,11 +93,8 @@ function LandingPage() {
                         <InformationCard title={t('landing.cards.welcome.title', 'All students welcome!')} iconSvg={People} iconColor="secondary.main" description={t('landing.cards.welcome.desc', "Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee.")}></InformationCard>
                     </Box>
                 </AnimateOnView>
-                <TitleCard title={t('cta.registrationOpen', 'Registration Now Open!')}></TitleCard>
-                <Box display='flex' width='32%' sx={{flexDirection:'column'}} alignItems={'center'} mx={'5vw'}>
-                    <TitleCard title={t('landing.stepsTitle', lang === 'es' ? 'Pasos para registrarte' : 'Steps for registering')} sxBoxProps={{width:'90%', marginTop:'7vh', marginBottom:'5vh'}} sxTextProps={{fontSize:'clamp(0.9rem, 1vw + 0.9rem, 2.5rem)', fontWeight:700}}></TitleCard>
-                    <StepperSection steps={registrationSteps} url="https://registration.hackmty.com/auth/register/" />
-                </Box>
+                <TitleCard title={t('cta.registrationClosed', 'Registration Closed')}></TitleCard>
+                
                 <TitleCard title={t('section.map', 'Map')} sxBoxProps={{marginTop:'15vh'}}></TitleCard>
                 <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
                     <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>

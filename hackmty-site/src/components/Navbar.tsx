@@ -39,7 +39,7 @@ function usePages(t: (k:string)=>string): Page[] {
     { text: t('nav.hof'), url: '/halloffame' },
     { text: t('nav.faq'), url: '/faq' },
     { text: t('nav.contact'), url: '/contact-us' },
-    { text: t('nav.hotels'), url: '/hotels' }
+    { text: t('nav.photos'), url: 'https://drive.google.com/drive/folders/1GYxKYhHmDifONC-wwfmpR5fL1TLNkBI4?usp=sharing' }
   ];
 }
 
