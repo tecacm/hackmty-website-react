@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Box, Button, Fade, Grow, Typography } from "@mui/material";
 import Countdown from '../components/Countdown'
 import MapComponent from "../components/MapComponent";
@@ -28,13 +28,13 @@ function LandingPage() {
                 const url = withBase(`/data/registration-steps${lang === 'es' ? '.es' : ''}.json`);
                 fetch(url)
             .then((res) => res.json())
-            .then((data: string[]) => setRegistrationSteps(data))
+           /*.then((data: string[]) => setRegistrationSteps(data))
                         .catch(() => {
                             fetch(withBase('/data/registration-steps.json'))
                                 .then((res) => res.json())
                                 .then((data: string[]) => setRegistrationSteps(data))
                                 .catch(() => setRegistrationSteps([]));
-                        });
+                        });*/
         }, [lang]);
 
     const images:string[] = [
