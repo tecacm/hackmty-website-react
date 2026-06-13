@@ -39,7 +39,7 @@ export default function SiteHeader() {
         </Link>
         <div className={styles.divider} />
         <a
-          href="https://tecacm.org"
+          href="https://tec.acm.org/"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.brandLink}
