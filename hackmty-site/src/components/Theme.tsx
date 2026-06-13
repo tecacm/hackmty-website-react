@@ -7,7 +7,7 @@ const Theme = createTheme({
       main: '#222222', // gray
     },
     secondary: {
-      main: '#662d91', // purple
+      main: '#970a97', // purple HackMTY '26
     },
   },
   typography: {
@@ -35,7 +35,7 @@ const Theme = createTheme({
           // Default/inactive color
           color: '#ffffffff',
           '& text': {
-            fill: '#662d91', // <-- number inside circle
+            fill: '#970a97', // <-- number inside circle
             fontWeight: '600'
           },
         },

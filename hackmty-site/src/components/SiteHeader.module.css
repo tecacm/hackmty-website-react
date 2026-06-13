@@ -1,0 +1,187 @@
+/* ======================================================
+   SITE HEADER — HackMTY 2026 design system
+   Three-zone layout:
+     Left  — MLH badge (overflow) + brand block (in flow)
+     Center — nav (<nav> position:absolute so it's truly
+               centered on the full header width, not just
+               the remaining space between left and right)
+     Right  — lang button + socials (margin-left: auto)
+   ====================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 10, 11, 0.965);
+  color: #fff;
+  height: 56px;
+  display: flex;
+  align-items: stretch;
+  padding-right: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Left: MLH badge ── */
+/* Overflows the 56px header to 118px — intentional per MLH brand guidelines */
+.mlhBadgeLink {
+  display: flex;
+  align-items: flex-start;
+  align-self: flex-start;
+  margin-left: 20px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.mlhBadgeImg {
+  display: block;
+  height: 140px;
+  width: auto;
+}
+
+/* ── Left: brand logos ── */
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 40px;
+  flex-shrink: 0;
+}
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center;
+}
+.brandLink:hover { transform: scale(1.08); }
+.hmImg  { display: block; height: 36px; width: auto; }
+.divider { width: 1px; height: 26px; background: rgba(255,255,255,0.18); flex-shrink: 0; }
+.tecImg  { display: block; height: 28px; width: auto; }
+
+/* ── Center: nav — absolutely centered on the full header width ── */
+/* The <nav> has no className so we use a descendant selector.
+   position:absolute removes it from flex flow so the left and
+   right zones are unaffected; left:50%+translateX(-50%) centers
+   it on the viewport (= the full header) rather than on the
+   leftover space between brand-block and nav-right. */
+.header > nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  /* nav is z-index 0 inside z-index:50 header, so it stays on top of page
+     content but doesn't clip brand/navRight which are in flow above it */
+}
+
+.navLinks {
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* <li> must stretch too so the active pill fills the full header height */
+.navLinks > li {
+  display: flex;
+  align-items: stretch;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  isolation: isolate;
+  transition: color 0.2s;
+}
+.navLink:hover { color: #e8c478; }
+
+.navLinkActive { color: #fff; }
+.navLinkActive::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  right: 4px;
+  height: calc(100% - 18px);
+  transform: translateY(-50%);
+  background: #7a47a2;
+  border-radius: 6px;
+  z-index: -1;
+}
+
+/* ── Right: lang toggle + socials ── */
+/* margin-left:auto pushes this group to the far right now that
+   nav is out of flow (position:absolute). */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  padding-left: 14px;
+  border-left: 1px solid rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+.langBtn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  line-height: 1;
+  transition: background 0.2s, transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.langBtn:hover { background: rgba(255,255,255,0.08); transform: scale(1.08); }
+
+.socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.socialLink {
+  color: rgba(255,255,255,0.85);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.socialLink:hover { color: #d4a84b; transform: scale(1.18); }
+.socialLink svg { display: block; width: 17px; height: 17px; }
+.socialImg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.2s, filter 0.2s;
+}
+.socialLink:hover .socialImg {
+  opacity: 1;
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(15deg);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  /* Collapse nav at 900px so it doesn't clip the brand block */
+  .header > nav { display: none; }
+}
+@media (max-width: 600px) {
+  .socials   { display: none; }
+  .brandBlock { margin-left: 12px; }
+  .mlhBadgeLink { margin-left: 12px; }
+}

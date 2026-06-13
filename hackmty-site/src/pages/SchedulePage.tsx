@@ -1,22 +1,66 @@
-import { Box } from "@mui/material";
-import TitleCard from "../components/TitleCard";
-import FeatherRain from "../components/FeatherRain";
-import { useI18n } from "../i18n/I18nContext";
-
+import { Box, Typography } from '@mui/material';
+import MountainBg from '../components/MountainBg';
+import { useI18n } from '../i18n/I18nContext';
 
 function SchedulePage() {
-    const { t } = useI18n();
-    return (
-        <Box sx={{}}>
-            <FeatherRain/>
-            <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                <TitleCard title={t('schedule.title', 'Schedule')}/>
-                <Box display='flex' sx={{flexDirection:'row', width:'80%'}} gap={{xs: '2rem', md: '3vw'}} marginY={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                    <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vSy30Wadov_Tzsk8Km7sFpPa1tgYGvybv-vfiPHGX3LGwmQPPjKMv2GYXUJByYXi_HGw1rpZ3etjlvO&font=https://fonts.googleapis.com/css2?family=Montserrat&lang=en&initial_zoom=2&width=100%25&height=650' width='100%' height='650' allowFullScreen></iframe>
-                </Box>
-            </Box>
-        </Box>
-    )
+  const { t } = useI18n();
+  return (
+    <Box
+      sx={{
+        minHeight: '80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        textAlign: 'center',
+        px: '24px',
+      }}
+    >
+      <Typography
+        sx={{
+          fontFamily: 'Montserrat, sans-serif',
+          fontWeight: 800,
+          color: '#ffffff',
+          fontSize: 'clamp(2.5rem, 9vw, 7rem)',
+          letterSpacing: '-0.04em',
+          lineHeight: 0.95,
+          zIndex: 1,
+          textShadow: '0 2px 24px rgba(30,10,55,0.35)',
+        }}
+      >
+        {t('schedule.title', 'Schedule')}
+      </Typography>
+      <Typography
+        sx={{
+          fontFamily: 'Montserrat, sans-serif',
+          fontWeight: 600,
+          color: 'rgba(255,255,255,0.70)',
+          fontSize: 'clamp(0.7rem, 2vw, 1rem)',
+          letterSpacing: '0.28em',
+          textTransform: 'uppercase',
+          mt: 2.5,
+          zIndex: 1,
+        }}
+      >
+        {t('schedule.comingSoon', 'Coming Soon')}
+      </Typography>
+      <Typography
+        sx={{
+          fontFamily: 'Montserrat, sans-serif',
+          fontWeight: 400,
+          color: 'rgba(255,255,255,0.50)',
+          fontSize: 'clamp(0.65rem, 1.2vw, 0.9rem)',
+          letterSpacing: '0.08em',
+          mt: 1.5,
+          zIndex: 1,
+        }}
+      >
+        {t('schedule.stayTuned', 'Stay tuned to our social media!')}
+      </Typography>
+      <MountainBg />
+    </Box>
+  );
 }
 
 export default SchedulePage;

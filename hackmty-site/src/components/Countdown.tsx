@@ -27,7 +27,7 @@ const Countdown: React.FC<CountdownProps> = ({
 }) => {
   const { t } = useI18n();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const updateCountdown = () => {

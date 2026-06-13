@@ -1,138 +1,288 @@
-import { useEffect, useRef } from "react";
-import { Box, Button, Fade, Grow, Typography } from "@mui/material";
-import Countdown from '../components/Countdown'
-import MapComponent from "../components/MapComponent";
-import InformationCard from "../components/InformationCard";
-import TitleCard from "../components/TitleCard";
-import 'react-slideshow-image/dist/styles.css'
-import ImageCarousel from "../components/ImageCarousel";
-import MailChimpSignUp from "../components/MailChimpSignUp";
-import InstagramEmbed from "../components/InstagramEmbed";
-import AnimateOnView from "../components/AnimateOnView";
-import MountainBg from "../components/MountainBg";
-import PCCodeIcon from '../assets/icons/code-laptop.svg?react';
-import People from '../assets/icons/people.svg?react';
-import PartyPopper from '../assets/icons/party-popper.svg?react';
-import { withBase } from "../utils/Utils";
-//import StepperSection from "../components/StepperSection"
-import { useI18n } from "../i18n/I18nContext";
+import { useCallback, useEffect, useRef, useState } from 'react';
+import styles from './LandingPage.module.css';
+import { withBase } from '../utils/Utils';
+import { useI18n } from '../i18n/I18nContext';
+import Countdown from '../components/Countdown';
+import MountainBg from '../components/MountainBg';
 
-const HackMtyLogo = withBase('/images/hackmty-logo.webp');
+const TOTAL_SLIDES = 5;
 
 function LandingPage() {
-        const { t, lang } = useI18n();
-        //const [registrationSteps, setRegistrationSteps] = useState<string[]>([]);
+  const { t } = useI18n();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
-        useEffect(() => {
-                // Load language-specific steps if present, fallback to default
-                const url = withBase(`/data/registration-steps${lang === 'es' ? '.es' : ''}.json`);
-                fetch(url)
-            .then((res) => res.json())
-           /*.then((data: string[]) => setRegistrationSteps(data))
-                        .catch(() => {
-                            fetch(withBase('/data/registration-steps.json'))
-                                .then((res) => res.json())
-                                .then((data: string[]) => setRegistrationSteps(data))
-                                .catch(() => setRegistrationSteps([]));
-                        });*/
-        }, [lang]);
+  // Carousel auto-advance
+  const goTo = useCallback((i: number, manual = false) => {
+    const next = ((i % TOTAL_SLIDES) + TOTAL_SLIDES) % TOTAL_SLIDES;
+    setCurrentSlide(next);
+    if (manual) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      timerRef.current = setInterval(() => setCurrentSlide(c => (c + 1) % TOTAL_SLIDES), 6000);
+    }
+  }, []);
 
-    const images:string[] = [
-        withBase('/images/buildings/rectoria.webp'),
-        withBase('/images/buildings/pavoreal.webp'),
-        withBase('/images/buildings/ciap.webp'),
-        withBase('/images/buildings/2024photo.webp'),
-        withBase('/images/buildings/skyview.webp'),
-    ];
-    
-    const carrouselRef = useRef<HTMLDivElement | null>(null);
-    return (
-        <Box sx={{ minHeight: '100vh' }} paddingBottom={'10vh'}>
-            <Box
-                ref={carrouselRef} 
-                position="relative"
-                paddingY="5vh"
-                sx={{
-                width: '100%',
-                height: 'auto',
-                overflow: 'hidden',
-                textShadow: '0px 10px 20px rgba(0, 0, 0, 0.92)',
-                zIndex:5,
-                '&::after': {
-                    content: '""',
-                    position: 'absolute',
-                    left: 0,
-                    bottom: 0,
-                    width: '100%',
-                    height: '12px', // border thickness
-                    background: 'linear-gradient(90deg, rgba(209,152,54,1) 0%, rgba(250,229,192,1) 50%, rgba(209,152,54,1) 100%)',
-                    },
-                }}
+  useEffect(() => {
+    timerRef.current = setInterval(() => setCurrentSlide(c => (c + 1) % TOTAL_SLIDES), 6000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
+
+  // Konami code easter egg
+  useEffect(() => {
+    const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    let i = 0;
+    const handler = (e: KeyboardEvent) => {
+      const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      if (k === seq[i]) {
+        i++;
+        if (i === seq.length) {
+          document.body.style.transition = 'filter 0.6s';
+          document.body.style.filter = 'hue-rotate(45deg)';
+          setTimeout(() => { document.body.style.filter = ''; }, 4000);
+          i = 0;
+        }
+      } else { i = 0; }
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, []);
+
+  // keep goTo reference stable for potential future manual nav
+  void goTo;
+
+  return (
+    <div className={styles.root}>
+
+      {/* ===================== HERO ===================== */}
+      <div ref={heroRef} className={styles.hero}>
+        <div className={styles.heroStage}>
+          {[1, 2, 3, 4, 5].map((n, idx) => (
+            <div
+              key={n}
+              className={`${styles.slide}${currentSlide === idx ? ' ' + styles.on : ''}`}
             >
-                <ImageCarousel slideImages={images}></ImageCarousel>
-                <AnimateOnView transition={Grow} timeout={500}>
-                    <Box position={'relative'}>
-                        <Box id="hack-logo" sx={{ textAlign:'center', mt:'15vh', mb:'50px' }}>
-                            <Box component="img" src={HackMtyLogo} alt="HackMTY Logo" sx={{mr: 1, height:'40vh', transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.10)'}, filter: 'drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.17))'}}/>
-                        </Box>
-                        <Box id="countdown-and-location" sx={{textShadow: '0px 16px 16px rgba(0, 0, 0, 0.39)'}}>
-                            <Countdown dateTime="2025-10-24T20:00:00" wordFormat="full" numberFormat={false} sxBoxProps={{ paddingY:'2vh'}}/>
-                            <Typography sx={{marginTop:10, color:'white', fontSize:'clamp(0.3rem, 3vw + 2rem, 9rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>{t('landing.date', 'October ')} 24-26</Typography>
-                            <Typography sx={{marginTop:0, color:'white', fontSize:'clamp(0.2rem, 0.7vw + 0.8rem, 3rem)', fontWeight:500, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px)'}}}>{t('landing.description', '36 hour long Hackathon @Tec de Monterrey, Monterrey NL')}</Typography>
-                            <Typography sx={{marginTop:5, color:'white', fontSize:'clamp(0.3rem, 2vw + 1.4rem, 7rem)', fontWeight:700, transition: 'transform 0.3s ease','&:hover': {transform: 'translateY(-10px) scale(1.05)'}}}>{t('landing.subtitle', '10 Years of Hacking')}</Typography>
-                        </Box>
-                    </Box>
-                </AnimateOnView>
-            </Box>
-            <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                <TitleCard title={t('section.about', 'About us')}></TitleCard>
-                <AnimateOnView transition={Fade} timeout={500}>
-                    <Box display='flex' sx={{flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'5vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'5vw'}>
-                        <InformationCard title={t('landing.cards.awesome.title', 'What makes us awesome')} iconSvg={PCCodeIcon} iconColor="secondary.main" description={t('landing.cards.awesome.desc', 'We are the largest student hackathon in Mexico. Hosted by Tec de Monterrey, ranked 5 stars by QS, in the top 140 universities worldwide and top 10 in Latin America.')}></InformationCard>
-                        <InformationCard title={t('landing.cards.expect.title', 'Expect great things')} iconSvg={PartyPopper} iconColor="secondary.main" description={t('landing.cards.expect.desc', "We'll have mentors from different companies, and a great atmosphere for learning something new. We'll have many activities and ways to communicate to make the best out of this event for you!")}></InformationCard>
-                        <InformationCard title={t('landing.cards.welcome.title', 'All students welcome!')} iconSvg={People} iconColor="secondary.main" description={t('landing.cards.welcome.desc', "Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee.")}></InformationCard>
-                    </Box>
-                </AnimateOnView>
-                <TitleCard title={t('cta.registrationClosed', 'Registration Closed')}></TitleCard>
-                
-                <TitleCard title={t('section.map', 'Map')} sxBoxProps={{marginTop:'15vh'}}></TitleCard>
-                <Box display='flex' sx={{width:'80%', flexDirection:{xs:'column', md:'row'}}} gap={{xs: '2rem', md: '3vw'}} marginTop={'3vh'} alignItems={{xs: 'center', md: 'stretch'}} mx={'3vw'}>
-                    <MapComponent position={[25.650879335256544, -100.28725971757876]} zoom={16} markers={[{position: [25.6506, -100.28735], color:'purple', popupText: 'Arena Borregos' },]}></MapComponent>
-                </Box>
-            </Box>
-            <Box marginTop={'15vh'} sx={{display:'flex', justifyContent:'center', alignItems:'center', gap:'8vw', flexDirection:{xs:'column', md:'column', lg:'row'}}}>
-                <Box sx={{ flex: 1, maxWidth: '600px', width: {md:'60%', lg:'80%'}}}>
-                    <InstagramEmbed url="https://www.instagram.com/reel/DL0hx7ChrFI/?utm_source=ig_embed&amp;utm_campaign=loading" />
-                </Box>
+              <img src={withBase(`/images/hero-${n}.webp`)} alt="" />
+            </div>
+          ))}
+        </div>
 
-                <AnimateOnView transition={Fade} timeout={500}>
-                    <Box gap='5vh' sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-                        <section id="subscribe-to-hackmty">
-                        <TitleCard title={t('section.subscribe', 'Subscribe')} sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
-                        </section>
-                        <MailChimpSignUp sxBoxProps={{maxWidth:'100%', '&:hover':{}}}/>
-                        <section id="contact-us">
-                        <TitleCard title={t('section.contactUs', 'Contact Us')} sxBoxProps={{marginTop:'1vh', width:{xs:'80%', sm: '90%'}}}></TitleCard>
-                        </section>
-                        <InformationCard title={t('landing.questions.title', 'Got any questions?')} description={t('landing.questions.desc', 'Contact us at hello@hackmty.com')} sxBoxProps={{width:'100%', px:'1vw', backgroundColor:'inherit', '&:hover':{}}} sxTitleTextProps={{color:'white'}} sxDescriptionTextProps={{color:'white'}}>
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                sx={{marginTop: '2vh', paddingY:'1.3vh', borderRadius: 'clamp(6px, 1vw + 1rem, 15px)'}}
-                                component="a" 
-                                href="mailto:hello@hackmty.com?subject=HackMTY"
-                                >
-                                <Typography noWrap color="white" sx={{ width: '100%', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.2vw + 0.5rem, 1rem)' }}>
-                                    {t('subscribe.emailCta', 'Send Email')}
-                                </Typography>
-                            </Button>
-                        </InformationCard>                    
-                    </Box>
-                </AnimateOnView>
-                <MountainBg elementRef={carrouselRef}></MountainBg>
-            </Box>     
-        </Box>
-    )
+        <img
+          src={withBase('/images/hm-shield-hero.webp')}
+          alt=""
+          className={styles.heroCrest}
+          aria-hidden="true"
+        />
+
+        <h1 className={styles.heroTitle}>
+          HackMTY<span className={styles.apos}>&apos;</span><span className={styles.year}> 26</span>
+        </h1>
+
+        <div className={styles.heroWhere}>
+          <span className={styles.where}>
+            {t('hero.tagline', '36 hour long Hackathon at Tec de Monterrey, Monterrey NL.')}
+          </span>
+        </div>
+
+        <Countdown
+          dateTime="2026-09-11T18:00:00-06:00"
+          wordFormat="full"
+          numberFormat={false}
+          sxBoxProps={{ mt: '44px' }}
+        />
+      </div>
+
+      {/* Gold Band */}
+      <div className={styles.goldBand} aria-hidden="true" />
+
+      {/* ===================== ABOUT ===================== */}
+      <section className={styles.aboutSection} id="about">
+        <div className={styles.container}>
+          <div className={styles.aboutHead}>
+            <h2>
+              {t('about.heading', 'The largest student hackathon')}{' '}
+              <i>{t('about.heading.italic', 'in Latin America.')}</i>
+            </h2>
+          </div>
+
+          <div className={styles.aboutCards}>
+
+            {/* Card 1 */}
+            <article className={styles.aboutCard}>
+              <div className={styles.v2Eyebrow}>{t('about.card1.eyebrow', 'What makes us awesome')}</div>
+              <div className={styles.v2Icon} aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="8" y="14" width="48" height="30" rx="3" />
+                  <path d="M4 50h56l-3 4H7z" />
+                  <polyline points="26 24 20 29 26 34" />
+                  <polyline points="38 24 44 29 38 34" />
+                  <line x1="34" y1="22" x2="30" y2="36" />
+                </svg>
+              </div>
+              <p className={styles.v2Body}>
+                {t('about.card1.body', 'We are the largest student hackathon in Mexico. Hosted by Tecnológico de Monterrey, a globally recognized university ranked among the top 200 universities worldwide.')}
+              </p>
+            </article>
+
+            {/* Card 2 */}
+            <article className={styles.aboutCard}>
+              <div className={styles.v2Eyebrow}>{t('about.card2.eyebrow', 'All students welcome!')}</div>
+              <div className={styles.v2Icon} aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="32" cy="16" r="6" />
+                  <path d="M22 36 C 22 31, 26.5 27, 32 27 S 42 31, 42 36" />
+                  <circle cx="18" cy="28" r="6" />
+                  <path d="M8 48 C 8 43, 12.5 39, 18 39 S 28 43, 28 48" />
+                  <circle cx="46" cy="28" r="6" />
+                  <path d="M36 48 C 36 43, 40.5 39, 46 39 S 56 43, 56 48" />
+                </svg>
+              </div>
+              <p className={styles.v2Body}>
+                {t('about.card2.body', "Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee.")}
+              </p>
+            </article>
+
+            {/* Card 3 — feature (dark) */}
+            <article className={`${styles.aboutCard} ${styles.feature}`}>
+              <div className={styles.v2Eyebrow}>{t('about.card3.eyebrow', 'Made by Tec ACM')}</div>
+              <div className={`${styles.v2Icon} ${styles.tecMark}`} aria-hidden="true">
+                <img src={withBase('/images/tec-acm-logo.webp')} alt="" />
+              </div>
+              <p className={styles.v2Body}>
+                {t('about.card3.body', 'HackMTY is built, planned and run end-to-end by Tec ACM, the student chapter of the Association for Computing Machinery at Tec de Monterrey. Make sure to follow us in our social media!')}
+              </p>
+              <span className={styles.v2Meta}>{t('about.card3.meta', 'Student Chapter · Est. 2015')}</span>
+            </article>
+
+            {/* Card 4 */}
+            <article className={styles.aboutCard}>
+              <div className={styles.v2Eyebrow}>{t('about.card4.eyebrow', 'The 36-hour experience')}</div>
+              <div className={styles.v2Icon} aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="32" cy="34" r="22" />
+                  <polyline points="32 20 32 34 42 38" />
+                  <line x1="25" y1="6" x2="39" y2="6" />
+                  <line x1="32" y1="6" x2="32" y2="12" />
+                </svg>
+              </div>
+              <p className={styles.v2Body}>
+                {t('about.card4.body', '36 hours of building, mentors on the floor, workshops with our sponsors, snacks at 3 am, and one big demo stage. An official MLH member event.')}
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== REGISTRATION BANNER ===================== */}
+      <section className={styles.regBannerSection} aria-label="Registration status">
+        <div className={styles.container}>
+          <div className={styles.regBanner} role="status">
+            <span className={styles.regBannerText}>{t('reg.status', 'Registration opening soon')}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== LOCATION ===================== */}
+      <section className={styles.location} id="location">
+        <div className={styles.container}>
+          <div className={styles.locHead}>
+            <span className={styles.eyebrow}>{t('location.eyebrow', 'Location')}</span>
+            <h2>Arena <i>{t('location.heading.italic', 'Borregos.')}</i></h2>
+          </div>
+
+          <div className={styles.locMapBleed}>
+            <iframe
+              className={styles.mapIframe}
+              src="https://maps.google.com/maps?q=Arena%20Borregos%20Tec%20de%20Monterrey&t=m&z=16&output=embed&iwloc=near"
+              title={t('location.map.title', 'Arena Borregos location map')}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+
+            <aside className={styles.locCard}>
+              <div className={styles.locCardTop}>
+                <span className={styles.locCardEyebrow}>
+                  <span className={styles.dot} />
+                  {t('location.card.eyebrow', 'Venue')}
+                </span>
+                <span className={styles.locCardCoord}>
+                  {t('location.card.coord', '25.6515° N / 100.2899° W')}
+                </span>
+              </div>
+              <div className={styles.locCardName}>
+                Arena <i>{t('location.card.nameItalic', 'Borregos.')}</i>
+              </div>
+              <div className={styles.locCardAddr}>
+                {t('location.card.address', 'Av. Eugenio Garza Sada 2501 Sur')}<br />
+                {t('location.card.address2', 'Tecnológico, 64849 Monterrey, N.L., México')}
+              </div>
+              <div className={styles.locCardMeta}>
+                <div className={styles.locCardRow}>
+                  <span className={styles.locCardLbl}>{t('location.card.whenLabel', 'When')}</span>
+                  <span className={styles.locCardVal}>{t('location.card.whenValue', 'September 11–13, 2026')}</span>
+                </div>
+                <div className={styles.locCardRow}>
+                  <span className={styles.locCardLbl}>{t('location.card.whereLabel', 'Where')}</span>
+                  <span className={styles.locCardVal}>{t('location.card.whereValue', 'Monterrey, Nuevo León')}</span>
+                </div>
+              </div>
+              <a
+                className={styles.locCardCta}
+                href="https://www.google.com/maps/search/?api=1&query=Arena+Borregos+Tec+de+Monterrey"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('location.card.mapCta', 'View on Google Maps')}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== WAITLIST ===================== */}
+      <section className={styles.waitlist} aria-label="Join the waitlist">
+        <div className={styles.container}>
+          <h2>
+            {t('waitlist.heading', 'Be the first to know')}{' '}
+            <i>{t('waitlist.heading.italic', 'when registration opens.')}</i>
+          </h2>
+          <p className={styles.wlLede}>
+            {t('waitlist.lede', "Registration isn't live yet, but you can leave your name and email on our short Google Form and we'll send you a heads-up the second it opens.")}
+          </p>
+          <a
+            className={styles.wlCta}
+            href="https://forms.gle/ijusReCzdRE83Aas9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg className={styles.wlFormIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="4" y="3" width="16" height="18" rx="2" />
+              <line x1="8" y1="8" x2="16" y2="8" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+              <line x1="8" y1="16" x2="13" y2="16" />
+            </svg>
+            <span>{t('waitlist.cta', 'Open the Google Form')}</span>
+            <svg className={styles.wlArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="6" y1="18" x2="18" y2="6" />
+              <polyline points="9 6 18 6 18 15" />
+            </svg>
+          </a>
+          <p className={styles.wlNote}>
+            {t('waitlist.note', "Takes about 1 minute · We'll only email you about HackMTY '26")}
+          </p>
+        </div>
+      </section>
+
+      {/* Mountain BG — shows when hero scrolls out of view */}
+      <MountainBg elementRef={heroRef} />
+
+    </div>
+  );
 }
 
 export default LandingPage;

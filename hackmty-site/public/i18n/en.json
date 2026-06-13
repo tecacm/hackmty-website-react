@@ -67,5 +67,43 @@
   "hotels.discountCode": "Discount Code",
   "hotels.blockCode": "Reservation Block Code",
   "hotels.includes": "Includes",
-  "hotels.disclaimer": "The group is in an OPEN BLOCK arrangement. This means there are no pre‑reserved rooms for the event. We recommend you make your reservation as soon as possible. Transportation is not included."
+  "hotels.disclaimer": "The group is in an OPEN BLOCK arrangement. This means there are no pre‑reserved rooms for the event. We recommend you make your reservation as soon as possible. Transportation is not included.",
+
+  "header.mlhAlt": "Major League Hacking 2026 Hackathon Season",
+
+  "hero.tagline": "36 hour long Hackathon at Tec de Monterrey, Monterrey NL.",
+
+  "about.heading": "The largest student hackathon",
+  "about.heading.italic": "in Latin America.",
+  "about.card1.eyebrow": "What makes us awesome",
+  "about.card1.body": "We are the largest student hackathon in Mexico. Hosted by Tecnológico de Monterrey, a globally recognized university ranked among the top 200 universities worldwide.",
+  "about.card2.eyebrow": "All students welcome!",
+  "about.card2.body": "Whether it's your first hackathon or you're an experienced hacker, HackMTY is perfect for you and there's no entry fee.",
+  "about.card3.eyebrow": "Made by Tec ACM",
+  "about.card3.body": "HackMTY is built, planned and run end-to-end by Tec ACM, the student chapter of the Association for Computing Machinery at Tec de Monterrey. Make sure to follow us in our social media!",
+  "about.card3.meta": "Student Chapter · Est. 2015",
+  "about.card4.eyebrow": "The 36-hour experience",
+  "about.card4.body": "36 hours of building, mentors on the floor, workshops with our sponsors, snacks at 3 am, and one big demo stage. An official MLH member event.",
+
+  "reg.status": "Registration opening soon",
+
+  "location.eyebrow": "Location",
+  "location.heading.italic": "Borregos.",
+  "location.card.eyebrow": "Venue",
+  "location.card.coord": "25.6515° N / 100.2899° W",
+  "location.card.nameItalic": "Borregos.",
+  "location.card.address": "Av. Eugenio Garza Sada 2501 Sur",
+  "location.card.address2": "Tecnológico, 64849 Monterrey, N.L., México",
+  "location.card.whenLabel": "When",
+  "location.card.whenValue": "September 11–13, 2026",
+  "location.card.whereLabel": "Where",
+  "location.card.whereValue": "Monterrey, Nuevo León",
+  "location.card.mapCta": "View on Google Maps",
+
+  "waitlist.eyebrow": "Waitlist",
+  "waitlist.heading": "Be the first to know",
+  "waitlist.heading.italic": "when registration opens.",
+  "waitlist.lede": "Registration isn't live yet, but you can leave your name and email on our short Google Form and we'll send you a heads-up the second it opens.",
+  "waitlist.cta": "Open the Google Form",
+  "waitlist.note": "Takes about 1 minute · We'll only email you about HackMTY '26"
 }
