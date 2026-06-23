@@ -132,6 +132,13 @@
   flex-shrink: 0;
 }
 
+.mobileMenuButton {
+  display: none;
+  margin-left: auto;
+  flex-shrink: 0;
+  align-items: center;
+}
+
 .langBtn {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -179,6 +186,8 @@
 @media (max-width: 900px) {
   /* Collapse nav at 900px so it doesn't clip the brand block */
   .header > nav { display: none; }
+  .navRight { display: none; }
+  .mobileMenuButton { display: flex; }
 }
 @media (max-width: 600px) {
   .socials   { display: none; }

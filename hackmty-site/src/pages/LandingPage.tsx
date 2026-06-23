@@ -85,7 +85,7 @@ function LandingPage() {
         </div>
 
         <Countdown
-          dateTime="2026-09-11T18:00:00-06:00"
+          dateTime="September 11, 2026 18:00:00"
           wordFormat="full"
           numberFormat={false}
           sxBoxProps={{ mt: '44px' }}

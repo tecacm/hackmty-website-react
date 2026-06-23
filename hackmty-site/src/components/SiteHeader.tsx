@@ -1,7 +1,13 @@
+import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { useI18n } from '../i18n/I18nContext';
 import { withBase } from '../utils/Utils';
 import styles from './SiteHeader.module.css';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const NAV_ITEMS = [
   { label: 'About',       labelKey: 'nav.about',      to: '/'           },
@@ -14,6 +20,17 @@ const NAV_ITEMS = [
 export default function SiteHeader() {
   const { lang, setLang, t } = useI18n();
   const { pathname } = useLocation();
+  const [mobileMenuAnchor, setMobileMenuAnchor] = React.useState<null | HTMLElement>(null);
+
+  const mobileMenuOpen = Boolean(mobileMenuAnchor);
+
+  const openMobileMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setMobileMenuAnchor(event.currentTarget);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuAnchor(null);
+  };
 
   return (
     <header className={styles.header}>
@@ -67,6 +84,58 @@ export default function SiteHeader() {
           })}
         </ul>
       </nav>
+
+      <Box className={styles.mobileMenuButton}>
+        <IconButton
+          aria-label="Open navigation menu"
+          aria-controls={mobileMenuOpen ? 'site-header-mobile-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={mobileMenuOpen ? 'true' : undefined}
+          onClick={openMobileMenu}
+          sx={{ color: 'white' }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          id="site-header-mobile-menu"
+          anchorEl={mobileMenuAnchor}
+          open={mobileMenuOpen}
+          onClose={closeMobileMenu}
+          keepMounted
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+          slotProps={{
+            paper: {
+              sx: {
+                mt: 1,
+                minWidth: 220,
+                backgroundColor: '#0f0f12',
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.12)',
+                borderRadius: 2,
+                boxShadow: 8,
+              },
+            },
+          }}
+        >
+          {NAV_ITEMS.map(({ label, labelKey, to }) => {
+            const isActive = pathname === to || (to !== '/' && pathname.startsWith(to));
+            return (
+              <MenuItem key={to} component={Link} to={to} onClick={closeMobileMenu} selected={isActive}>
+                {t(labelKey, label)}
+              </MenuItem>
+            );
+          })}
+          <MenuItem
+            onClick={() => {
+              setLang(lang === 'en' ? 'es' : 'en');
+              closeMobileMenu();
+            }}
+          >
+            {lang === 'en' ? 'ES' : 'EN'}
+          </MenuItem>
+        </Menu>
+      </Box>
 
       {/* Language toggle + socials */}
       <div className={styles.navRight}>
