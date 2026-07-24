@@ -18,6 +18,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     const stored = typeof window !== 'undefined' ? (localStorage.getItem('lang') as Lang | null) : null;
     if (stored !== null) return stored;
     const filteredNavigatorLanguages = navigator.languages.filter((v) => v.startsWith('es') || v.startsWith('en'));
+    // Get only language subtag (es-MX -> es)
     if (filteredNavigatorLanguages.length > 0) return filteredNavigatorLanguages[0].substring(0, 2) as Lang;
     return 'en';
   });
