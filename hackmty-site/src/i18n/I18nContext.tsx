@@ -16,7 +16,10 @@ const I18nContext = createContext<I18nContextValue | undefined>(undefined);
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     const stored = typeof window !== 'undefined' ? (localStorage.getItem('lang') as Lang | null) : null;
-    return stored === 'es' ? 'es' : 'en';
+    if (stored !== null) return stored;
+    const filteredNavigatorLanguages = navigator.languages.filter((v) => v.startsWith('es') || v.startsWith('en'));
+    if (filteredNavigatorLanguages.length > 0) return filteredNavigatorLanguages[0].substring(0, 2) as Lang;
+    return 'en';
   });
   const [messages, setMessages] = useState<Messages>({});
 
