@@ -26,9 +26,12 @@
   "landing.questions.title": "¿Tienes preguntas?",
   "landing.questions.desc": "Contáctanos en hello@hackmty.com",
   "landing.stepsTitle": "Pasos para registrarte",
+
   "schedule.title": "Horario",
   "schedule.comingSoon": "Muy pronto",
   "schedule.stayTuned": "¡Mantente atento a nuestras redes sociales!",
+  "schedule.timelineJSurl": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vSPzJOrabDzY-HQkFGCRBla9xdh7S0wca5BlxsiaRwCEdyTZLIuql4tHxfRXl6GiDejv0gApH8BiuYk&lang=es&initial_zoom=2&width=100%25&height=650&font=https://hackmty.com/css/schedule.css",
+
   "sponsors.title": "Patrocinadores",
   "sponsors.moreInfo": "ENVÍA UN CORREO A HELLO@HACKMTY.COM PARA MÁS INFORMACIÓN.",
   "sponsors.button": "Patrocinar",
