@@ -194,7 +194,7 @@ function LandingPage() {
           <div className={styles.locMapBleed}>
             <iframe
               className={styles.mapIframe}
-              src="https://maps.google.com/maps?q=Arena%20Borregos%20Tec%20de%20Monterrey&t=m&z=16&output=embed&iwloc=near"
+              src="https://maps.google.com/maps?q=Arena%20Borregos%20|%20Gimnasio%20Deportivo%20ITESM&t=m&z=16&output=embed&iwloc=near"
               title={t('location.map.title', 'Arena Borregos location map')}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -229,7 +229,7 @@ function LandingPage() {
               </div>
               <a
                 className={styles.locCardCta}
-                href="https://www.google.com/maps/search/?api=1&query=Arena+Borregos+Tec+de+Monterrey"
+                href="https://www.google.com/maps/search/?api=1&query=Arena+Borregos+|+Gimnasio+Deportivo+ITESM"
                 target="_blank"
                 rel="noopener noreferrer"
               >
