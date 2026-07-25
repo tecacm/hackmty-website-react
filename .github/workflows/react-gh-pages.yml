@@ -41,7 +41,7 @@ jobs:
       - name: Build static files using npm run build
         run: npm run build
       - name: Upload static files as artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist/
 
