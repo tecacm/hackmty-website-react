@@ -177,9 +177,13 @@ function LandingPage() {
       {/* ===================== REGISTRATION BANNER ===================== */}
       <section className={styles.regBannerSection} aria-label="Registration status">
         <div className={styles.container}>
-          <div className={styles.regBanner} role="status">
-            <span className={styles.regBannerText}>{t('reg.status', 'Registration opening soon')}</span>
-          </div>
+          <button
+            type="button"
+            className={styles.regBanner}
+            onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <span className={styles.regBannerText}>{t('reg.status', "Registrations for HackMTY '26 are live now!!")}</span>
+          </button>
         </div>
       </section>
 
@@ -244,36 +248,34 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ===================== WAITLIST ===================== */}
-      <section className={styles.waitlist} aria-label="Join the waitlist">
+      {/* ===================== REGISTER ===================== */}
+      <section className={styles.waitlist} id="register" aria-label="Registration">
         <div className={styles.container}>
           <h2>
-            {t('waitlist.heading', 'Be the first to know')}{' '}
-            <i>{t('waitlist.heading.italic', 'when registration opens.')}</i>
+            {t('register.heading', 'Registration is now')}{' '}
+            <i>{t('register.heading.italic', 'open.')}</i>
           </h2>
           <p className={styles.wlLede}>
-            {t('waitlist.lede', "Registration isn't live yet, but you can leave your name and email on our short Google Form and we'll send you a heads-up the second it opens.")}
+            {t('register.lede', "Applications for HackMTY '26 are live. Grab your spot and build with 800+ hackers in Monterrey this September.")}
           </p>
           <a
             className={styles.wlCta}
-            href="https://forms.gle/ijusReCzdRE83Aas9"
+            href="https://experience.hackmty.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             <svg className={styles.wlFormIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <rect x="4" y="3" width="16" height="18" rx="2" />
-              <line x1="8" y1="8" x2="16" y2="8" />
-              <line x1="8" y1="12" x2="16" y2="12" />
-              <line x1="8" y1="16" x2="13" y2="16" />
+              <polyline points="8 12 11 15 16 9" />
             </svg>
-            <span>{t('waitlist.cta', 'Open the Google Form')}</span>
+            <span>{t('register.cta', 'Register now')}</span>
             <svg className={styles.wlArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="6" y1="18" x2="18" y2="6" />
               <polyline points="9 6 18 6 18 15" />
             </svg>
           </a>
           <p className={styles.wlNote}>
-            {t('waitlist.note', "Takes about 1 minute · We'll only email you about HackMTY '26")}
+            {t('register.note', 'Free to apply · Spots are limited')}
           </p>
         </div>
       </section>

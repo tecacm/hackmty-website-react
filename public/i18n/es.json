@@ -91,7 +91,7 @@
   "about.card4.eyebrow": "La experiencia de 36 horas",
   "about.card4.body": "36 horas de construcción, mentores disponibles, talleres con nuestros patrocinadores, snacks a las 3 am y un gran escenario de demos. Un evento oficial del programa MLH.",
 
-  "reg.status": "Registro próximamente",
+  "reg.status": "¡¡El registro para HackMTY '26 ya está abierto!!",
 
   "location.eyebrow": "Ubicación",
   "location.heading.italic": "Borregos.",
@@ -106,10 +106,9 @@
   "location.card.whereValue": "Monterrey, Nuevo León",
   "location.card.mapCta": "Ver en Google Maps",
 
-  "waitlist.eyebrow": "Lista de espera",
-  "waitlist.heading": "Sé el primero en saber",
-  "waitlist.heading.italic": "cuándo abre el registro.",
-  "waitlist.lede": "El registro aún no está disponible, pero puedes dejar tu nombre y correo en nuestro breve formulario de Google y te avisaremos en cuanto abra.",
-  "waitlist.cta": "Abrir el formulario de Google",
-  "waitlist.note": "Toma aproximadamente 1 minuto · Solo te enviaremos correos sobre HackMTY '26"
+  "register.heading": "El registro ya está",
+  "register.heading.italic": "abierto.",
+  "register.lede": "Las aplicaciones para HackMTY '26 ya están abiertas. Aparta tu lugar y construye con más de 800 hackers en Monterrey este septiembre.",
+  "register.cta": "Regístrate ahora",
+  "register.note": "Registrarte es gratis · Los lugares son limitados"
 }
