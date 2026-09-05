@@ -1,30 +1,26 @@
 [
     {
-        "imgIcon": "/images/sponsors/2025/capital-one.png",
+        "imgIcon": "/images/sponsors/2026/capital-one.png",
         "url": "https://www.capitalone.com/tech/mexico/"
     },
     {
-        "imgIcon": "/images/sponsors/2025/gategroup.png",
-        "url": "https://www.gategroup.com"
-    },
-    {
-        "imgIcon": "/images/sponsors/2025/oracle.png",
-        "url": "https://www.oracle.com/mx/"
-    },
-    {
-        "imgIcon": "/images/sponsors/2025/banorte.svg",
+        "imgIcon": "/images/sponsors/2026/banorte.svg",
         "url": "https://www.banorte.com/"
     },
     {
-        "imgIcon": "/images/sponsors/2025/chubb.png",
-        "url": "https://www.chubb.com/mx-es/"
+        "imgIcon": "/images/sponsors/2026/infosys.svg",
+        "url": "https://www.infosys.com/mx/about.html"
     },
     {
-        "imgIcon": "/images/sponsors/2025/nuevo-leon.png",
-        "url": "https://nl.gob.mx/es"
+        "imgIcon": "/images/sponsors/2026/altur.svg",
+        "url": "https://www.altur.io/es"
     },
     {
-        "imgIcon": "/images/sponsors/2025/ocv.png",
+        "imgIcon": "/images/sponsors/2026/bloomberg.svg",
+        "url": "https://www.bloomberg.com/company/"
+    },
+    {
+        "imgIcon": "/images/sponsors/2026/ocv.png",
         "url": "https://ocvmty.com.mx"
     }
 ]
